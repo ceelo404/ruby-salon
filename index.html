@@ -49,10 +49,10 @@
 
         .hero-section {
             display: flex;
-            align-items: center;
             justify-content: center;
+            /* align-items: center; -- This property was removed to stop vertical centering */
             min-height: 100vh;
-            padding: 120px 20px;
+            padding: 150px 20px 80px; /* Top padding was adjusted to control distance from header */
             box-sizing: border-box;
         }
         
@@ -69,6 +69,9 @@
             text-align: center;
             box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
             box-sizing: border-box;
+            /* Added max-height and margin-top for better control */
+            max-height: calc(100vh - 230px); 
+            margin-top: 0;
         }
 
         .content-card::before {
@@ -361,13 +364,13 @@
              <h2>Find Us</h2>
              <p>114 W Trinity Pl #10, Decatur, GA 30030</p>
              <div class="map-container">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3316.326774842101!2d-84.29828578479205!3d33.77792688068134!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f5074f3b063d7b%3A0x33b8b9589d311912!2s114%20W%20Trinity%20Pl%20%2310%2C%20Decatur%2C%20GA%2030030%2C%20USA!5e0!3m2!1sen!2s!4v1663456789012!5m2!1sen!2s0"
-                    allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-            </div>
+                 <iframe 
+                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3317.031577484501!2d-84.2981393236021!3d33.75939293144826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f5076b1c313a37%3A0x1d1e6e9c14c2c510!2sRuby%20Salon!5e0!3m2!1sen!2sus!4v1714496559403!5m2!1sen!2sus"
+                     allowfullscreen="" 
+                     loading="lazy" 
+                     referrerpolicy="no-referrer-when-downgrade">
+                 </iframe>
+             </div>
         </section>
     </main>
 
@@ -378,7 +381,7 @@
             </button>
             <h2>Find Us</h2>
             <p style="text-align: center;">114 W Trinity Pl #10, Decatur, GA 30030</p>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3316.326774842101!2d-84.29828578479205!3d33.77792688068134!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f5074f3b063d7b%3A0x33b8b9589d311912!2s114%20W%20Trinity%20Pl%20%2310%2C%20Decatur%2C%20GA%2030030%2C%20USA!5e0!3m2!1sen!2s!4v1663456789012!5m2!1sen!2s0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3317.031577484501!2d-84.2981393236021!3d33.75939293144826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f5076b1c313a37%3A0x1d1e6e9c14c2c510!2sRuby%20Salon!5e0!3m2!1sen!2sus!4v1714496559403!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
     
