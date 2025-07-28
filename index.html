@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruby Salon - Booking</title>
+    <style>
+        /* Basic styles for a clean look */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .main-container {
+            flex: 1;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        .logo {
+            max-width: 250px;
+            margin-bottom: 30px;
+        }
+        .info p {
+            line-height: 1.6;
+            font-size: 1.1em;
+        }
+        a {
+            color: #d9534f;
+        }
+        .button-wrapper {
+            margin: 20px 0;
+        }
+        .button {
+            display: inline-block;
+            background-color: #333;
+            color: #fff;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin: 10px;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #555;
+        }
+        .map-container {
+            width: 100%;
+            margin-top: 30px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 450px;
+            border: 0;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+        }
+        footer p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        <img src="https://book.ruby-salon.com/wp-content/uploads/2025/01/ruby_logo_tight.png" alt="Ruby Salon Logo" class="logo">
+
+        <div class="button-wrapper">
+            <a href="https://book.ruby-salon.com/cancellation-adjustments-policy/" class="button">Book Now</a>
+            <a href="https://venmo.com/u/Brandy-Claussen" class="button">Tip Now</a>
+        </div>
+
+        <div class="info">
+            <p><strong>Located at 114 W Trinity Pl. #10 in Downtown Decatur</strong></p>
+            <p>Free validated parking for 2 hours is available in the AMLI parking garage at 122 W Trinity Pl.</p>
+            <p>Phone: <a href="tel:+14043893114">(404) 389-3114</a></p>
+        </div>
+
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3316.326774842101!2d-84.29828578479205!3d33.77792688068134!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f5074f3b063d7b%3A0x33b8b9589d311912!2s114%20W%20Trinity%20Pl%20%2310%2C%20Decatur%2C%20GA%2030030%2C%20USA!5e0!3m2!1sen!2s!4v1663456789012!5m2!1sen!2s" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </div>
+
+    <footer>
+        <p>114 W Trinity Pl #10, Decatur, GA 30030</p>
+        <p>(404) 389-3114</p>
+        <p>© 2024 All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
