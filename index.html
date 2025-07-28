@@ -148,7 +148,6 @@
             padding: 30px 20px;
         }
         
-        /* --- RESTORED: Social Icon Styles --- */
         .social-icons {
             margin-bottom: 20px;
         }
@@ -174,6 +173,7 @@
             background: none;
             border: none;
             cursor: pointer;
+            z-index: 102; /* Ensure it's clickable */
         }
         
         .mobile-nav {
@@ -185,20 +185,31 @@
             height: 100vh;
             background: var(--dark-gray);
             z-index: 101;
-            transition: right 0.3s ease-in-out;
-            padding-top: 60px;
+            transition: transform 0.3s ease-in-out;
+            padding: 20px;
+            box-sizing: border-box;
         }
 
         .mobile-nav.is-open {
-            right: 0;
+            transform: translateX(-100%);
         }
         
+        /* --- NEW: Close button for the nav menu --- */
+        .nav-close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+        }
+
         .mobile-nav a {
             display: block;
             color: #fff;
             text-decoration: none;
             font-size: 1.5em;
-            padding: 20px 30px;
+            padding: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
         @media (max-width: 768px) {
@@ -251,6 +262,12 @@
     </header>
 
     <nav class="mobile-nav">
+        <button class="nav-close-btn" aria-label="Close navigation">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 6L6 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M6 6L18 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
         <a href="https://book.ruby-salon.com/cancellation-adjustments-policy/">Book Now</a>
         <a href="https://venmo.com/u/Brandy-Claussen">Tip Now</a>
     </nav>
@@ -274,7 +291,7 @@
              <p>114 W Trinity Pl #10, Decatur, GA 30030</p>
              <div class="map-container">
                 <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3316.594247948292!2d-84.29821268479235!3d33.77112098068282!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f5073f55555555%3A0x1161278a05c2b993!2s114%20W%20Trinity%20Pl%20%2310%2C%20Decatur%2C%20GA%2030030!5e0!3m2!1sen!2sus!4v1690578695837!5m2!1sen!2sus"
+                    src="http://googleusercontent.com/maps/google.com/4"
                     allowfullscreen="" 
                     loading="lazy" 
                     referrerpolicy="no-referrer-when-downgrade">
@@ -299,11 +316,31 @@
     </footer>
 
     <script>
-        const navToggle = document.querySelector('.mobile-nav-toggle');
-        const mobileNav = document.querySelector('.mobile-nav');
+        document.addEventListener('DOMContentLoaded', () => {
+            const navToggle = document.querySelector('.mobile-nav-toggle');
+            const navClose = document.querySelector('.nav-close-btn');
+            const mobileNav = document.querySelector('.mobile-nav');
 
-        navToggle.addEventListener('click', () => {
-            mobileNav.classList.toggle('is-open');
+            function openNav() {
+                mobileNav.classList.add('is-open');
+            }
+
+            function closeNav() {
+                mobileNav.classList.remove('is-open');
+            }
+
+            navToggle.addEventListener('click', openNav);
+            navClose.addEventListener('click', closeNav);
+
+            // Close nav when clicking outside of it
+            document.addEventListener('click', (event) => {
+                const isClickInsideNav = mobileNav.contains(event.target);
+                const isClickOnToggle = navToggle.contains(event.target);
+
+                if (mobileNav.classList.contains('is-open') && !isClickInsideNav && !isClickOnToggle) {
+                    closeNav();
+                }
+            });
         });
     </script>
 
