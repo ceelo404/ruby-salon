@@ -23,7 +23,6 @@
             color: #fff;
         }
 
-        /* --- UPDATED: Header with Purple Gradient --- */
         .site-header {
             position: fixed;
             top: 0;
@@ -39,7 +38,6 @@
             box-sizing: border-box;
         }
 
-        /* --- UPDATED: Added drop-shadow for logo readability --- */
         .site-header .logo {
             max-height: 40px;
             filter: drop-shadow(0 1px 3px rgba(0,0,0,0.4));
@@ -69,7 +67,6 @@
             box-sizing: border-box;
         }
 
-        /* --- UPDATED: Lighter overlay for brighter background --- */
         .content-card::before {
             content: '';
             position: absolute;
@@ -142,13 +139,41 @@
             text-align: center;
             padding: 30px 20px;
         }
+
+        /* --- NEW: Mobile Responsive Styles --- */
+        @media (max-width: 768px) {
+            .site-header {
+                padding: 15px;
+            }
+
+            .site-header .logo {
+                max-height: 30px;
+            }
+
+            /* Hide the buttons in the top bar on mobile */
+            .site-header .header-buttons {
+                display: none;
+            }
+
+            .content-card {
+                padding: 40px 25px;
+            }
+
+            .card-content h1 {
+                font-size: 2.2em;
+            }
+
+            .card-content p {
+                font-size: 1em;
+            }
+        }
     </style>
 </head>
 <body>
 
     <header class="site-header">
         <img src="https://book.ruby-salon.com/wp-content/uploads/2025/01/white_logo_vert.png" alt="Ruby Salon Logo" class="logo">
-        <div>
+        <div class="header-buttons">
              <a href="https://book.ruby-salon.com/cancellation-adjustments-policy/" class="button secondary-button">Book Now</a>
              <a href="https://venmo.com/u/Brandy-Claussen" class="button">Tip Now</a>
         </div>
