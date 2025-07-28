@@ -6,7 +6,7 @@
     <title>Ruby Salon - Booking</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
@@ -27,7 +27,6 @@
             position: relative;
         }
 
-        /* Increased the width of the logo */
         .banner-header .logo {
             max-width: 600px;
         }
@@ -40,15 +39,44 @@
             text-align: center;
         }
 
-        .info p {
-            line-height: 1.7;
-            font-size: 1.1em;
-            color: #555;
+        /* --- NEW: Modernized Info Section --- */
+        .info-section {
+            display: flex;
+            justify-content: space-between;
+            text-align: left;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            padding: 40px 0;
+            margin-top: 40px;
+            gap: 40px; /* Space between columns */
+            animation: fadeIn 1s ease-in-out;
         }
 
+        .info-column {
+            flex-basis: 50%; /* Each column takes up half the space */
+        }
+
+        .info-column h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8em;
+            margin-top: 0;
+            color: #333;
+        }
+
+        .info-column p {
+            font-size: 1em;
+            line-height: 1.7;
+            color: #555;
+        }
+        /* --- End of New Section --- */
+        
         a {
             color: #8A3B58;
             font-weight: bold;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
         }
 
         .button-wrapper {
@@ -73,6 +101,7 @@
         .button:hover {
             background-color: #4C2D80;
             transform: translateY(-2px);
+            text-decoration: none;
         }
 
         .map-container {
@@ -121,6 +150,26 @@
         .social-icons a:hover svg {
             fill: #c7c7c7;
         }
+
+        /* --- NEW: Fade-in Animation --- */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive adjustment for mobile */
+        @media (max-width: 768px) {
+            .info-section {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -135,11 +184,22 @@
             <a href="https://venmo.com/u/Brandy-Claussen" class="button">Tip Now</a>
         </div>
 
-        <div class="info">
-            <p><strong>Located at 114 W Trinity Pl. #10 in Downtown Decatur</strong></p>
-            <p>Free validated parking for 2 hours is available in the AMLI parking garage at 122 W Trinity Pl.</p>
-            <p>Phone: <a href="tel:+14043893114">(404) 389-3114</a></p>
-        </div>
+        <section class="info-section">
+            <div class="info-column">
+                <h3>Our Location</h3>
+                <p>
+                    114 W Trinity Pl. #10 in Downtown Decatur.
+                    <br>
+                    Free validated parking for 2 hours is available in the AMLI parking garage at 122 W Trinity Pl.
+                </p>
+            </div>
+            <div class="info-column">
+                <h3>Contact Us</h3>
+                <p>
+                    Phone: <a href="tel:+14043893114">(404) 389-3114</a>
+                </p>
+            </div>
+        </section>
 
         <div class="map-container">
             <iframe 
