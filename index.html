@@ -124,8 +124,7 @@
         .secondary-button:hover {
              background: rgba(255,255,255,0.25);
         }
-        
-        /* --- CORRECTED: Sticky Footer with Social Links --- */
+
         footer {
             position: sticky;
             bottom: 0;
@@ -195,6 +194,7 @@
             right: 20px;
             background: none;
             border: none;
+            cursor: pointer;
         }
 
         .mobile-nav a {
@@ -279,7 +279,7 @@
             .card-content p {
                 font-size: 1em;
             }
-
+            
             footer {
                 flex-direction: column;
                 gap: 10px;
@@ -368,7 +368,6 @@
             closeMapBtn.addEventListener('click', closeMapModal);
 
             navLinks.forEach(link => {
-                // Close nav only if it's a scroll link
                 if (link.getAttribute('href')?.startsWith('#')) {
                     link.addEventListener('click', closeNav);
                 }
