@@ -11,6 +11,7 @@
         :root {
             --purple: #7B2CBF;
             --purple-dark: #5A189A;
+            --purple-light: #9D4EDD;
             --light-gray: #f4f5f7;
             --dark-gray: #1b1b1f;
         }
@@ -22,7 +23,7 @@
             color: #fff;
         }
 
-        /* --- NEW: Translucent Sticky Header --- */
+        /* --- UPDATED: Header with Purple Gradient --- */
         .site-header {
             position: fixed;
             top: 0;
@@ -32,17 +33,18 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 5%;
-            background: rgba(27, 27, 31, 0.7);
+            background: linear-gradient(90deg, rgba(90, 24, 154, 0.8), rgba(123, 44, 191, 0.8), rgba(157, 78, 221, 0.8));
             backdrop-filter: blur(10px);
             z-index: 100;
             box-sizing: border-box;
         }
 
+        /* --- UPDATED: Added drop-shadow for logo readability --- */
         .site-header .logo {
             max-height: 40px;
+            filter: drop-shadow(0 1px 3px rgba(0,0,0,0.4));
         }
 
-        /* --- NEW: Hero Section to center the card --- */
         .hero-section {
             display: flex;
             align-items: center;
@@ -52,7 +54,6 @@
             box-sizing: border-box;
         }
         
-        /* --- NEW: Main Content Card with Image Background --- */
         .content-card {
             position: relative;
             width: 100%;
@@ -68,16 +69,15 @@
             box-sizing: border-box;
         }
 
-        /* Dark overlay to make text readable */
+        /* --- UPDATED: Lighter overlay for brighter background --- */
         .content-card::before {
             content: '';
             position: absolute;
             inset: 0;
-            background-color: rgba(0, 0, 0, 0.6);
+            background-color: rgba(0, 0, 0, 0.45);
             z-index: 1;
         }
 
-        /* Container for content inside the card */
         .card-content {
             position: relative;
             z-index: 2;
@@ -122,7 +122,6 @@
              background: rgba(255,255,255,0.2);
         }
 
-        /* Other content below the card */
         .more-info {
              max-width: 900px;
              margin: 40px auto;
@@ -172,7 +171,7 @@
         <section class="more-info">
              <div class="map-container">
                 <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3317.031252324909!2d-84.2982293847926!3d33.75949498068593!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f50765c156f76b%3A0x8c613cfe254a443b!2s114%20W%20Trinity%20Pl%20%2310%2C%20Decatur%2C%20GA%2030030!5e0!3m2!1sen!2sus!4v1659034884214!5m2!1sen!2sus"
+                    src="http://googleusercontent.com/maps/google.com/3"
                     allowfullscreen="" 
                     loading="lazy" 
                     referrerpolicy="no-referrer-when-downgrade">
