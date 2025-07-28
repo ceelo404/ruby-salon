@@ -25,6 +25,7 @@
             margin: 0;
             background-color: var(--light-gray);
             color: #fff;
+            padding-bottom: 50px; /* Space for sticky footer */
         }
 
         .site-header {
@@ -124,28 +125,6 @@
              background: rgba(255,255,255,0.25);
         }
 
-        .more-info {
-             max-width: 900px;
-             margin: 0 auto;
-             padding: 80px 20px;
-             color: var(--dark-gray);
-             text-align: center;
-        }
-        
-        .more-info h2 {
-            font-size: 2.5em;
-            font-weight: 900;
-            margin-top: 0;
-        }
-
-        .map-container iframe {
-            width: 100%;
-            height: 450px;
-            border: 0;
-            border-radius: 16px;
-            margin-top: 20px;
-        }
-        
         footer {
             position: sticky;
             bottom: 0;
@@ -215,6 +194,7 @@
             right: 20px;
             background: none;
             border: none;
+            cursor: pointer;
         }
 
         .mobile-nav a {
@@ -224,6 +204,56 @@
             font-size: 1.5em;
             padding: 20px;
             border-bottom: 1px solid rgba(255,255,255,0.1);
+            cursor: pointer;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 200;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.is-visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-content {
+            background: var(--light-gray);
+            padding: 20px;
+            border-radius: 16px;
+            position: relative;
+            width: 90%;
+            max-width: 900px;
+            color: var(--dark-gray); /* Text inside modal is dark */
+        }
+        
+        .modal-content h2 {
+            font-size: 2em;
+            text-align: center;
+        }
+
+        .modal-close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .modal-content iframe {
+            width: 100%;
+            height: 60vh;
+            border: 0;
+            border-radius: 8px;
         }
 
         @media (max-width: 768px) {
@@ -282,7 +312,7 @@
         </button>
         <a href="https://book.ruby-salon.com/cancellation-adjustments-policy/">Book Now</a>
         <a href="https://venmo.com/u/Brandy-Claussen">Tip Now</a>
-        <a href="#find-us">Find Us</a>
+        <a id="open-map-btn">Find Us</a>
     </nav>
 
     <main>
@@ -298,20 +328,18 @@
                 </div>
             </div>
         </section>
-
-        <section id="find-us" class="more-info">
-             <h2>Find Us</h2>
-             <p>114 W Trinity Pl #10, Decatur, GA 30030</p>
-             <div class="map-container">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3316.326774842101!2d-84.29828578479205!3d33.77792688068134!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f5074f3b063d7b%3A0x33b8b9589d311912!2s114%20W%20Trinity%20Pl%20%2310%2C%20Decatur%2C%20GA%2030030%2C%20USA!5e0!3m2!1sen!2s!4v1663456789012!5m2!1sen!2s0"
-                    allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-            </div>
-        </section>
     </main>
+
+    <div id="map-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close-btn" aria-label="Close map">
+                <svg width="24" height="24" viewBox="0 0 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18" stroke="#1b1b1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 6L18 18" stroke="#1b1b1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <h2>Find Us</h2>
+            <p style="text-align: center;">114 W Trinity Pl #10, Decatur, GA 30030</p>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3316.326774842101!2d-84.29828578479205!3d33.77792688068134!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f5074f3b063d7b%3A0x33b8b9589d311912!2s114%20W%20Trinity%20Pl%20%2310%2C%20Decatur%2C%20GA%2030030%2C%20USA!5e0!3m2!1sen!2s!4v1663456789012!5m2!1sen!2s0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
     
     <footer>
         <p>© 2025 Ruby Salon</p>
@@ -327,26 +355,31 @@
             const navToggle = document.querySelector('.mobile-nav-toggle');
             const navClose = document.querySelector('.nav-close-btn');
             const mobileNav = document.querySelector('.mobile-nav');
-            const navLinks = document.querySelectorAll('.mobile-nav a');
+            const openMapBtn = document.getElementById('open-map-btn');
+            const mapModal = document.getElementById('map-modal');
+            const closeMapBtn = document.querySelector('.modal-close-btn');
 
-            function openNav() {
-                mobileNav.classList.add('is-open');
-            }
-
-            function closeNav() {
-                mobileNav.classList.remove('is-open');
-            }
+            function openNav() { mobileNav.classList.add('is-open'); }
+            function closeNav() { mobileNav.classList.remove('is-open'); }
+            function openMapModal() { mapModal.classList.add('is-visible'); }
+            function closeMapModal() { mapModal.classList.remove('is-visible'); }
 
             navToggle.addEventListener('click', openNav);
             navClose.addEventListener('click', closeNav);
-
-            navLinks.forEach(link => {
-                link.addEventListener('click', closeNav);
+            
+            openMapBtn.addEventListener('click', () => {
+                closeNav();
+                openMapModal();
             });
+
+            closeMapBtn.addEventListener('click', closeMapModal);
             
             document.addEventListener('click', (event) => {
                 if (mobileNav.classList.contains('is-open') && !event.target.closest('.mobile-nav') && !event.target.closest('.mobile-nav-toggle')) {
                     closeNav();
+                }
+                if (event.target === mapModal) {
+                    closeMapModal();
                 }
             });
         });
