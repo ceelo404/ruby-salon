@@ -16,8 +16,8 @@
             --dark-gray: #1b1b1f;
         }
         
-        html, body {
-            height: 100%; /* Make html and body take full height */
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -25,12 +25,15 @@
             margin: 0;
             background-color: var(--light-gray);
             color: #fff;
-            display: flex; /* Use flexbox for layout */
-            flex-direction: column; /* Stack children vertically */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Set a minimum height for the whole page */
         }
 
         main {
-            flex-grow: 1; /* Allow main content to grow and fill available space */
+            flex-grow: 1; /* Allow main to fill available space */
+            display: flex; /* Make main a flex container */
+            flex-direction: column; /* Stack sections vertically */
         }
 
         .site-header {
@@ -55,10 +58,10 @@
 
         .hero-section {
             display: flex;
-            align-items: center; /* Re-added to vertically center the card */
+            align-items: center;
             justify-content: center;
-            min-height: 100%; /* Make hero section fill the parent's height */
-            padding: 120px 20px 80px; /* Adjusted padding */
+            flex-grow: 1; /* Allow hero to fill the space within main */
+            padding-top: 70px; /* Add padding to account for fixed header */
             box-sizing: border-box;
         }
         
@@ -66,6 +69,7 @@
             position: relative;
             width: 100%;
             max-width: 800px;
+            margin: 20px; /* Add margin for spacing */
             background-image: url('https://raw.githubusercontent.com/ceelo404/ruby-salon/main/last_email_header.png');
             background-size: cover;
             background-position: center;
@@ -312,6 +316,10 @@
             .mobile-nav-toggle {
                 display: block;
             }
+            
+            .hero-section {
+                padding-top: 100px; /* Adjust padding for smaller screens */
+            }
 
             .content-card {
                 padding: 40px 25px;
@@ -378,7 +386,7 @@
              <p>114 W Trinity Pl #10, Decatur, GA 30030</p>
              <div class="map-container">
                  <iframe 
-                     src="http://googleusercontent.com/maps.google.com/3"
+                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3317.039655844514!2d-84.29811382429623!3d33.75910107327318!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f5076b1c942541%3A0x33b1e358b515598e!2s114%20W%20Trinity%20Pl%20%2310%2C%20Decatur%2C%20GA%2030030!5e0!3m2!1sen!2sus!4v1722212450849!5m2!1sen!2sus"
                      allowfullscreen="" 
                      loading="lazy" 
                      referrerpolicy="no-referrer-when-downgrade">
@@ -394,7 +402,7 @@
             </button>
             <h2>Find Us</h2>
             <p style="text-align: center;">114 W Trinity Pl #10, Decatur, GA 30030</p>
-            <iframe src="http://googleusercontent.com/maps.google.com/3" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3317.039655844514!2d-84.29811382429623!3d33.75910107327318!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f5076b1c942541%3A0x33b1e358b515598e!2s114%20W%20Trinity%20Pl%20%2310%2C%20Decatur%2C%20GA%2030030!5e0!3m2!1sen!2sus!4v1722212450849!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
     
