@@ -25,6 +25,7 @@
             margin: 0;
             background-color: var(--light-gray);
             color: #fff;
+            padding-bottom: 60px; /* Space for fixed footer */
         }
 
         .site-header {
@@ -47,13 +48,12 @@
             filter: drop-shadow(0 1px 3px rgba(0,0,0,0.4));
         }
 
-        /* --- UPDATED: Spacing and Alignment --- */
         .hero-section {
             display: flex;
-            align-items: flex-start; /* Aligns card to the top */
+            align-items: flex-start;
             justify-content: center;
             min-height: 100vh;
-            padding: 150px 20px 80px; /* Adjusted top padding */
+            padding: 150px 20px 80px;
             box-sizing: border-box;
         }
         
@@ -124,19 +124,29 @@
         .secondary-button:hover {
              background: rgba(255,255,255,0.25);
         }
-        
+
+        /* --- UPDATED: Footer is now position: fixed --- */
         footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             background-color: var(--dark-gray);
             color: rgba(255,255,255,0.7);
             padding: 10px 5%;
+            z-index: 99;
             box-sizing: border-box;
-            text-align: center;
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
         }
         
         .footer-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            width: 100%;
             max-width: 900px;
             margin: 0 auto;
         }
@@ -262,7 +272,6 @@
         </button>
         <a href="https://book.ruby-salon.com/cancellation-adjustments-policy/">Book Now</a>
         <a href="https://venmo.com/u/Brandy-Claussen">Tip Now</a>
-        <a href="#find-us">Find Us</a>
     </nav>
 
     <main>
@@ -296,7 +305,6 @@
             const navToggle = document.querySelector('.mobile-nav-toggle');
             const navClose = document.querySelector('.nav-close-btn');
             const mobileNav = document.querySelector('.mobile-nav');
-            const navLinks = document.querySelectorAll('.mobile-nav a');
 
             function openNav() {
                 mobileNav.classList.add('is-open');
@@ -308,16 +316,6 @@
 
             navToggle.addEventListener('click', openNav);
             navClose.addEventListener('click', closeNav);
-            
-            navLinks.forEach(link => {
-                link.addEventListener('click', closeNav);
-            });
-            
-            document.addEventListener('click', (event) => {
-                if (mobileNav.classList.contains('is-open') && !event.target.closest('.mobile-nav') && !event.target.closest('.mobile-nav-toggle')) {
-                    closeNav();
-                }
-            });
         });
     </script>
 
