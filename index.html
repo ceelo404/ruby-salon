@@ -50,9 +50,8 @@
         .hero-section {
             display: flex;
             justify-content: center;
-            /* align-items: center; -- This property was removed to stop vertical centering */
-            min-height: 100vh;
-            padding: 150px 20px 80px; /* Top padding was adjusted to control distance from header */
+            /* min-height: 100vh; -- REMOVED to allow section to resize naturally */
+            padding: 150px 20px 80px;
             box-sizing: border-box;
         }
         
@@ -69,9 +68,7 @@
             text-align: center;
             box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
             box-sizing: border-box;
-            /* Added max-height and margin-top for better control */
-            max-height: calc(100vh - 230px); 
-            margin-top: 0;
+            /* max-height property REMOVED to allow card to grow with content */
         }
 
         .content-card::before {
@@ -150,15 +147,12 @@
         }
         
         footer {
-            position: sticky;
-            bottom: 0;
-            left: 0;
-            width: 100%;
             background-color: var(--dark-gray);
             color: rgba(255,255,255,0.7);
-            padding: 10px 5%;
+            padding: 20px 5%; /* Increased padding for better spacing */
             z-index: 99;
             box-sizing: border-box;
+            text-align: center; /* Center align footer content on all screens */
         }
         
         .footer-content {
@@ -166,18 +160,26 @@
             justify-content: space-between;
             align-items: center;
             width: 100%;
-            max-width: 1200px; /* Wider for footer content */
+            max-width: 1200px;
             margin: 0 auto;
+            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+            gap: 15px; /* Add gap between items */
         }
         
         footer p {
             margin: 0;
             font-size: 0.9em;
+            flex-grow: 1; /* Allow text to take available space */
+            text-align: left; /* Align text to the left on larger screens */
         }
         
         .social-icons a {
             margin-left: 15px;
             display: inline-block;
+        }
+
+        .social-icons a:first-child {
+            margin-left: 0;
         }
         
         .social-icons svg {
@@ -319,7 +321,12 @@
             
             .footer-content {
                 flex-direction: column;
-                gap: 10px;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            footer p {
+                text-align: center;
             }
         }
     </style>
@@ -365,7 +372,7 @@
              <p>114 W Trinity Pl #10, Decatur, GA 30030</p>
              <div class="map-container">
                  <iframe 
-                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3317.031577484501!2d-84.2981393236021!3d33.75939293144826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f5076b1c313a37%3A0x1d1e6e9c14c2c510!2sRuby%20Salon!5e0!3m2!1sen!2sus!4v1714496559403!5m2!1sen!2sus"
+                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3317.021223947239!2d-84.2981138255952!3d33.75990543394838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f5075c317a6a97%3A0x608a35626d83cc5!2sRuby%20Salon!5e0!3m2!1sen!2sus!4v1722208453549!5m2!1sen!2sus"
                      allowfullscreen="" 
                      loading="lazy" 
                      referrerpolicy="no-referrer-when-downgrade">
@@ -381,7 +388,7 @@
             </button>
             <h2>Find Us</h2>
             <p style="text-align: center;">114 W Trinity Pl #10, Decatur, GA 30030</p>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3317.031577484501!2d-84.2981393236021!3d33.75939293144826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f5076b1c313a37%3A0x1d1e6e9c14c2c510!2sRuby%20Salon!5e0!3m2!1sen!2sus!4v1714496559403!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3317.021223947239!2d-84.2981138255952!3d33.75990543394838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f5075c317a6a97%3A0x608a35626d83cc5!2sRuby%20Salon!5e0!3m2!1sen!2sus!4v1722208453549!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
     
