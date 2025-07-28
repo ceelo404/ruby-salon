@@ -52,7 +52,7 @@
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            padding: 120px 20px 40px;
+            padding: 120px 20px;
             box-sizing: border-box;
         }
         
@@ -126,8 +126,8 @@
 
         .more-info {
              max-width: 900px;
-             margin: 0 auto; /* Removed top margin */
-             padding: 80px 20px; /* Added more padding */
+             margin: 0 auto;
+             padding: 80px 20px;
              color: var(--dark-gray);
              text-align: center;
         }
@@ -329,12 +329,17 @@
             const mobileNav = document.querySelector('.mobile-nav');
             const navLinks = document.querySelectorAll('.mobile-nav a');
 
-            function openNav() { mobileNav.classList.add('is-open'); }
-            function closeNav() { mobileNav.classList.remove('is-open'); }
+            function openNav() {
+                mobileNav.classList.add('is-open');
+            }
+
+            function closeNav() {
+                mobileNav.classList.remove('is-open');
+            }
 
             navToggle.addEventListener('click', openNav);
             navClose.addEventListener('click', closeNav);
-            
+
             navLinks.forEach(link => {
                 link.addEventListener('click', closeNav);
             });
