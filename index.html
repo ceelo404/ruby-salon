@@ -115,7 +115,6 @@
             max-width: 600px;
             margin: 0 auto 30px;
         }
-        /* No p:first-of-type style needed here as the address/phone moved */
 
 
         .button {
@@ -196,12 +195,13 @@
             text-align: left;
         }
         
-        /* New footer contact info styling */
+        /* Footer contact info styling */
         .footer-contact-info {
             display: flex;
-            flex-direction: column;
+            flex-direction: column; /* Changed to column to stack vertically */
             align-items: flex-start; /* Align text and icons to the start */
-            gap: 5px;
+            gap: 5px; /* Space between the address and phone lines */
+            min-width: 180px; /* Give it some space so it doesn't wrap too aggressively */
         }
 
         .footer-contact-info span {
@@ -209,6 +209,7 @@
             align-items: center;
             font-size: 0.9em;
             color: rgba(255,255,255,0.8);
+            white-space: nowrap; /* Prevent breaking address/phone number */
         }
 
         .footer-contact-info a {
@@ -221,22 +222,22 @@
         }
 
         .footer-contact-info svg {
-            width: 16px; /* Smaller icon size for footer */
+            width: 16px; 
             height: 16px;
             fill: rgba(255,255,255,0.7);
-            margin-right: 8px; /* Space between icon and text */
+            margin-right: 8px; 
             vertical-align: middle;
         }
 
         .social-icons {
-            display: flex; /* Ensure icons stay in a row */
+            display: flex; 
             align-items: center;
-            gap: 15px; /* Adjust gap if needed */
+            gap: 15px; 
         }
 
         .social-icons a {
             display: inline-block;
-            margin-left: 0; /* Reset margin as gap is used */
+            margin-left: 0; 
         }
         
         .social-icons svg {
@@ -361,7 +362,7 @@
 
         .scroll-down-indicator {
             position: absolute;
-            bottom: 80px; 
+            bottom: 80px; /* Adjusted to be higher */
             left: 50%;
             transform: translateX(-50%);
             display: flex;
@@ -606,20 +607,20 @@
             const openMapBtn = document.getElementById('open-map-btn');
             const mapModal = document.getElementById('map-modal');
             const mapModalCloseBtn = mapModal.querySelector('.modal-close-btn');
-            // NEW: Footer map link
-            const footerMapLink = document.getElementById('footer-map-link');
+            const footerMapLink = document.getElementById('footer-map-link'); // Get the new footer map link
 
 
             function openMapModal() { mapModal.classList.add('is-visible'); }
             function closeMapModal() { mapModal.classList.remove('is-visible'); }
 
+            // Existing mobile nav map link
             openMapBtn.addEventListener('click', () => {
                 closeNav();
                 openMapModal();
             });
             mapModalCloseBtn.addEventListener('click', closeMapModal);
 
-            // NEW: Event listener for footer map link
+            // Event listener for footer map link
             if (footerMapLink) {
                 footerMapLink.addEventListener('click', (e) => {
                     e.preventDefault(); // Prevent default link behavior
