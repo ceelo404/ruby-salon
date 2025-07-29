@@ -33,7 +33,7 @@
             padding-bottom: 80px; 
         }
 
-.site-header {
+        .site-header {
             position: fixed;
             top: 0;
             left: 0;
@@ -42,17 +42,12 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 5%;
-            /* The purple background is now transparent */
-            background: transparent; 
+            background: transparent; /* Makes header transparent */
             z-index: 100;
-            /* Added a transition for a smoother scroll effect if you add a background on scroll later */
-            transition: background-color 0.3s ease;
         }
 
         .site-header .logo {
-            max-height: 40px;
-            /* This drop-shadow creates a subtle dark outline to ensure visibility */
-            filter: drop-shadow(0 1px 4px rgba(0,0,0,0.5));
+            max-height: 50px; /* Slightly increased size for the new logo */
         }
 
         .hero-section {
@@ -68,7 +63,6 @@
             overflow: hidden; 
         }
         
-        /* --- VIDEO BACKGROUND STYLES START --- */
         .hero-video {
             position: absolute;
             top: 50%;
@@ -79,7 +73,6 @@
             transform: translate(-50%, -50%);
             z-index: 1;
         }
-        /* --- VIDEO BACKGROUND STYLES END --- */
         
         .hero-section::before {
             content: '';
@@ -329,7 +322,7 @@
             }
 
             .site-header .logo {
-                max-height: 30px;
+                max-height: 40px; /* Adjust mobile logo size if needed */
             }
 
             .site-header .header-buttons {
@@ -371,7 +364,7 @@
 <body>
 
     <header class="site-header">
-        <img src="https://raw.githubusercontent.com/ceelo404/ruby-salon/main/white_logo_vert.png" alt="Ruby Salon Logo" class="logo" loading="lazy">
+        <img src="https://raw.githubusercontent.com/ceelo404/ruby-salon/c019d39b2d0465d10b80bea9f3a39ccf36cac81c/ruby_mod_vidTransparent%20Logo.png" alt="Ruby Salon Logo" class="logo" loading="lazy">
         <div class="header-buttons">
              <a href="https://book.ruby-salon.com/cancellation-adjustments-policy/" class="button secondary-button js-open-policy-modal">Book Now</a>
              <a href="https://venmo.com/u/Brandy-Claussen" class="button">Tip Now</a>
@@ -456,8 +449,6 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // NOTE: The entire slideshow script has been removed as it's no longer needed.
-
             // Mobile Nav
             const navToggle = document.querySelector('.mobile-nav-toggle');
             const navClose = document.querySelector('.nav-close-btn');
