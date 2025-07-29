@@ -18,6 +18,11 @@
         
         html {
             scroll-behavior: smooth;
+            box-sizing: border-box; /* 1. Ensure box-sizing consistency */
+        }
+
+        *, *::before, *::after {
+            box-sizing: inherit; /* Inherit box-sizing for all elements */
         }
 
         body {
@@ -31,7 +36,7 @@
         }
 
         main {
-            flex-grow: 1; /* Allow main to fill available space */
+            flex-grow: 1; /* Allow main to fill available space, pushing footer down */
             display: flex; /* Make main a flex container */
             flex-direction: column; /* Stack sections vertically */
         }
@@ -48,7 +53,6 @@
             background: linear-gradient(90deg, rgba(90, 24, 154, 0.8), rgba(123, 44, 191, 0.8), rgba(157, 78, 221, 0.8));
             backdrop-filter: blur(10px);
             z-index: 100;
-            box-sizing: border-box;
         }
 
         .site-header .logo {
@@ -60,7 +64,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-grow: 1; /* Allow hero to fill the space within main */
+            /* flex-grow: 1; -- Removed this to prevent hero from stretching unnaturally */
             padding-top: 70px; /* Add padding to account for fixed header */
             box-sizing: border-box;
         }
@@ -78,7 +82,6 @@
             padding: 60px;
             text-align: center;
             box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
-            box-sizing: border-box;
         }
 
         .content-card::before {
@@ -161,7 +164,6 @@
             color: rgba(255,255,255,0.7);
             padding: 20px 5%;
             z-index: 99;
-            box-sizing: border-box;
             text-align: center;
         }
         
@@ -215,7 +217,8 @@
         .mobile-nav {
             position: fixed;
             top: 0;
-            right: -100%;
+            right: 0; /* 2. Set right to 0 */
+            transform: translateX(100%); /* 2. Move off-screen with transform */
             width: 70%;
             max-width: 300px;
             height: 100vh;
@@ -223,11 +226,10 @@
             z-index: 101;
             transition: transform 0.3s ease-in-out;
             padding: 20px;
-            box-sizing: border-box;
         }
 
         .mobile-nav.is-open {
-            transform: translateX(-100%);
+            transform: translateX(0); /* 2. Bring into view by resetting transform */
         }
         
         .nav-close-btn {
@@ -386,7 +388,7 @@
              <p>114 W Trinity Pl #10, Decatur, GA 30030</p>
              <div class="map-container">
                  <iframe 
-                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3317.039655844514!2d-84.29811382429623!3d33.75910107327318!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f5076b1c942541%3A0x33b1e358b515598e!2s114%20W%20Trinity%20Pl%20%2310%2C%20Decatur%2C%20GA%2030030!5e0!3m2!1sen!2sus!4v1722212450849!5m2!1sen!2sus"
+                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3316.594784411135!2d-84.2981356847923!3d33.77092998068297!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f5073574c2c56b%3A0x8bd27318a4a7531!2sRuby%20Salon!5e0!3m2!1sen!2sus!4v1659113612803!5m2!1sen!2sus"
                      allowfullscreen="" 
                      loading="lazy" 
                      referrerpolicy="no-referrer-when-downgrade">
@@ -402,7 +404,7 @@
             </button>
             <h2>Find Us</h2>
             <p style="text-align: center;">114 W Trinity Pl #10, Decatur, GA 30030</p>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3317.039655844514!2d-84.29811382429623!3d33.75910107327318!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f5076b1c942541%3A0x33b1e358b515598e!2s114%20W%20Trinity%20Pl%20%2310%2C%20Decatur%2C%20GA%2030030!5e0!3m2!1sen!2sus!4v1722212450849!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3316.594784411135!2d-84.2981356847923!3d33.77092998068297!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f5073574c2c56b%3A0x8bd27318a4a7531!2sRuby%20Salon!5e0!3m2!1sen!2sus!4v1659113612803!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
     
