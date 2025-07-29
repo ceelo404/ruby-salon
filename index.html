@@ -52,38 +52,39 @@
             filter: drop-shadow(0 1px 3px rgba(0,0,0,0.4));
         }
 
+        /* --- MODIFIED CSS STARTS HERE --- */
+
         .hero-section {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start;
+            justify-content: center; /* Vertically centers the content */
             min-height: 100vh;
-            padding-top: 140px;
             box-sizing: border-box;
-        }
-        
-        .content-card {
             position: relative;
-            width: 100%;
-            max-width: 800px;
-            margin: 20px;
             background-image: url('https://raw.githubusercontent.com/ceelo404/ruby-salon/main/last_email_header.png');
             background-size: cover;
             background-position: center;
-            border-radius: 24px;
-            overflow: hidden;
-            padding: 60px;
             text-align: center;
-            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+            padding: 20px; /* Adds some spacing from screen edges */
+        }
+        
+        .content-card {
+            /* This class now only constrains the width of the text for readability. */
+            width: 100%;
+            max-width: 800px;
         }
 
-        .content-card::before {
+        /* The ::before pseudo-element is now applied to the hero-section to create the dark overlay */
+        .hero-section::before {
             content: '';
             position: absolute;
             inset: 0;
             background-color: rgba(0, 0, 0, 0.45);
             z-index: 1;
         }
+        
+        /* --- MODIFIED CSS ENDS HERE --- */
 
         .card-content {
             position: relative;
@@ -331,12 +332,12 @@
             }
             
             .hero-section {
-                padding-top: 100px;
+                padding-top: 0; /* Adjusted for full-screen hero */
             }
 
             .content-card {
-                padding: 40px 25px;
-                border-radius: 0;
+                 padding: 40px 25px;
+                 border-radius: 0;
             }
 
             .card-content h1 {
