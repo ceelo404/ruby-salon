@@ -411,7 +411,7 @@
              <h2>Find Us</h2>
              <p>114 W Trinity Pl #10, Decatur, GA 30030</p>
              <div class="map-container">
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3317.028753272605!2d-84.2974913847996!3d33.7593679806859!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f5075c317bdf75%3A0x89cf99577c3a2fde!2s114%20W%20Trinity%20Pl%20%2310%2C%20Decatur%2C%20GA%2030030!5e0!3m2!1sen!2sus!4v1663001851213!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3315.7001402263437!2d-84.29653702348574!3d33.77443833290947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f507b9a716c02f%3A0x6a029ee5ac80cfef!2s114%20W%20Trinity%20Pl%20%2310%2C%20Decatur%2C%20GA%2030030%2C%20USA!5e0!3m2!1sen!2sin!4v1722204786432!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
              </div>
         </section>
     </main>
@@ -423,7 +423,7 @@
             </button>
             <h2>Find Us</h2>
             <p style="text-align: center;">114 W Trinity Pl #10, Decatur, GA 30030</p>
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3317.028753272605!2d-84.2974913847996!3d33.7593679806859!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f5075c317bdf75%3A0x89cf99577c3a2fde!2s114%20W%20Trinity%20Pl%20%2310%2C%20Decatur%2C%20GA%2030030!5e0!3m2!1sen!2sus!4v1663001851213!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3315.7001402263437!2d-84.29653702348574!3d33.77443833290947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f507b9a716c02f%3A0x6a029ee5ac80cfef!2s114%20W%20Trinity%20Pl%20%2310%2C%20Decatur%2C%20GA%2030030%2C%20USA!5e0!3m2!1sen!2sin!4v1722204786432!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
     
@@ -454,6 +454,15 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Header scroll effect
+            const header = document.querySelector('.site-header');
+            if (header) {
+                window.addEventListener('scroll', () => {
+                    // Add .scrolled class if user scrolls more than 50px down
+                    header.classList.toggle('scrolled', window.scrollY > 50);
+                });
+            }
+
             // Mobile Nav
             const navToggle = document.querySelector('.mobile-nav-toggle');
             const navClose = document.querySelector('.nav-close-btn');
@@ -470,20 +479,6 @@
                 if (link.getAttribute('href')?.startsWith('#')) {
                     link.addEventListener('click', closeNav);
                 }
-                document.addEventListener('DOMContentLoaded', () => {
-            // --- ADD THIS NEW CODE BLOCK ---
-            const header = document.querySelector('.site-header');
-            if (header) {
-                window.addEventListener('scroll', () => {
-                    // Add .scrolled class if user scrolls more than 50px down
-                    header.classList.toggle('scrolled', window.scrollY > 50);
-                });
-            }
-            // --- END OF NEW CODE BLOCK ---
-
-            // Mobile Nav
-            const navToggle = document.querySelector('.mobile-nav-toggle');
-            // ... all your other script code follows
             });
 
             // Map Modal
