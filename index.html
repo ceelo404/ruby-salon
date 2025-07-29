@@ -33,7 +33,7 @@
             padding-bottom: 80px; 
         }
 
-        .site-header {
+.site-header {
             position: fixed;
             top: 0;
             left: 0;
@@ -42,14 +42,17 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 5%;
-            background: linear-gradient(90deg, rgba(90, 24, 154, 0.8), rgba(123, 44, 191, 0.8), rgba(157, 78, 221, 0.8));
-            backdrop-filter: blur(10px);
+            /* The purple background is now transparent */
+            background: transparent; 
             z-index: 100;
+            /* Added a transition for a smoother scroll effect if you add a background on scroll later */
+            transition: background-color 0.3s ease;
         }
 
         .site-header .logo {
             max-height: 40px;
-            filter: drop-shadow(0 1px 3px rgba(0,0,0,0.4));
+            /* This drop-shadow creates a subtle dark outline to ensure visibility */
+            filter: drop-shadow(0 1px 4px rgba(0,0,0,0.5));
         }
 
         .hero-section {
