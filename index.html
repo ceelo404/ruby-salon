@@ -11,9 +11,10 @@
         :root {
             --purple: #7B2CBF;
             --purple-dark: #5A189A;
-            --purple-light: #9D4EDD;
+            --purple-light: #9D4EDD; 
             --light-gray: #f4f5f7;
             --dark-gray: #1b1b1f;
+            --scrolled-header-purple: #9D4EDD; /* Using your existing --purple-light value, which is a nice lighter purple */
         }
         
         html {
@@ -44,16 +45,17 @@
             padding: 15px 5%;
             background: transparent; 
             z-index: 100;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Added transition */
         }
 
         .site-header .logo {
             max-height: 200px; /* Increased size for the new logo shape */
         }
 
-.site-header.scrolled {
-    background-color: var(--purple-light);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-}
+        .site-header.scrolled {
+            background-color: var(--scrolled-header-purple); 
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
         
         .hero-section {
             display: flex;
@@ -92,6 +94,7 @@
             max-width: 800px;
             position: relative;
             z-index: 3; 
+            margin-bottom: 100px; /* Add margin to make space for the new "Locate Us" element */
         }
 
         .card-content {
@@ -106,12 +109,24 @@
             line-height: 1.1;
         }
         
+        /* New styling for hero text content */
+        .card-content h1 {
+            font-size: 3em;
+            font-weight: 900;
+            margin-top: 0;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
         .card-content p {
             font-size: 1.1em;
             line-height: 1.6;
             max-width: 600px;
             margin: 0 auto 30px;
         }
+        .card-content p:first-of-type { /* Style for the first paragraph (description) */
+            margin-bottom: 20px;
+        }
+
 
         .button {
             display: inline-block;
@@ -320,6 +335,56 @@
             border-radius: 8px;
         }
 
+        /* NEW: Scroll down indicator */
+        .scroll-down-indicator {
+            position: absolute;
+            bottom: 20px; /* Adjust as needed to position it */
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #fff;
+            text-decoration: none;
+            z-index: 4; /* Ensure it's above the video overlay */
+            cursor: pointer;
+            text-align: center;
+            opacity: 0; /* Hidden by default for animation */
+            animation: fadeIn 1s ease-out 2s forwards; /* Fade in after content loads */
+        }
+
+        .scroll-down-indicator .text {
+            font-weight: 700;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+            text-shadow: 0 0 5px rgba(0,0,0,0.5); /* For better readability over video */
+        }
+
+        .scroll-down-indicator .icon {
+            font-size: 2em; /* Size of the chevron */
+            line-height: 1;
+            animation: bounce 2s infinite; /* Apply bouncing animation */
+            text-shadow: 0 0 5px rgba(0,0,0,0.5); /* For better readability over video */
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
         @media (max-width: 768px) {
             .site-header {
                 padding: 15px;
@@ -363,6 +428,11 @@
             .modal-content {
                 padding: 25px;
             }
+
+            /* Hide on smaller screens */
+            .scroll-down-indicator {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -398,20 +468,26 @@
             <div class="content-card">
                 <div class="card-content">
                     <h1>Impeccable attention to detail</h1>
-                    <p>With decades of experience, Ruby Hair Salon offers a curated range of services, including precision cuts, bespoke coloring, and transformative styling. We blend cutting-edge techniques with a welcoming atmosphere to deliver a personalized experience that elevates your individual beauty.</P>
-                    <p>Located at 114 W Trinity Pl. #10 <strong>Phone:</strong> <a href="tel:+14043893114" style="color: #fff;">(404) 389-3114</a></p>
+                    <p>With decades of experience, Ruby Hair Salon offers a curated range of services, including precision cuts, bespoke coloring, and transformative styling. We blend cutting-edge techniques with a welcoming atmosphere to deliver a personalized experience that elevates your individual beauty.</p>
+                    <p>Located at 114 W Trinity Pl. #10 Phone: <a href="tel:+14043893114" style="color: #fff;">(404) 389-3114</a></p>
                     <div>
                          <a href="https://book.ruby-salon.com/cancellation-adjustments-policy/" class="button js-open-policy-modal">Book An Appointment</a>
                     </div>
                 </div>
             </div>
+
+            <a href="#find-us" class="scroll-down-indicator">
+                <span class="text">Locate Us</span>
+                <span class="icon">&#x2304;</span>
+            </a>
+
         </section>
 
         <section id="find-us" class="more-info">
              <h2>Find Us</h2>
              <p>114 W Trinity Pl #10, Decatur, GA 30030</p>
              <div class="map-container">
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3315.7001402263437!2d-84.29653702348574!3d33.77443833290947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f507b9a716c02f%3A0x6a029ee5ac80cfef!2s114%20W%20Trinity%20Pl%20%2310%2C%20Decatur%2C%20GA%2030030%2C%20USA!5e0!3m2!1sen!2sin!4v1722204786432!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3319.531205318047!2d-84.29653898733352!3d33.77456743323087!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f5075c3f9156c7%3A0xc3f7a4e9a5a3a79d!2s114%20W%20Trinity%20Pl%20%2310%2C%20Decatur%2C%20GA%2030030%2C%20USA!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
              </div>
         </section>
     </main>
@@ -423,7 +499,7 @@
             </button>
             <h2>Find Us</h2>
             <p style="text-align: center;">114 W Trinity Pl #10, Decatur, GA 30030</p>
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3315.7001402263437!2d-84.29653702348574!3d33.77443833290947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f507b9a716c02f%3A0x6a029ee5ac80cfef!2s114%20W%20Trinity%20Pl%20%2310%2C%20Decatur%2C%20GA%2030030%2C%20USA!5e0!3m2!1sen!2sin!4v1722204786432!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3319.531205318047!2d-84.29653898733352!3d33.77456743323087!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f5075c3f9156c7%3A0xc3f7a4e9a5a3a79d!2s114%20W%20Trinity%20Pl%20%2310%2C%20Decatur%2C%20GA%2030030%2C%20USA!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
     
@@ -458,7 +534,6 @@
             const header = document.querySelector('.site-header');
             if (header) {
                 window.addEventListener('scroll', () => {
-                    // Add .scrolled class if user scrolls more than 50px down
                     header.classList.toggle('scrolled', window.scrollY > 50);
                 });
             }
@@ -525,6 +600,19 @@
                     closePolicyModal();
                 }
             });
+
+            // Smooth scroll for "Locate Us" indicator
+            const locateUsIndicator = document.querySelector('.scroll-down-indicator');
+            if (locateUsIndicator) {
+                locateUsIndicator.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = locateUsIndicator.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            }
         });
     </script>
 
