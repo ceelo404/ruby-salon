@@ -18,11 +18,11 @@
         
         html {
             scroll-behavior: smooth;
-            box-sizing: border-box; /* 1. Ensure box-sizing consistency */
+            box-sizing: border-box;
         }
 
         *, *::before, *::after {
-            box-sizing: inherit; /* Inherit box-sizing for all elements */
+            box-sizing: inherit;
         }
 
         body {
@@ -30,15 +30,12 @@
             margin: 0;
             background-color: var(--light-gray);
             color: #fff;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh; /* Set a minimum height for the whole page */
+            /* Add padding to the bottom to prevent fixed footer from overlapping content */
+            padding-bottom: 80px; 
         }
 
         main {
-            flex-grow: 1; /* Allow main to fill available space, pushing footer down */
-            display: flex; /* Make main a flex container */
-            flex-direction: column; /* Stack sections vertically */
+           /* No longer a flex container, as footer is now fixed */
         }
 
         .site-header {
@@ -64,16 +61,16 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            /* flex-grow: 1; -- Removed this to prevent hero from stretching unnaturally */
-            padding-top: 70px; /* Add padding to account for fixed header */
-            box-sizing: border-box;
+            /* Set min-height to fill the viewport, pushing map below the fold */
+            min-height: 100vh; 
+            padding-top: 70px; /* Account for fixed header */
         }
         
         .content-card {
             position: relative;
             width: 100%;
             max-width: 800px;
-            margin: 20px; /* Add margin for spacing */
+            margin: 20px;
             background-image: url('https://raw.githubusercontent.com/ceelo404/ruby-salon/main/last_email_header.png');
             background-size: cover;
             background-position: center;
@@ -138,9 +135,11 @@
         }
 
         .more-info {
-             max-width: 900px;
+             /* Set max-width to match the content-card */
+             max-width: 800px;
              margin: 0 auto;
-             padding: 80px 20px;
+             /* Increased top padding for more space */
+             padding: 120px 20px 40px;
              color: var(--dark-gray);
              text-align: center;
         }
@@ -160,11 +159,17 @@
         }
         
         footer {
+            /* Make footer fixed to the bottom of the viewport */
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
             background-color: var(--dark-gray);
             color: rgba(255,255,255,0.7);
             padding: 20px 5%;
             z-index: 99;
             text-align: center;
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.1); /* Add subtle shadow */
         }
         
         .footer-content {
@@ -217,8 +222,8 @@
         .mobile-nav {
             position: fixed;
             top: 0;
-            right: 0; /* 2. Set right to 0 */
-            transform: translateX(100%); /* 2. Move off-screen with transform */
+            right: 0;
+            transform: translateX(100%);
             width: 70%;
             max-width: 300px;
             height: 100vh;
@@ -226,10 +231,11 @@
             z-index: 101;
             transition: transform 0.3s ease-in-out;
             padding: 20px;
+            box-sizing: border-box;
         }
 
         .mobile-nav.is-open {
-            transform: translateX(0); /* 2. Bring into view by resetting transform */
+            transform: translateX(0);
         }
         
         .nav-close-btn {
@@ -388,7 +394,7 @@
              <p>114 W Trinity Pl #10, Decatur, GA 30030</p>
              <div class="map-container">
                  <iframe 
-                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3316.594784411135!2d-84.2981356847923!3d33.77092998068297!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f5073574c2c56b%3A0x8bd27318a4a7531!2sRuby%20Salon!5e0!3m2!1sen!2sus!4v1659113612803!5m2!1sen!2sus"
+                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3317.1432473489243!2d-84.2981036242967!3d33.75653597327071!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f5076595567e95%3A0x6d901362547b59e3!2s114%20W%20Trinity%20Pl%20%2310%2C%20Decatur%2C%20GA%2030030!5e0!3m2!1sen!2sus!4v1722272492211!5m2!1sen!2sus"
                      allowfullscreen="" 
                      loading="lazy" 
                      referrerpolicy="no-referrer-when-downgrade">
@@ -404,7 +410,7 @@
             </button>
             <h2>Find Us</h2>
             <p style="text-align: center;">114 W Trinity Pl #10, Decatur, GA 30030</p>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3316.594784411135!2d-84.2981356847923!3d33.77092998068297!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f5073574c2c56b%3A0x8bd27318a4a7531!2sRuby%20Salon!5e0!3m2!1sen!2sus!4v1659113612803!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3317.1432473489243!2d-84.2981036242967!3d33.75653597327071!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f5076595567e95%3A0x6d901362547b59e3!2s114%20W%20Trinity%20Pl%20%2310%2C%20Decatur%2C%20GA%2030030!5e0!3m2!1sen!2sus!4v1722272492211!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
     
