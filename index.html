@@ -52,72 +52,71 @@
             filter: drop-shadow(0 1px 3px rgba(0,0,0,0.4));
         }
 
+        /* Hero Section Styling */
         .hero-section {
+            position: relative; /* Needed for positioning the background */
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
+            align-items: center; /* Center the content card vertically */
+            justify-content: center; /* Center the content card horizontally */
             min-height: 100vh;
-            padding-top: 140px;
-            box-sizing: border-box;
-            background-color: #e0e0e0; /* A neutral background for the section */
+            padding-top: 80px; /* Adjust for header height */
+            overflow: hidden; /* Hide parts of images outside the hero area */
         }
         
+        /* Slideshow Background Container */
+        .slideshow-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%; /* (100% / number of images) * 100 = 100/2*100 = 200% */
+            height: 100%;
+            display: flex;
+            z-index: 1; /* Place it behind the content */
+            animation: slide 15s linear infinite;
+        }
+
+        .slideshow-background img {
+            width: 50%; /* Each image takes up half of the container's width */
+            height: 100%;
+            object-fit: cover; /* Cover the area without stretching */
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(-50%); /* Slide to the second image */
+            }
+            100% {
+                transform: translateX(0); /* Reset for seamless loop */
+            }
+        }
+        
+        /* Content Card Styling */
         .content-card {
-            position: relative;
+            position: relative; /* To appear above the slideshow */
+            z-index: 2; /* Ensure it's on top */
             width: 100%;
             max-width: 800px;
             margin: 20px;
-            background-image: url('https://raw.githubusercontent.com/ceelo404/ruby-salon/main/last_email_header.png');
-            background-size: cover;
-            background-position: center;
+            background-color: transparent; /* Card itself is transparent */
             border-radius: 24px;
             overflow: hidden;
             padding: 60px;
             text-align: center;
-            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
-            z-index: 2; /* Ensure content card is above the gallery */
         }
 
+        /* Dark overlay for text readability */
         .content-card::before {
             content: '';
             position: absolute;
             inset: 0;
-            background-color: rgba(0, 0, 0, 0.45);
+            background-color: rgba(0, 0, 0, 0.55);
+            backdrop-filter: blur(4px); /* Optional: blur the background behind the card */
             z-index: 1;
+            border-radius: inherit;
         }
-        
-        .scrolling-gallery {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 1; /* Behind the content card */
-        }
-
-        .scrolling-gallery-track {
-            display: flex;
-            width: fit-content;
-            animation: scroll 40s linear infinite;
-        }
-
-        .scrolling-gallery-track img {
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.3;
-        }
-
-        @keyframes scroll {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-50%); /* Scroll halfway since we duplicated the images */
-            }
-        }
-
 
         .card-content {
             position: relative;
@@ -422,13 +421,9 @@
 
     <main>
         <section class="hero-section">
-            <div class="scrolling-gallery">
-                <div class="scrolling-gallery-track">
-                    <img src="http://googleusercontent.com/image_generation_content/0" alt="hairstylist cutting brown hair with scissors" />
-                    <img src="http://googleusercontent.com/image_generation_content/2" alt="hairstylist cutting blonde hair with scissors" />
-                    <img src="http://googleusercontent.com/image_generation_content/0" alt="hairstylist cutting brown hair with scissors" />
-                    <img src="http://googleusercontent.com/image_generation_content/2" alt="hairstylist cutting blonde hair with scissors" />
-                </div>
+            <div class="slideshow-background">
+                <img src="http://googleusercontent.com/image_generation_content/0" alt="hairstylist cutting brown hair" />
+                <img src="http://googleusercontent.com/image_generation_content/1" alt="hairstylist coloring hair" />
             </div>
             <div class="content-card">
                 <div class="card-content">
@@ -446,7 +441,7 @@
              <h2>Find Us</h2>
              <p>114 W Trinity Pl #10, Decatur, GA 30030</p>
              <div class="map-container">
-                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3316.594615392419!2d-84.2974984847999!3d33.77103288068208!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f5076405f6a987%3A0x19a79f3a63a56285!2s114%20W%20Trinity%20Pl%20%2310%2C%20Decatur%2C%20GA%2030030!5e0!3m2!1sen!2sus!4v1628187053026!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3317.027419138763!2d-84.29744492429659!3d33.7593679732707!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f5075f7a6a7c49%3A0x67a3a93665a0e5b8!2s114%20W%20Trinity%20Pl%20%2310%2C%20Decatur%2C%20GA%2030030!5e0!3m2!1sen!2sus!4v1722288888888!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
              </div>
         </section>
     </main>
@@ -458,7 +453,7 @@
             </button>
             <h2>Find Us</h2>
             <p style="text-align: center;">114 W Trinity Pl #10, Decatur, GA 30030</p>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3316.594615392419!2d-84.2974984847999!3d33.77103288068208!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f5076405f6a987%3A0x19a79f3a63a56285!2s114%20W%20Trinity%20Pl%20%2310%2C%20Decatur%2C%20GA%2030030!5e0!3m2!1sen!2sus!4v1628187053026!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3317.027419138763!2d-84.29744492429659!3d33.7593679732707!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f5075f7a6a7c49%3A0x67a3a93665a0e5b8!2s114%20W%20Trinity%20Pl%20%2310%2C%20Decatur%2C%20GA%2030030!5e0!3m2!1sen!2sus!4v1722288888888!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
     
@@ -531,8 +526,8 @@
 
             bookingButtons.forEach(button => {
                 button.addEventListener('click', (event) => {
-                    event.preventDefault(); // Stop the link from navigating immediately
-                    closeNav(); // Close mobile nav if it's open
+                    event.preventDefault(); 
+                    closeNav(); 
                     openPolicyModal();
                 });
             });
@@ -550,15 +545,6 @@
                 if (event.target === policyModal) {
                     closePolicyModal();
                 }
-            });
-
-            // Scrolling Gallery Logic
-            const track = document.querySelector('.scrolling-gallery-track');
-            // Duplicate images for a seamless loop
-            const images = Array.from(track.children);
-            images.forEach(image => {
-                const clone = image.cloneNode(true);
-                track.appendChild(clone);
             });
         });
     </script>
