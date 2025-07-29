@@ -50,6 +50,11 @@
             max-height: 200px; /* Increased size for the new logo shape */
         }
 
+.site-header.scrolled {
+    background-color: var(--dark-gray);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+        
         .hero-section {
             display: flex;
             flex-direction: column;
@@ -465,6 +470,20 @@
                 if (link.getAttribute('href')?.startsWith('#')) {
                     link.addEventListener('click', closeNav);
                 }
+                document.addEventListener('DOMContentLoaded', () => {
+            // --- ADD THIS NEW CODE BLOCK ---
+            const header = document.querySelector('.site-header');
+            if (header) {
+                window.addEventListener('scroll', () => {
+                    // Add .scrolled class if user scrolls more than 50px down
+                    header.classList.toggle('scrolled', window.scrollY > 50);
+                });
+            }
+            // --- END OF NEW CODE BLOCK ---
+
+            // Mobile Nav
+            const navToggle = document.querySelector('.mobile-nav-toggle');
+            // ... all your other script code follows
             });
 
             // Map Modal
