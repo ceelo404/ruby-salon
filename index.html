@@ -57,14 +57,15 @@
             filter: drop-shadow(0 1px 3px rgba(0,0,0,0.4));
         }
 
-        .hero-section {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            /* Set min-height to fill the viewport, pushing map below the fold */
-            min-height: 100vh; 
-            padding-top: 70px; /* Account for fixed header */
-        }
+.hero-section {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: flex-start; /* Aligns content to the top */
+    min-height: 100vh;
+    padding-top: 140px; /* Increased padding for more space below the top bar */
+    box-sizing: border-box;
+}
         
         .content-card {
             position: relative;
