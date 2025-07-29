@@ -54,81 +54,68 @@
 
         /* Hero Section Styling */
         .hero-section {
-            position: relative; /* Needed for positioning the background */
+            position: relative; /* Needed for positioning children */
             display: flex;
-            align-items: center; /* Center the content card vertically */
-            justify-content: center; /* Center the content card horizontally */
+            align-items: center;
+            justify-content: center;
             min-height: 100vh;
-            padding-top: 80px; /* Adjust for header height */
-            overflow: hidden; /* Hide parts of images outside the hero area */
+            overflow: hidden; /* Important */
         }
         
-        /* Slideshow Background Container */
+        /* Animated Slideshow Background */
         .slideshow-background {
             position: absolute;
             top: 0;
             left: 0;
-            width: 200%; /* (100% / number of images) * 100 = 100/2*100 = 200% */
+            width: 200%; /* 100% * number of images */
             height: 100%;
             display: flex;
-            z-index: 1; /* Place it behind the content */
-            animation: slide 15s linear infinite;
+            z-index: 1; /* Bottom layer */
+            animation: slide 20s linear infinite;
         }
 
         .slideshow-background img {
-            width: 50%; /* Each image takes up half of the container's width */
+            width: 50%; /* 100% / number of images */
             height: 100%;
-            object-fit: cover; /* Cover the area without stretching */
+            object-fit: cover;
+        }
+        
+        /* Dark overlay for text readability */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2; /* Middle layer */
         }
 
         @keyframes slide {
-            0% {
-                transform: translateX(0);
-            }
-            50% {
-                transform: translateX(-50%); /* Slide to the second image */
-            }
-            100% {
-                transform: translateX(0); /* Reset for seamless loop */
-            }
+            0% { transform: translateX(0); }
+            45% { transform: translateX(0); } /* Pause on first image */
+            50% { transform: translateX(-50%); } /* Slide to second image */
+            95% { transform: translateX(-50%); } /* Pause on second image */
+            100% { transform: translateX(0); } /* Loop back */
         }
         
         /* Content Card Styling */
         .content-card {
-            position: relative; /* To appear above the slideshow */
-            z-index: 2; /* Ensure it's on top */
+            position: relative; 
+            z-index: 3; /* Top layer */
             width: 100%;
             max-width: 800px;
-            margin: 20px;
-            background-color: transparent; /* Card itself is transparent */
-            border-radius: 24px;
-            overflow: hidden;
-            padding: 60px;
+            padding: 40px;
             text-align: center;
-        }
-
-        /* Dark overlay for text readability */
-        .content-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-color: rgba(0, 0, 0, 0.55);
-            backdrop-filter: blur(4px); /* Optional: blur the background behind the card */
-            z-index: 1;
-            border-radius: inherit;
-        }
-
-        .card-content {
-            position: relative;
-            z-index: 2;
+            color: #fff; /* Ensure text is white */
         }
 
         .card-content h1 {
             font-size: 3em;
             font-weight: 900;
-            margin-top: 0;
-            margin-bottom: 20px;
+            margin: 0 0 20px 0;
             line-height: 1.1;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
         
         .card-content p {
@@ -136,6 +123,7 @@
             line-height: 1.6;
             max-width: 600px;
             margin: 0 auto 30px;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
         }
 
         .button {
@@ -307,7 +295,7 @@
             border-radius: 16px;
             position: relative;
             width: 90%;
-            max-width: 600px; /* Adjusted size for policy text */
+            max-width: 600px;
             color: var(--dark-gray);
         }
         
@@ -363,16 +351,6 @@
                 display: block;
             }
             
-            .hero-section {
-                padding-top: 100px;
-            }
-
-            .content-card {
-                padding: 40px 25px;
-                margin: 20px 0; /* Adjust margin for smaller screens */
-                border-radius: 0;
-            }
-
             .card-content h1 {
                 font-size: 2.2em;
             }
@@ -425,6 +403,7 @@
                 <img src="http://googleusercontent.com/image_generation_content/0" alt="hairstylist cutting brown hair" />
                 <img src="http://googleusercontent.com/image_generation_content/1" alt="hairstylist coloring hair" />
             </div>
+            <div class="hero-overlay"></div>
             <div class="content-card">
                 <div class="card-content">
                     <h1>Style, Perfected.</h1>
@@ -441,7 +420,7 @@
              <h2>Find Us</h2>
              <p>114 W Trinity Pl #10, Decatur, GA 30030</p>
              <div class="map-container">
-                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3317.027419138763!2d-84.29744492429659!3d33.7593679732707!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f5075f7a6a7c49%3A0x67a3a93665a0e5b8!2s114%20W%20Trinity%20Pl%20%2310%2C%20Decatur%2C%20GA%2030030!5e0!3m2!1sen!2sus!4v1722288888888!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                 <iframe src="http://googleusercontent.com/maps.google.com/10" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
              </div>
         </section>
     </main>
@@ -453,7 +432,7 @@
             </button>
             <h2>Find Us</h2>
             <p style="text-align: center;">114 W Trinity Pl #10, Decatur, GA 30030</p>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3317.027419138763!2d-84.29744492429659!3d33.7593679732707!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f5075f7a6a7c49%3A0x67a3a93665a0e5b8!2s114%20W%20Trinity%20Pl%20%2310%2C%20Decatur%2C%20GA%2030030!5e0!3m2!1sen!2sus!4v1722288888888!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="http://googleusercontent.com/maps.google.com/10" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
     
