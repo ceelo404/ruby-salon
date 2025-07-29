@@ -62,52 +62,35 @@
             position: relative;
             text-align: center;
             padding: 20px;
-            overflow: hidden; /* Important for the slideshow effect */
+            overflow: hidden; 
         }
         
-        /* --- SLIDESHOW STYLES START --- */
-        .slideshow-container {
+        /* --- VIDEO BACKGROUND STYLES START --- */
+        .hero-video {
             position: absolute;
-            top: 0;
-            left: 0;
+            top: 50%;
+            left: 50%;
             width: 100%;
             height: 100%;
+            object-fit: cover;
+            transform: translate(-50%, -50%);
             z-index: 1;
         }
-
-        .slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            opacity: 0;
-            transition: opacity 1.5s ease-in-out;
-            transform: scale(1.15); /* Initial scale for Ken Burns effect */
-        }
-        
-        .slide.active {
-            opacity: 1;
-            transform: scale(1); /* Animate to this scale */
-            transition: opacity 1.5s ease-in-out, transform 10s linear; /* Slower transform for a subtle effect */
-        }
-        /* --- SLIDESHOW STYLES END --- */
+        /* --- VIDEO BACKGROUND STYLES END --- */
         
         .hero-section::before {
             content: '';
             position: absolute;
             inset: 0;
-            background-color: rgba(0, 0, 0, 0.5); /* Slightly darker overlay for better text contrast */
-            z-index: 2; /* Sits above the slideshow but below the content */
+            background-color: rgba(0, 0, 0, 0.5); 
+            z-index: 2; 
         }
         
         .content-card {
             width: 100%;
             max-width: 800px;
             position: relative;
-            z-index: 3; /* Ensures content is on top of the overlay and slideshow */
+            z-index: 3; 
         }
 
         .card-content {
@@ -406,7 +389,11 @@
 
     <main>
         <section class="hero-section">
-            <div class="slideshow-container"></div>
+            <video class="hero-video" autoplay loop muted playsinline>
+                <source src="https://raw.githubusercontent.com/ceelo404/ruby-salon/76477c3061cd13aef74e169dcb03c69a90d50bca/Video_Ready_Haircut_Instructions.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
             <div class="content-card">
                 <div class="card-content">
                     <h1>Style, Perfected.</h1>
@@ -466,54 +453,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // --- SLIDESHOW SCRIPT START ---
-            const slideshowImages = [
-                'http://googleusercontent.com/image_generation_content/5',
-                'http://googleusercontent.com/image_generation_content/4',
-                'http://googleusercontent.com/image_generation_content/7',
-                'http://googleusercontent.com/image_generation_content/6'
-            ];
-            const slideshowContainer = document.querySelector('.slideshow-container');
-            let currentSlideIndex = 0;
-
-            function preloadImages(urls, callback) {
-                let loadedCount = 0;
-                urls.forEach(url => {
-                    const img = new Image();
-                    img.src = url;
-                    img.onload = img.onerror = () => {
-                        loadedCount++;
-                        if (loadedCount === urls.length) {
-                            callback();
-                        }
-                    };
-                });
-            }
-
-            function createSlides() {
-                slideshowImages.forEach((url, index) => {
-                    const slide = document.createElement('div');
-                    slide.className = 'slide';
-                    slide.style.backgroundImage = `url('${url}')`;
-                    slideshowContainer.appendChild(slide);
-                });
-            }
-
-            function showNextSlide() {
-                const slides = slideshowContainer.querySelectorAll('.slide');
-                slides.forEach(slide => slide.classList.remove('active'));
-                
-                currentSlideIndex = (currentSlideIndex + 1) % slides.length;
-                slides[currentSlideIndex].classList.add('active');
-            }
-
-            // Preload images then start slideshow
-            preloadImages(slideshowImages, () => {
-                createSlides();
-                showNextSlide(); // Show the first slide immediately
-                setInterval(showNextSlide, 8000); // Change image every 8 seconds
-            });
-            // --- SLIDESHOW SCRIPT END ---
+            // NOTE: The entire slideshow script has been removed as it's no longer needed.
 
             // Mobile Nav
             const navToggle = document.querySelector('.mobile-nav-toggle');
