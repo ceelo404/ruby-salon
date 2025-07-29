@@ -14,7 +14,7 @@
             --purple-light: #9D4EDD; 
             --light-gray: #f4f5f7;
             --dark-gray: #1b1b1f;
-            --scrolled-header-purple: #9D4EDD; /* Using your existing --purple-light value, which is a nice lighter purple */
+            --scrolled-header-purple: #9D4EDD; 
         }
         
         html {
@@ -45,11 +45,11 @@
             padding: 15px 5%;
             background: transparent; 
             z-index: 100;
-            transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Added transition */
+            transition: background-color 0.3s ease, box-shadow 0.3s ease; 
         }
 
         .site-header .logo {
-            max-height: 200px; /* Increased size for the new logo shape */
+            max-height: 200px; 
         }
 
         .site-header.scrolled {
@@ -94,7 +94,7 @@
             max-width: 800px;
             position: relative;
             z-index: 3; 
-            margin-bottom: 100px; /* Add margin to make space for the new "Locate Us" element */
+            margin-bottom: 100px; 
         }
 
         .card-content {
@@ -109,21 +109,13 @@
             line-height: 1.1;
         }
         
-        /* New styling for hero text content */
-        .card-content h1 {
-            font-size: 3em;
-            font-weight: 900;
-            margin-top: 0;
-            margin-bottom: 20px;
-            line-height: 1.1;
-        }
         .card-content p {
             font-size: 1.1em;
             line-height: 1.6;
             max-width: 600px;
             margin: 0 auto 30px;
         }
-        .card-content p:first-of-type { /* Style for the first paragraph (description) */
+        .card-content p:first-of-type { 
             margin-bottom: 20px;
         }
 
@@ -338,7 +330,7 @@
         /* NEW: Scroll down indicator */
         .scroll-down-indicator {
             position: absolute;
-            bottom: 20px; /* Adjust as needed to position it */
+            bottom: 40px; /* Adjusted from 20px to 40px */
             left: 50%;
             transform: translateX(-50%);
             display: flex;
@@ -346,25 +338,25 @@
             align-items: center;
             color: #fff;
             text-decoration: none;
-            z-index: 4; /* Ensure it's above the video overlay */
+            z-index: 4; 
             cursor: pointer;
             text-align: center;
-            opacity: 0; /* Hidden by default for animation */
-            animation: fadeIn 1s ease-out 2s forwards; /* Fade in after content loads */
+            opacity: 0; 
+            animation: fadeIn 1s ease-out 2s forwards; 
         }
 
         .scroll-down-indicator .text {
             font-weight: 700;
             font-size: 0.9em;
             margin-bottom: 5px;
-            text-shadow: 0 0 5px rgba(0,0,0,0.5); /* For better readability over video */
+            text-shadow: 0 0 5px rgba(0,0,0,0.5); 
         }
 
         .scroll-down-indicator .icon {
-            font-size: 2em; /* Size of the chevron */
+            font-size: 2em; 
             line-height: 1;
-            animation: bounce 2s infinite; /* Apply bouncing animation */
-            text-shadow: 0 0 5px rgba(0,0,0,0.5); /* For better readability over video */
+            animation: bounce 2s infinite; 
+            text-shadow: 0 0 5px rgba(0,0,0,0.5); 
         }
 
         @keyframes bounce {
@@ -392,7 +384,7 @@
             }
 
             .site-header .logo {
-                max-height: 110px; /* Adjust mobile logo size if needed */
+                max-height: 110px; 
             }
 
             .site-header .header-buttons {
@@ -478,7 +470,7 @@
 
             <a href="#find-us" class="scroll-down-indicator">
                 <span class="text">Locate Us</span>
-                <span class="icon">&#x2304;</span>
+                <span class="icon">⌄</span>
             </a>
 
         </section>
