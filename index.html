@@ -230,17 +230,21 @@
             gap: 15px; /* Add some space between icons */
         }
 
-        .social-icons a {
-            display: inline-block;
-        }
+.social-icons a {
+    display: inline-block;
+    font-size: 0; /* Ensures no visual space taken by text */
+    line-height: 0; /* Ensures no visual space taken by text */
+}
 
-        .social-icons svg {
-            width: 20px;
-            height: 20px;
-            fill: #ffffff;
-            transition: fill 0.3s;
-            vertical-align: middle;
-        }
+.social-icons svg {
+    width: 20px;
+    height: 20px;
+    fill: #ffffff;
+    transition: fill 0.3s;
+    vertical-align: middle; /* Keeps the SVG aligned */
+    font-size: initial; /* Reset font-size for the SVG itself if inherited */
+    line-height: initial; /* Reset line-height for the SVG itself if inherited */
+}
 
         .social-icons a:hover svg {
             fill: var(--purple-light);
