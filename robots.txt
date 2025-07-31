@@ -1,0 +1,8 @@
+# This line tells all crawlers (represented by *) that they are allowed to access the entire site.
+User-agent: *
+
+# The "Allow: /" directive explicitly allows crawling of the entire site.
+Allow: /
+
+# This line directs crawlers to the location of your sitemap, which helps them discover all your pages.
+Sitemap: https://ruby-salon.com/sitemap.xml
