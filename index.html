@@ -830,7 +830,26 @@
             margin-bottom: 0;
             padding-bottom: 0;
         }
-        /* Ensure specific service styles (name, details, description) apply here too */
+
+        /* NEW: Styles for the bio modal content */
+        .about-modal-content .photo-container-modal {
+            max-width: 250px; /* Set a max-width for the photo in the modal */
+            margin: 0 auto 20px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .about-modal-content .photo-container-modal img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .about-modal-content h2 {
+            font-size: 2em;
+        }
+        .about-modal-content p {
+            text-align: center;
+        }
 
 
         @media (max-width: 768px) {
@@ -871,7 +890,6 @@
                 font-size: 0.9em; /* Smaller paragraph text */
                 line-height: 1.5; /* Slightly tighter line-height for better readability */
             }
-            /* ------------------------------------------- */
             
             /* NEW/UPDATED: Adjust body padding for fixed footer on mobile */
             body {
@@ -927,9 +945,6 @@
             .our-hours-desktop-indicator {
                 display: none;
             }
-
-            /* We no longer need this style because we are using a modal instead of scrolling */
-            /* .scroll-anchor { display: none; } */
             .map-and-hours-container {
                 flex-direction: column;
                 align-items: center;
@@ -969,6 +984,15 @@
             #about-brandy-section {
                 display: none;
             }
+
+            /* Styles for the bio modal on mobile */
+            #about-modal .photo-container-modal {
+                max-width: 250px;
+                margin: 0 auto 20px;
+            }
+            #about-modal h2, #about-modal p {
+                text-align: center;
+            }
         }
 
         /* CSS FOR VISUALLY HIDING H2 */
@@ -1002,7 +1026,7 @@
         <button class="nav-close-btn" aria-label="Close navigation menu">
             <svg width="24" height="24" viewBox="0 0 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 6L18 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
-        <a href="https://book.ruby-salon.com/cancellation-adjustments-policy/" class="js-open-policy-modal" title="Book your hair appointment online">Book Now</a>
+        <a href="https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services" class="js-open-policy-modal" title="Book your hair appointment online">Book Now</a>
         
         <a id="open-about-btn" href="#" title="Learn more about Brandy Claussen Holland">About the Stylist</a>
         
@@ -1415,9 +1439,9 @@
                     event.preventDefault(); // Prevent default link behavior if it's an anchor
                     closeNav(); // Close mobile nav if it was triggered from there
                     
-                    // NEW: If the button clicked is from the services modal, close it before opening policy modal.
-                    if (event.target.closest('#services-modal')) {
-                        closeServicesModal();
+                    // If the button clicked is from a modal, close it before opening policy modal.
+                    if (event.target.closest('#services-modal') || event.target.closest('#about-modal')) {
+                        event.target.closest('.modal-overlay').classList.remove('is-visible');
                     }
 
                     openPolicyModal();
