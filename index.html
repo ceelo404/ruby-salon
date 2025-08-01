@@ -84,7 +84,7 @@
           "closes": "16:00"
         }
       ],
-      "hasMap": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3316.5168864817345!2d-84.296564984797!3d33.77490068067885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f50493864506f5%3A0xc0672e816a75a74e!2s114%20W%20Trinity%20Pl%20%2310%2C%20Decatur%2C%20GA%2030030!5e0!3m2!1sen!2sus!4v1653495821010!5m2!1sen!2sus",
+      "hasMap": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53064.10046107613!2d-84.37319755554199!3d33.77342199727208!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f507b27fa45657%3A0x1ded6e63a498978a!2sRuby%20Hair%20Salon!5e0!3m2!1sen!2sus!4v1753883662672!5m2!1sen!2sus",
       "sameAs": [
         "https://www.facebook.com/share/15oGa2Qkam/?mibextid=wwXlfr",
         "https://twitter.com/yourrubysalontwitter",
@@ -120,24 +120,6 @@
           "@type": "Service",
           "name": "Highlights",
           "description": "Transformative highlights for dimension and brightness, including toner.",
-          "url": "https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services"
-        },
-        {
-          "@type": "Service",
-          "name": "Blow out",
-          "description": "Professional blow-dry service including thorough wash and styling.",
-          "url": "https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services"
-        },
-        {
-          "@type": "Service",
-          "name": "Style",
-          "description": "Professional hair styling for elegant looks, including curls after a blowout.",
-          "url": "https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services"
-        },
-        {
-          "@type": "Service",
-          "name": "Casual Updo",
-          "description": "Effortless and elegant updo styling for various occasions.",
           "url": "https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services"
         },
         {
@@ -575,13 +557,16 @@
         }
         
         /* NEW: Styles for the invisible anchor divs */
-        .scroll-anchor {
+        /* This is the fix to account for the fixed header */
+        #about-brandy-anchor,
+        #services-anchor,
+        #find-us-anchor {
             display: block;
-            height: 0; /* No height for the anchor itself */
-            margin-top: -250px; /* Negative margin to pull the content up */
-            padding-top: 250px; /* Padding to create the visible space */
-            visibility: hidden; /* Hide the anchor visually */
-            pointer-events: none; /* Ensure it doesn't block clicks */
+            height: 0;
+            margin-top: -150px; /* Offset the content to a position above the header */
+            padding-top: 150px; /* Use padding to bring the content back down */
+            visibility: hidden;
+            pointer-events: none;
         }
 
         /* NEW: Wrapper for map and hours content */
@@ -945,10 +930,12 @@
                 display: none;
             }
 
-            .scroll-anchor {
-                display: none;
+            /* This is the fix to account for the fixed header on mobile */
+            #about-brandy-section,
+            #services,
+            #find-us {
+                scroll-margin-top: 150px; /* Add a top margin equal to the height of the header + some padding */
             }
-
             .map-and-hours-container {
                 flex-direction: column;
                 align-items: center;
@@ -1029,7 +1016,7 @@
         </button>
     </header>
 
-<nav class="mobile-nav">
+    <nav class="mobile-nav">
         <button class="nav-close-btn" aria-label="Close navigation menu">
             <svg width="24" height="24" viewBox="0 0 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 6L18 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
@@ -1151,8 +1138,8 @@
                             </li>
                             <li>
                                 <span class="service-name">Smoothing Keratin treatment</span>
-                                <span class="service-details">1 hr</span>
-                                <p class="service-description">Reduce frizz and enhance shine with our deeply conditioning keratin treatment.</p>
+                            <span class="service-details">1 hr</span>
+                            <p class="service-description">Reduce frizz and enhance shine with our deeply conditioning keratin treatment.</p>
                             </li>
                         </ul>
                     </div>
@@ -1215,7 +1202,7 @@
             </div>
             </section>
 
-        </main>
+    </main>
 
     <div id="map-modal" class="modal-overlay">
         <div class="modal-content">
@@ -1297,67 +1284,67 @@
 
                 <div class="service-category-modal">
                     <h3>Coloring & Treatments</h3>
-                    <ul>
-                        <li>
-                            <span class="service-name">One Step Color</span>
-                            <span class="service-details">1 hr 45 min</span>
-                            <p class="service-description">Achieve a beautiful, consistent single-process color. Includes toner.</p>
-                        </li>
-                        <li>
-                            <span class="service-name">Highlights</span>
-                            <span class="service-details">2 hr</span>
-                            <p class="service-description">Transform your look with expertly applied highlights, adding dimension and brightness. Includes toner.</p>
-                        </li>
-                        <li>
-                            <span class="service-name">Toner</span>
-                            <span class="service-details">1 hr</span>
-                            <p class="service-description">Refresh your existing color or neutralize unwanted tones for a vibrant finish.</p>
-                        </li>
-                        <li>
-                            <span class="service-name">Men's Camo</span>
-                            <span class="service-details">15 min</span>
-                            <p class="service-description">Subtle gray blending for a natural, refreshed look for men.</p>
-                        </li>
-                        <li>
-                            <span class="service-name">Smoothing Keratin treatment</span>
-                            <span class="service-details">1 hr</span>
-                            <p class="service-description">Reduce frizz and enhance shine with our deeply conditioning keratin treatment.</p>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="service-category-modal">
-                    <h3>Styling & Other Services</h3>
-                    <ul>
-                        <li>
-                            <span class="service-name">Blow out</span>
-                            <span class="service-details">30 min</span>
-                            <p class="service-description">Includes a thorough wash and a professional blow-dry tailored to your desired style.</p>
-                        </li>
-                        <li>
-                            <span class="service-name">Style</span>
-                            <span class="service-details">45 min</span>
-                            <p class="service-description">Elevate your look with professional styling, including beautiful curls after a blowout.</p>
+                        <ul>
+                            <li>
+                                <span class="service-name">One Step Color</span>
+                                <span class="service-details">1 hr 45 min</span>
+                                <p class="service-description">Achieve a beautiful, consistent single-process color. Includes toner.</p>
                             </li>
-                        <li>
-                            <span class="service-name">Casual Updo</span>
-                            <span class="service-details">1 hr</span>
-                            <p class="service-description">Effortless and elegant updos perfect for various occasions.</p>
-                        </li>
-                        <li>
-                            <span class="service-name">Brows</span>
-                            <span class="service-details">15 min</span>
-                            <p class="service-description">Expert brow shaping to perfectly frame your face.</p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+                            <li>
+                                <span class="service-name">Highlights</span>
+                                <span class="service-details">2 hr</span>
+                                <p class="service-description">Transform your look with expertly applied highlights, adding dimension and brightness. Includes toner.</p>
+                            </li>
+                            <li>
+                                <span class="service-name">Toner</span>
+                                <span class="service-details">1 hr</span>
+                                <p class="service-description">Refresh your existing color or neutralize unwanted tones for a vibrant finish.</p>
+                            </li>
+                            <li>
+                                <span class="service-name">Men's Camo</span>
+                                <span class="service-details">15 min</span>
+                                <p class="service-description">Subtle gray blending for a natural, refreshed look for men.</p>
+                            </li>
+                            <li>
+                                <span class="service-name">Smoothing Keratin treatment</span>
+                                <span class="service-details">1 hr</span>
+                                <p class="service-description">Reduce frizz and enhance shine with our deeply conditioning keratin treatment.</p>
+                            </li>
+                        </ul>
+                    </div>
 
-            <div class="button-container">
-                <a href="https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services" class="button js-open-policy-modal" title="View all services and book your appointment online">View All Services & Book Online</a>
+                    <div class="service-category-modal">
+                        <h3>Styling & Other Services</h3>
+                        <ul>
+                            <li>
+                                <span class="service-name">Blow out</span>
+                                <span class="service-details">30 min</span>
+                                <p class="service-description">Includes a thorough wash and a professional blow-dry tailored to your desired style.</p>
+                            </li>
+                            <li>
+                                <span class="service-name">Style</span>
+                                <span class="service-details">45 min</span>
+                                <p class="service-description">Elevate your look with professional styling, including beautiful curls after a blowout.</p>
+                            </li>
+                            <li>
+                                <span class="service-name">Casual Updo</span>
+                                <span class="service-details">1 hr</span>
+                                <p class="service-description">Effortless and elegant updos perfect for various occasions.</p>
+                            </li>
+                            <li>
+                                <span class="service-name">Brows</span>
+                                <span class="service-details">15 min</span>
+                                <p class="service-description">Expert brow shaping to perfectly frame your face.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="button-container">
+                    <a href="https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services" class="button js-open-policy-modal" title="View all services and book your appointment online">View All Services & Book Online</a>
+                </div>
             </div>
         </div>
-    </div>
     <footer>
         <div class="footer-content">
             <p>© 2025 Ruby Salon</p>
