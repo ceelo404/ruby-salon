@@ -4,10 +4,11 @@
 :root {
     --purple: #7B2CBF;
     --purple-dark: #5A189A;
-    --purple-light: #9D4EDD; 
+    --purple-light: #9D4EDD;
     --light-gray: #f4f5f7;
     --dark-gray: #1b1b1f;
-    --scrolled-header-purple: #9D4EDD; 
+    --scrolled-header-purple: #9D4EDD;
+    --header-height: 120px; /* Define a consistent header height */
 }
 html {
     scroll-behavior: smooth;
@@ -21,7 +22,7 @@ body {
     margin: 0;
     background-color: var(--light-gray);
     color: #fff;
-    padding-bottom: 100px; /* Base padding for footer */
+    padding-bottom: var(--header-height); /* Ensure space for the footer */
 }
 
 /* ==============================================
@@ -36,28 +37,34 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 15px 5%;
-    background: transparent; 
+    background-color: transparent;
     z-index: 100;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease; 
-}
-.site-header .logo {
-    max-height: 200px; 
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 .site-header.scrolled {
-    background-color: var(--scrolled-header-purple); 
+    background-color: var(--scrolled-header-purple);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+.site-header .logo {
+    max-height: 200px;
 }
 .site-header .header-buttons {
     display: flex;
     gap: 10px;
 }
-.site-header a.button { /* Ensure button styles apply correctly */
+.site-header a.button {
     margin: 5px;
 }
 .site-header .logo-small {
     max-height: 110px;
 }
 
+/* New style for static pages to ensure header is solid */
+.site-header-static {
+    background-color: var(--scrolled-header-purple);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    position: sticky;
+}
 
 /* ==============================================
    HERO SECTION STYLES
@@ -72,7 +79,7 @@ body {
     position: relative;
     text-align: center;
     padding: 20px;
-    overflow: hidden; 
+    overflow: hidden;
 }
 .hero-video {
     position: absolute;
@@ -88,14 +95,14 @@ body {
     content: '';
     position: absolute;
     inset: 0;
-    background-color: rgba(0, 0, 0, 0.5); 
-    z-index: 2; 
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
 }
 .content-card {
     width: 100%;
     max-width: 800px;
     position: relative;
-    z-index: 3; 
+    z-index: 3;
     margin-bottom: 100px;
 }
 .card-content {
@@ -114,7 +121,7 @@ body {
     max-width: 600px;
     margin: 0 auto 30px;
 }
-.card-content p:first-of-type { 
+.card-content p:first-of-type {
     margin-bottom: 20px;
 }
 .scroll-indicators-wrapper {
@@ -126,7 +133,7 @@ body {
     gap: 0;
     z-index: 4;
     opacity: 0;
-    animation: fadeIn 1s ease-out 2s forwards; 
+    animation: fadeIn 1s ease-out 2s forwards;
 }
 .scroll-down-indicator {
     display: flex;
@@ -141,13 +148,13 @@ body {
     font-weight: 700;
     font-size: 0.9em;
     margin-bottom: 5px;
-    text-shadow: 0 0 5px rgba(0,0,0,0.5); 
+    text-shadow: 0 0 5px rgba(0,0,0,0.5);
 }
 .scroll-down-indicator .icon {
-    font-size: 2em; 
+    font-size: 2em;
     line-height: 1;
     animation: bounce 2s infinite;
-    text-shadow: 0 0 5px rgba(0,0,0,0.5); 
+    text-shadow: 0 0 5px rgba(0,0,0,0.5);
 }
 
 /* ==============================================
@@ -281,10 +288,9 @@ body {
 
 /* ==============================================
    MAIN CONTENT SECTIONS STYLES
-   (For services.html and stylist-bio.html)
    ============================================== */
 .main-content-wrapper {
-    padding: 120px 20px;
+    padding: var(--header-height) 20px 40px; /* Correct padding to account for fixed header */
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -333,24 +339,24 @@ body {
 .service-category h3 {
     font-size: 1.8em;
     font-weight: 700;
-    color: var(--purple); 
+    color: var(--purple);
     margin-top: 0;
     margin-bottom: 25px;
-    text-align: center; 
+    text-align: center;
 }
 .service-category ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    flex-grow: 1; 
+    flex-grow: 1;
 }
 .service-category li {
     margin-bottom: 20px;
-    border-bottom: 1px dashed rgba(0, 0, 0, 0.1); 
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
     padding-bottom: 15px;
 }
 .service-category li:last-child {
-    border-bottom: none; 
+    border-bottom: none;
     margin-bottom: 0;
     padding-bottom: 0;
 }
@@ -406,6 +412,7 @@ body {
 .stylist-text-content p:last-of-type {
     margin-bottom: 0;
 }
+
 /* ==============================================
    FOOTER STYLES
    ============================================== */
@@ -496,7 +503,7 @@ footer p {
         justify-content: space-between;
     }
     .site-header .logo {
-        max-height: 110px; 
+        max-height: 110px;
     }
     .site-header .header-buttons {
         display: none;
@@ -514,31 +521,31 @@ footer p {
         margin-bottom: 20px;
     }
     .card-content h1 {
-        font-size: 2.2em; 
+        font-size: 2.2em;
     }
     .card-content p {
-        font-size: 1em; 
+        font-size: 1em;
     }
     .scroll-indicators-wrapper {
-        display: none; 
+        display: none;
     }
     .footer-content {
-        flex-direction: column; 
+        flex-direction: column;
         justify-content: center;
-        align-items: center; 
+        align-items: center;
         gap: 15px;
-        flex-wrap: wrap; 
+        flex-wrap: wrap;
     }
     footer p {
-        margin: 0; 
-        font-size: 0.9em; 
+        margin: 0;
+        font-size: 0.9em;
         flex-grow: 0;
         flex-shrink: 1;
-        text-align: center; 
-        white-space: normal; 
-        max-width: 100%; 
-        box-sizing: border-box; 
-        line-height: 1.4; 
+        text-align: center;
+        white-space: normal;
+        max-width: 100%;
+        box-sizing: border-box;
+        line-height: 1.4;
     }
     .footer-content p:nth-of-type(2) {
         padding: 0 10px;
