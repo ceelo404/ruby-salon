@@ -20,14 +20,8 @@
     <meta name="twitter:image" content="https://ruby-salon.com/ruby-salon-social-share.jpg">
     <link rel="icon" href="https://ruby-salon.com/favicon.png" type="image/png">
     <link rel="shortcut icon" href="https://ruby-salon.com/favicon.png" type="image/png">
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" media="print" onload="this.onload=null;this.media='all'">
-    <noscript>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap">
-    </noscript>
-
-    <!-- This links to your single, external CSS file -->
+    
+    <!-- Link to the external stylesheet -->
     <link rel="stylesheet" href="style.css">
 
     <script type="application/ld+json">
@@ -256,8 +250,6 @@
         </section>
 
     </main>
-
-    <!-- All modals are moved here from the individual pages to be accessible site-wide -->
     <div id="map-modal" class="modal-overlay">
         <div class="modal-content">
             <button class="modal-close-btn" aria-label="Close map modal">
@@ -336,7 +328,7 @@
                 </div>
             </div>
             <div class="button-container">
-                <a href="https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services" class="button js-open-policy-modal" title="View all services and book your appointment online">View All Services & Book Online</a>
+                <a href="https://book.squareup.com/appointments/buyer/widget/uv35is9190nn4a/L0GKZSP0E9SDX" class="button js-open-policy-modal" title="View all services and book your appointment online">View All Services & Book Online</a>
             </div>
         </div>
     </div>
@@ -373,6 +365,7 @@
             const navClose = document.querySelector('.nav-close-btn');
             const mobileNav = document.querySelector('.mobile-nav');
             const navLinks = document.querySelectorAll('.mobile-nav a');
+            const header = document.querySelector('.site-header');
 
             function openNav() { mobileNav.classList.add('is-open'); }
             function closeNav() { mobileNav.classList.remove('is-open'); }
@@ -390,24 +383,62 @@
             const openHoursBtn = document.getElementById('open-hours-btn');
             const hoursModal = document.getElementById('hours-modal');
             const hoursModalCloseBtn = hoursModal.querySelector('.modal-close-btn');
+            const bookingButtons = document.querySelectorAll('.js-open-policy-modal');
+            const policyModal = document.getElementById('policy-modal');
+            const policyModalCloseBtn = policyModal.querySelector('.modal-close-btn');
+            const openServicesBtn = document.getElementById('open-services-btn');
+            const servicesModal = document.getElementById('services-modal');
+            const servicesModalCloseBtn = servicesModal.querySelector('.modal-close-btn');
+            const openStylistBtn = document.getElementById('open-stylist-btn');
+            const stylistModal = document.getElementById('stylist-modal');
+            const stylistModalCloseBtn = stylistModal.querySelector('.modal-close-btn');
 
             function openMapModal() { mapModal.classList.add('is-visible'); document.body.style.overflow = 'hidden'; }
             function closeMapModal() { mapModal.classList.remove('is-visible'); document.body.style.overflow = ''; }
             function openHoursModal() { hoursModal.classList.add('is-visible'); document.body.style.overflow = 'hidden'; }
             function closeHoursModal() { hoursModal.classList.remove('is-visible'); document.body.style.overflow = ''; }
+            function openPolicyModal() { policyModal.classList.add('is-visible'); document.body.style.overflow = 'hidden'; }
+            function closePolicyModal() { policyModal.classList.remove('is-visible'); document.body.style.overflow = ''; }
+            function openServicesModal() { servicesModal.classList.add('is-visible'); document.body.style.overflow = 'hidden'; }
+            function closeServicesModal() { servicesModal.classList.remove('is-visible'); document.body.style.overflow = ''; }
+            function openStylistModal() { stylistModal.classList.add('is-visible'); document.body.style.overflow = 'hidden'; }
+            function closeStylistModal() { stylistModal.classList.remove('is-visible'); document.body.style.overflow = ''; }
 
             if (openMapBtn) { openMapBtn.addEventListener('click', openMapModal); }
             if (mapModalCloseBtn) { mapModalCloseBtn.addEventListener('click', closeMapModal); }
             if (openHoursBtn) { openHoursBtn.addEventListener('click', openHoursModal); }
             if (hoursModalCloseBtn) { hoursModalCloseBtn.addEventListener('click', closeHoursModal); }
+            if (openServicesBtn) { openServicesBtn.addEventListener('click', openServicesModal); }
+            if (servicesModalCloseBtn) { servicesModalCloseBtn.addEventListener('click', closeServicesModal); }
+            if (openStylistBtn) { openStylistBtn.addEventListener('click', openStylistModal); }
+            if (stylistModalCloseBtn) { stylistModalCloseBtn.addEventListener('click', closeStylistModal); }
+
+            bookingButtons.forEach(button => {
+                button.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    if (event.target.closest('#services-modal')) { closeServicesModal(); }
+                    openPolicyModal();
+                });
+            });
+
+            policyModalCloseBtn.addEventListener('click', closePolicyModal);
 
             document.addEventListener('click', (event) => {
-                if (mobileNav.classList.contains('is-open') && !event.target.closest('.mobile-nav') && !event.target.closest('.mobile-nav-toggle')) {
-                    closeNav();
-                }
+                if (mobileNav.classList.contains('is-open') && !event.target.closest('.mobile-nav') && !event.target.closest('.mobile-nav-toggle')) { closeNav(); }
                 if (event.target === mapModal) { closeMapModal(); }
+                if (event.target === policyModal) { closePolicyModal(); }
                 if (event.target === hoursModal) { closeHoursModal(); }
+                if (event.target === servicesModal) { closeServicesModal(); }
+                if (event.target === stylistModal) { closeStylistModal(); }
             });
+            
+            if (window.location.pathname === '/index.html' || window.location.pathname === '/') {
+                window.addEventListener('scroll', () => {
+                    header.classList.toggle('scrolled', window.scrollY > 50);
+                });
+            } else {
+                header.classList.add('scrolled');
+            }
         });
     </script>
 </body>
