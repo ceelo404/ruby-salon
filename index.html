@@ -818,48 +818,6 @@
             color: #444;
         }
 
-        /* ============================================== */
-        /* NEW: Styles for service categories within modal*/
-        /* ============================================== */
-        .service-categories-modal {
-            display: flex;
-            flex-direction: column; /* Always stack vertically in modal */
-            gap: 25px;
-            margin-bottom: 40px;
-        }
-
-        .service-category-modal {
-            background-color: var(--light-gray); /* Lighter gray background for each category card */
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: none; /* Removed shadow for simpler modal look */
-            text-align: left;
-        }
-        .service-category-modal h3 {
-            font-size: 1.6em;
-            font-weight: 700;
-            color: var(--purple); 
-            margin-top: 0;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        .service-category-modal ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .service-category-modal li {
-            margin-bottom: 15px;
-            border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
-            padding-bottom: 10px;
-        }
-        .service-category-modal li:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-        /* Ensure specific service styles (name, details, description) apply here too */
-        
         @media (max-width: 768px) {
             .site-header {
                 padding: 15px;
@@ -1026,9 +984,8 @@
             <svg width="24" height="24" viewBox="0 0 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 6L18 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <a href="https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services" class="js-open-policy-modal" title="Book your hair appointment online">Book Now</a>
-        
+        <a id="open-about-btn" href="#" title="Learn more about Brandy Claussen Holland">About the Stylist</a>
         <a id="open-services-btn" href="#" title="View our hair salon services">Our Services</a> 
-        
         <a href="https://venmo.com/u/Brandy-Claussen" title="Tip your stylist online">Tip Online</a>
         <a href="tel:+14043893114" title="Call Ruby Salon">Contact Us</a> 
         <a id="open-map-btn" title="Find Ruby Salon on the map">Find Us</a>
@@ -1049,7 +1006,6 @@
                     <div>
                         <a href="https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services" class="button js-open-policy-modal" title="Schedule your hair appointment at Ruby Salon">Book An Appointment</a>
                     </div>
-                </div>
             </div>
 
             <div class="scroll-indicators-wrapper">
@@ -1079,23 +1035,23 @@
                                 <span class="service-name">Women's Hair Cut</span>
                                 <span class="service-details">45 min</span>
                                 <p class="service-description">Experience a precision haircut tailored to your unique style. Includes a thorough wash, relaxing scalp massage, and professional blow-dry.</p>
-                            </li>
-                            <li>
-                                <span class="service-name">Men's Hair Cut</span>
-                                <span class="service-details">30 min</span>
-                                <p class="service-description">Sharp and modern cuts designed for men, including consultation and style finish.</p>
-                            </li>
-                            <li>
-                                <span class="service-name">Kids Hair Cut (10yr under)</span>
-                                <span class="service-details">30 min</span>
-                                <p class="service-description">Expert cuts for our younger clients, ensuring a comfortable and fun experience.</p>
-                            </li>
-                            <li>
-                                <span class="service-name">Bang trim</span>
-                                <span class="service-details">15 min</span>
-                                <p class="service-description">A complimentary quick trim to keep your bangs looking fresh between appointments.</p>
-                            </li>
-                        </ul>
+                        </li>
+                        <li>
+                            <span class="service-name">Men's Hair Cut</span>
+                            <span class="service-details">30 min</span>
+                            <p class="service-description">Sharp and modern cuts designed for men, including consultation and style finish.</p>
+                        </li>
+                        <li>
+                            <span class="service-name">Kids Hair Cut (10yr under)</span>
+                            <span class="service-details">30 min</span>
+                            <p class="service-description">Expert cuts for our younger clients, ensuring a comfortable and fun experience.</p>
+                        </li>
+                        <li>
+                            <span class="service-name">Bang trim</span>
+                            <span class="service-details">15 min</span>
+                            <p class="service-description">A complimentary quick trim to keep your bangs looking fresh between appointments.</p>
+                        </li>
+                    </ul>
                     </div>
 
                     <div class="service-category">
@@ -1113,6 +1069,7 @@
                         </li>
                         <li>
                             <span class="service-name">Toner</span>
+                            <span class="service-details">1 hr</span>
                             <p class="service-description">Refresh your existing color or neutralize unwanted tones for a vibrant finish.</p>
                         </li>
                         <li>
@@ -1135,193 +1092,6 @@
                                 <span class="service-name">Blow out</span>
                                 <span class="service-details">30 min</span>
                                 <p class="service-description">Includes a thorough wash and a professional blow-dry tailored to your desired style.</p>
-                            </li>
-                            <li>
-                                <span class="service-name">Style</span>
-                                <span class="service-details">45 min</span>
-                                <p class="service-description">Elevate your look with professional styling, including beautiful curls after a blowout.</p>
-                            </li>
-                            <li>
-                                <span class="service-name">Casual Updo</span>
-                                <span class="service-details">1 hr</span>
-                                <p class="service-description">Effortless and elegant updos perfect for various occasions.</p>
-                            </li>
-                            <li>
-                                <span class="service-name">Brows</span>
-                                <span class="service-details">15 min</span>
-                                <p class="service-description">Expert brow shaping to perfectly frame your face.</p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="button-container" style="margin-top: 40px;">
-                    <a href="https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services" class="button" target="_blank" rel="noopener noreferrer" title="View all services and book your appointment online">View All Services & Book Online</a>
-                </div>
-            </div>
-        </section>
-        <section id="find-us" class="more-info">
-            <div id="find-us-anchor" class="scroll-anchor"></div>
-            <h2 class="visually-hidden">Visit Ruby Salon - Your Trusted Hairdresser in Decatur</h2>
-            
-            <div class="find-us-content-wrapper">
-                <div class="map-and-hours-container">
-                    <div class="map-container">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53064.10046107613!2d-84.37319755554199!3d33.77342199727208!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f507b27fa45657%3A0x1ded6e63a498978a!2sRuby%20Hair%20Salon!5e0!3m2!1sen!2sus!4v1753883662672!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Google Map of Ruby Salon location in Decatur, GA"></iframe>
-                    </div>
-                    <div class="hours-display-desktop">
-                        <h3>Our Hours</h3>
-                        <div class="hours-content">
-                            <p>Monday: <span>10:15 AM – 5:00 PM</span></p>
-                            <p>Tuesday: <span>11:00 AM – 5:00 PM</span></p>
-                            <p>Wednesday: <span>11:00 AM – 5:00 PM</span></p>
-                            <p>Thursday: <span>12:00 PM – 7:00 PM</span></p>
-                            <p>Friday: <span>10:15 AM – 4:00 PM</span></p>
-                            <p>Saturday: <span>10:00 AM – 4:00 PM</span></p>
-                            <p>Sunday: <span>Closed</span></p>
-                    </div>
-                        <p class="parking-info">Validated 2Hr Parking in the AMLI parking garage 122 W Trinity Pl.</p>
-                    </div>
-                </div>
-            </div>
-            </section>
-
-        </main>
-
-        <div id="about-modal" class="modal-overlay">
-        <div class="modal-content">
-            <button class="modal-close-btn" aria-label="Close about modal">
-                <svg width="24" height="24" viewBox="0 0 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18" stroke="#1b1b1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 6L18 18" stroke="#1b1b1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-            <div class="photo-container-modal">
-                <figure>
-                    <img src="https://via.placeholder.com/350x450.png?text=Brandy+Holland+Headshot" alt="Headshot of Brandy Claussen Holland, Master Stylist" loading="lazy">
-                    <figcaption>Brandy Claussen Holland, Master Stylist & Colorist</figcaption>
-                </figure>
-            </div>
-            <h2>About the Stylist</h2>
-            <p>With a distinguished career spanning over two decades, Brandy Claussen Holland is a true artisan in the world of hair. Her journey began with an intensive foundation at the prestigious **Vidal Sassoon Academy in London**, followed by advanced training with industry leaders **Toni & Guy** and two sessions at **Bumble and Bumble in NYC**. This extensive education instilled a mastery of precision cutting and an exceptional eye for detail, making her a trusted expert in her field.</p>
-            <p>Brandy's passion lies in enhancing natural beauty. She specializes in creating stunning, natural-looking color, with a particular love for **lived-in blondes and dimensional brunettes**. She also excels at crafting seamless, low-maintenance looks that grow out beautifully. Her expertise extends to all hair types, with a celebrated skill in cutting and styling **curly hair of all lengths**.</p>
-            <p>Beyond her technical prowess, Brandy's philosophy is simple: she believes in making every client feel like the best version of themselves. Her warm and welcoming approach ensures a comfortable, confident experience from start to finish. Her dedication to the art of hairstyling has earned her a loyal clientele and a reputation for consistently delivering impeccable results.</p>
-        </div>
-    </div>
-    
-    <div id="map-modal" class="modal-overlay">
-        <div class="modal-content">
-            <button class="modal-close-btn" aria-label="Close map modal">
-                <svg width="24" height="24" viewBox="0 0 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18" stroke="#1b1b1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 6L18 18" stroke="#1b1b1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-            <h2>Find Us</h2>
-            <p class="modal-parking-info">Validated 2Hr Parking at the AMLI parking garage 122 W Trinity Pl.</p>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53064.10046107613!2d-84.37319755554199!3d33.77342199727208!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f507b27fa45657%3A0x1ded6e63a498978a!2sRuby%20Hair%20Salon!5e0!3m2!1sen!2sus!4v1753883662672!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Google Map of Ruby Salon location in Decatur, GA"></iframe>
-        </div>
-    </div>
-    
-    <div id="policy-modal" class="modal-overlay">
-        <div class="modal-content">
-            <button class="modal-close-btn" aria-label="Close policy modal">
-                <svg width="24" height="24" viewBox="0 0 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18" stroke="#1b1b1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 6L18 18" stroke="#1b1b1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-            <h2>Cancellation & Adjustments Policy</h2>
-            <p><strong>Cancellation Policy:</strong> Cancellations made less than 24 hours prior to the appointment may result in a cancellation fee of 50% of the service price.</p>
-            <p><strong>Adjustments Policy:</strong> At Ruby Salon, we want you to love your look. If you need an adjustment within 10 days of your service, please reach out to book a complimentary adjustment.</p>
-            <div class="button-container">
-                <a href="https://app.squareup.com/appointments/buyer/widget/uv35is9190nn4a/L0GKZSP0E9SDX" class="button" title="Agree to policy and book appointment">Agree & Book</a>
-            </div>
-        </div>
-    </div>
-
-    <div id="hours-modal" class="modal-overlay">
-        <div class="modal-content">
-            <button class="modal-close-btn" aria-label="Close hours modal">
-                <svg width="24" height="24" viewBox="0 0 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18" stroke="#1b1b1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 6L18 18" stroke="#1b1b1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-            <h2>Our Hours</h2>
-            <div class="hours-content">
-                <p>Monday: <span>10:15 AM – 5:00 PM</span></p>
-                <p>Tuesday: <span>11:00 AM – 5:00 PM</span></p>
-                <p>Wednesday: <span>11:00 AM – 5:00 PM</span></p>
-                <p>Thursday: <span>12:00 PM – 7:00 PM</span></p>
-                <p>Friday: <span>10:15 AM – 4:00 PM</span></p>
-                <p>Saturday: <span>10:00 AM – 4:00 PM</span></p>
-                <p>Sunday: <span>Closed</span></p>
-            </div>
-        </div>
-    </div>
-
-    <div id="services-modal" class="modal-overlay">
-        <div class="modal-content">
-            <button class="modal-close-btn" aria-label="Close services modal">
-                <svg width="24" height="24" viewBox="0 0 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18" stroke="#1b1b1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 6L18 18" stroke="#1b1b1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-            <h2>All Our Hair Services</h2>
-            <p class="modal-description">At Ruby Salon, we offer a comprehensive range of hair services designed to bring your vision to life. For detailed pricing, availability, and to book your appointment, please visit our online booking page.</p>
-
-            <div class="service-categories-modal">
-                <div class="service-category-modal">
-                    <h3>Haircuts</h3>
-                    <ul>
-                        <li>
-                            <span class="service-name">Women's Hair Cut</span>
-                            <span class="service-details">45 min</span>
-                            <p class="service-description">Experience a precision haircut tailored to your unique style. Includes a thorough wash, relaxing scalp massage, and professional blow-dry.</p>
-                        </li>
-                        <li>
-                            <span class="service-name">Men's Hair Cut</span>
-                            <span class="service-details">30 min</span>
-                            <p class="service-description">Sharp and modern cuts designed for men, including consultation and style finish.</p>
-                        </li>
-                        <li>
-                            <span class="service-name">Kids Hair Cut (10yr under)</span>
-                            <span class="service-details">30 min</span>
-                            <p class="service-description">Expert cuts for our younger clients, ensuring a comfortable and fun experience.</p>
-                        </li>
-                        <li>
-                            <span class="service-name">Bang trim</span>
-                            <span class="service-details">15 min</span>
-                            <p class="service-description">A complimentary quick trim to keep your bangs looking fresh between appointments.</p>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="service-category-modal">
-                    <h3>Coloring & Treatments</h3>
-                    <ul>
-                        <li>
-                            <span class="service-name">One Step Color</span>
-                            <span class="service-details">1 hr 45 min</span>
-                            <p class="service-description">Achieve a beautiful, consistent single-process color. Includes toner.</p>
-                        </li>
-                        <li>
-                            <span class="service-name">Highlights</span>
-                            <span class="service-details">2 hr</span>
-                            <p class="service-description">Transform your look with expertly applied highlights, adding dimension and brightness. Includes toner.</p>
-                        </li>
-                        <li>
-                            <span class="service-name">Toner</span>
-                            <span class="service-details">1 hr</span>
-                            <p class="service-description">Refresh your existing color or neutralize unwanted tones for a vibrant finish.</p>
-                        </li>
-                        <li>
-                            <span class="service-name">Men's Camo</span>
-                            <span class="service-details">15 min</span>
-                            <p class="service-description">Subtle gray blending for a natural, refreshed look for men.</p>
-                        </li>
-                        <li>
-                            <span class="service-name">Smoothing Keratin treatment</span>
-                            <span class="service-details">1 hr</span>
-                            <p class="service-description">Reduce frizz and enhance shine with our deeply conditioning keratin treatment.</p>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="service-category-modal">
-                    <h3>Styling & Other Services</h3>
-                    <ul>
-                        <li>
-                            <span class="service-name">Blow out</span>
-                            <span class="service-details">30 min</span>
-                            <p class="service-description">Includes a thorough wash and a professional blow-dry tailored to your desired style.</p>
                         </li>
                         <li>
                             <span class="service-name">Style</span>
