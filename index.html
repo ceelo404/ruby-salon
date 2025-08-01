@@ -557,14 +557,12 @@
         }
         
         /* NEW: Styles for the invisible anchor divs */
-        /* This is the fix to account for the fixed header */
-        #about-brandy-anchor,
-        #services-anchor,
-        #find-us-anchor {
+        /* These are now only used for the desktop scrolling experience */
+        .scroll-anchor {
             display: block;
             height: 0;
-            margin-top: -150px; /* Offset the content to a position above the header */
-            padding-top: 150px; /* Use padding to bring the content back down */
+            margin-top: -150px;
+            padding-top: 150px;
             visibility: hidden;
             pointer-events: none;
         }
@@ -930,12 +928,8 @@
                 display: none;
             }
 
-            /* This is the fix to account for the fixed header on mobile */
-            #about-brandy-section,
-            #services,
-            #find-us {
-                scroll-margin-top: 150px; /* Add a top margin equal to the height of the header + some padding */
-            }
+            /* We no longer need this style because we are using a modal instead of scrolling */
+            /* .scroll-anchor { display: none; } */
             .map-and-hours-container {
                 flex-direction: column;
                 align-items: center;
@@ -971,21 +965,9 @@
             }
             /* -------------------------------------------------- */
 
-            /* NEW: About Brandy section on mobile */
-            #about-brandy-section .container {
-                flex-direction: column;
-            }
-            #about-brandy-section .photo-container {
-                order: -1; /* Puts the image on top of the text on mobile */
-                margin-bottom: 20px;
-                max-width: 100%; /* Image can be full-width on mobile */
-            }
-            #about-brandy-section h2 {
-                text-align: center;
-                margin-bottom: 20px;
-            }
-            #about-brandy-section p {
-                text-align: center; /* Center the text for mobile readability */
+            /* NEW: Hide the on-page About Brandy section on mobile */
+            #about-brandy-section {
+                display: none;
             }
         }
 
@@ -1022,7 +1004,7 @@
         </button>
         <a href="https://book.ruby-salon.com/cancellation-adjustments-policy/" class="js-open-policy-modal" title="Book your hair appointment online">Book Now</a>
         
-        <a href="#about-brandy-section" title="Learn more about Brandy Claussen Holland">About the Stylist</a>
+        <a id="open-about-btn" href="#" title="Learn more about Brandy Claussen Holland">About the Stylist</a>
         
         <a id="open-services-btn" href="#" title="View our hair salon services">Our Services</a>
         
@@ -1138,8 +1120,8 @@
                             </li>
                             <li>
                                 <span class="service-name">Smoothing Keratin treatment</span>
-                            <span class="service-details">1 hr</span>
-                            <p class="service-description">Reduce frizz and enhance shine with our deeply conditioning keratin treatment.</p>
+                                <span class="service-details">1 hr</span>
+                                <p class="service-description">Reduce frizz and enhance shine with our deeply conditioning keratin treatment.</p>
                             </li>
                         </ul>
                     </div>
@@ -1204,6 +1186,26 @@
 
     </main>
 
+    <div id="about-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close-btn" aria-label="Close about modal">
+                <svg width="24" height="24" viewBox="0 0 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18" stroke="#1b1b1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 6L18 18" stroke="#1b1b1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="about-modal-content">
+                <div class="photo-container-modal">
+                    <figure>
+                        <img src="https://via.placeholder.com/350x450.png?text=Brandy+Holland+Headshot" alt="Headshot of Brandy Claussen Holland, Master Stylist" loading="lazy">
+                        <figcaption>Brandy Claussen Holland, Master Stylist & Colorist</figcaption>
+                    </figure>
+                </div>
+                <h2>About the Stylist</h2>
+                <p>With a distinguished career spanning over two decades, Brandy Claussen Holland is a true artisan in the world of hair. Her journey began with an intensive foundation at the prestigious **Vidal Sassoon Academy in London**, followed by advanced training with industry leaders **Toni & Guy** and two sessions at **Bumble and Bumble in NYC**. This extensive education instilled a mastery of precision cutting and an exceptional eye for detail, making her a trusted expert in her field.</p>
+                <p>Brandy's passion lies in enhancing natural beauty. She specializes in creating stunning, natural-looking color, with a particular love for **lived-in blondes and dimensional brunettes**. She also excels at crafting seamless, low-maintenance looks that grow out beautifully. Her expertise extends to all hair types, with a celebrated skill in cutting and styling **curly hair of all lengths**.</p>
+                <p>Beyond her technical prowess, Brandy's philosophy is simple: she believes in making every client feel like the best version of themselves. Her warm and welcoming approach ensures a comfortable, confident experience from start to finish. Her dedication to the art of hairstyling has earned her a loyal clientele and a reputation for consistently delivering impeccable results.</p>
+            </div>
+        </div>
+    </div>
+    
     <div id="map-modal" class="modal-overlay">
         <div class="modal-content">
             <button class="modal-close-btn" aria-label="Close map modal">
@@ -1456,6 +1458,23 @@
                 });
             }
             servicesModalCloseBtn.addEventListener('click', closeServicesModal);
+            
+            // NEW: About Modal (for mobile)
+            const openAboutBtn = document.getElementById('open-about-btn');
+            const aboutModal = document.getElementById('about-modal');
+            const aboutModalCloseBtn = aboutModal.querySelector('.modal-close-btn');
+            
+            function openAboutModal() { aboutModal.classList.add('is-visible'); document.body.style.overflow = 'hidden'; }
+            function closeAboutModal() { aboutModal.classList.remove('is-visible'); document.body.style.overflow = ''; }
+            
+            if (openAboutBtn) {
+                openAboutBtn.addEventListener('click', (event) => {
+                    event.preventDefault(); // Prevent default anchor behavior
+                    closeNav();
+                    openAboutModal();
+                });
+            }
+            aboutModalCloseBtn.addEventListener('click', closeAboutModal);
 
 
             // Close listeners for all modals and nav (click outside)
@@ -1476,13 +1495,16 @@
                 if (event.target === servicesModal) {
                     closeServicesModal();
                 }
+                if (event.target === aboutModal) {
+                    closeAboutModal();
+                }
             });
 
-            // Smooth scroll for "Locate Us" indicator (desktop only now, as services is modal on mobile)
+            // Smooth scroll for "Locate Us" indicator (desktop only)
             const scrollToLocateUsDesktop = document.getElementById('scroll-down-indicator-locate-us');
             const isMobileView = () => window.matchMedia("(max-width: 768px)").matches;
 
-            if (scrollToLocateUsDesktop && !isMobileView()) { // Only apply for desktop view
+            if (scrollToLocateUsDesktop && !isMobileView()) {
                 scrollToLocateUsDesktop.addEventListener('click', (e) => {
                     e.preventDefault();
                     const targetId = scrollToLocateUsDesktop.getAttribute('href');
@@ -1492,13 +1514,12 @@
                     }
                 });
             } else if (scrollToLocateUsDesktop && isMobileView()) {
-                // For mobile, if "Locate Us" is clicked, open map modal
+                // For mobile, open map modal on click
                 scrollToLocateUsDesktop.addEventListener('click', (event) => {
                     event.preventDefault();
                     openMapModal();
                 });
             }
-
 
             // NEW: Footer address link behavior (desktop vs mobile)
             const footerAddressLink = document.getElementById('footer-address-link');
