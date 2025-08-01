@@ -131,7 +131,7 @@
         {
           "@type": "Service",
           "name": "Men's Camo",
-          "description": "Subtle gray blending service for a natural, refreshed look for men.",
+          "description": "Subtle gray blending for a natural, refreshed look for men.",
           "url": "https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services"
         },
         {
@@ -832,6 +832,12 @@
         }
 
         /* NEW: Styles for the bio modal content */
+        /* This is the fix to make the modal scrollable */
+        .about-modal-content {
+            max-height: 80vh; /* Set a specific height for scrolling */
+            overflow-y: auto; /* Enable vertical scrolling */
+            -webkit-overflow-scrolling: touch; /* For smoother scrolling on iOS */
+        }
         .about-modal-content .photo-container-modal {
             max-width: 250px; /* Set a max-width for the photo in the modal */
             margin: 0 auto 20px;
@@ -1211,11 +1217,11 @@
     </main>
 
     <div id="about-modal" class="modal-overlay">
-        <div class="modal-content">
+        <div class="modal-content about-modal-content">
             <button class="modal-close-btn" aria-label="Close about modal">
                 <svg width="24" height="24" viewBox="0 0 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18" stroke="#1b1b1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 6L18 18" stroke="#1b1b1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
-            <div class="about-modal-content">
+            <div class="about-modal-content-inner">
                 <div class="photo-container-modal">
                     <figure>
                         <img src="https://via.placeholder.com/350x450.png?text=Brandy+Holland+Headshot" alt="Headshot of Brandy Claussen Holland, Master Stylist" loading="lazy">
