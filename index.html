@@ -834,15 +834,15 @@
         }
         
         /* NEW: Styles for stylist bio in modal */
-        .stylist-modal-image {
-            display: block;
-            width: 100%;
-            max-width: 200px;
-            height: auto;
-            border-radius: 50%; /* Circular image */
-            margin: 0 auto 25px auto; /* Centered with space below */
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
+.stylist-modal-image {
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 0; /* This removes all rounding from corners */
+    margin: 0 auto 25px auto; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
 
 
         @media (max-width: 768px) {
