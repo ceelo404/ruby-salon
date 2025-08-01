@@ -84,7 +84,7 @@
           "closes": "16:00"
         }
       ],
-      "hasMap": "https://www.google.com/maps/place/Ruby+Salon/@33.7716172,-84.2965684,17z/data=!3m1!4b1!4m6!3m5!1s0x88f5bf9d84f22e83:0x1b7029514b8a4f6d!8m2!3d33.7716128!4d-84.2939935!16s%2Fg%2F11b62_0m35?hl=en&entry=ttu",
+      "hasMap": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3316.3263728639237!2d-84.29656842426867!3d33.77161723223055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f5bf9d84f22e83%3A0x1b7029514b8a4f6d!2sRuby%20Salon!5e0!3m2!1sen!2sus!4v1717646543781!5m2!1sen!2sus",
       "sameAs": [
         "https://www.facebook.com/share/15oGa2Qkam/?mibextid=wwXlfr",
         "https://twitter.com/yourrubysalontwitter",
@@ -322,7 +322,6 @@
             text-align: center;
             /* Removed position: relative; as it's not needed for the new anchor approach */
         }
-        /* Removed pseudo-element for scroll offset from here */
         
         .more-info h2 {
             font-size: 2.5em;
@@ -576,68 +575,6 @@
             text-align: center;
         }
         
-        /* Specific styles for the new hours section */
-        /* This section is now removed from HTML, but keeping its styles commented out for reference */
-        /*
-        .hours-section {
-            background-color: var(--dark-gray);
-            color: #fff;
-            padding: 60px 20px;
-            margin-top: 40px;
-            border-radius: 16px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
-        }
-
-        .hours-section h2 {
-            color: #fff;
-            margin-bottom: 30px;
-        }
-
-        .hours-content p {
-            display: flex;
-            justify-content: space-between;
-            max-width: 300px;
-            margin: 0 auto 10px auto;
-            font-size: 1.1em;
-            line-height: 1.5;
-            text-align: left;
-        }
-
-        .hours-content p span {
-            font-weight: bold;
-            text-align: right;
-        }
-        */
-
-        /* NEW: Styles for the "Our Hours" indicator in the find-us section */
-        /* This indicator is now removed from the HTML */
-        /*
-        .our-hours-desktop-indicator {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            color: var(--dark-gray);
-            text-decoration: none;
-            cursor: pointer;
-            text-align: center;
-            margin-top: 40px;
-            opacity: 0;
-            animation: fadeIn 1s ease-out 2.5s forwards;
-        }
-
-        .our-hours-desktop-indicator .text {
-            text-shadow: none;
-        }
-        .our-hours-desktop-indicator .icon {
-            color: var(--dark-gray) !important;
-            text-shadow: none;
-        }
-        */
-
         /* NEW: Styles for the invisible anchor divs */
         .scroll-anchor {
             display: block;
@@ -681,8 +618,6 @@
         }
 
         .hours-display-desktop {
-            /* Removed background, padding, border-radius, box-shadow as they are now on parent wrapper */
-            /* Removed color as it's now inherited from parent wrapper */
             flex: 0 0 300px; /* Fixed width for hours, prevent growing */
             text-align: center;
             display: flex; /* Flexbox for internal content */
@@ -823,15 +758,18 @@
 
         /* NEW: About Brandy Section */
         #about-brandy-section {
-            background-color: #fff;
+            background-color: var(--light-gray);
             color: var(--dark-gray);
             padding: 80px 20px;
             text-align: center;
         }
 
         #about-brandy-section .container {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 40px;
         }
 
         #about-brandy-section h2 {
@@ -839,6 +777,13 @@
             font-weight: 900;
             margin-bottom: 20px;
             color: var(--purple-dark);
+            text-align: center; /* Ensure consistent centering */
+            width: 100%;
+        }
+
+        #about-brandy-section .about-content {
+            flex: 1;
+            text-align: left;
         }
 
         #about-brandy-section p {
@@ -847,6 +792,22 @@
             text-align: left;
             margin-bottom: 1.5em;
         }
+
+        #about-brandy-section .photo-container {
+            flex-shrink: 0;
+            max-width: 350px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        #about-brandy-section .photo-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+
         /* ============================================== */
         /* NEW: Styles for service categories within modal*/
         /* ============================================== */
@@ -1022,9 +983,21 @@
             }
             /* -------------------------------------------------- */
 
-            /* NEW: Hide the on-page About Brandy section on mobile to avoid redundancy */
-            #about-brandy-section {
-                display: none;
+            /* NEW: About Brandy section on mobile */
+            #about-brandy-section .container {
+                flex-direction: column;
+            }
+            #about-brandy-section .photo-container {
+                order: -1; /* Puts the image on top of the text on mobile */
+                margin-bottom: 20px;
+                max-width: 100%; /* Image can be full-width on mobile */
+            }
+            #about-brandy-section h2 {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            #about-brandy-section p {
+                text-align: center; /* Center the text for mobile readability */
             }
         }
 
@@ -1065,8 +1038,8 @@
         
         <a href="https://venmo.com/u/Brandy-Claussen" title="Tip your stylist online">Tip Online</a>
         <a href="tel:+14043893114" title="Call Ruby Salon">Contact Us</a>
-        <a id="open-map-btn" title="Find Ruby Salon on the map">Find Us</a>
-        <a id="open-hours-btn" title="View Ruby Salon's operating hours">Our Hours</a>
+        <a id="open-map-btn" href="#find-us-anchor" title="Find Ruby Salon on the map">Find Us</a>
+        <a id="open-hours-btn" href="#find-us-anchor" title="View Ruby Salon's operating hours">Our Hours</a>
     </nav>
 
     <main>
@@ -1103,13 +1076,20 @@
 
         <section id="about-brandy-section">
             <div class="container">
-                <h2>About the Stylist</h2>
-                <p>With a distinguished career spanning over two decades, Brandy Claussen Holland is a true artisan in the world of hair. Her journey began with an intensive foundation at the prestigious **Vidal Sassoon Academy in London**, followed by advanced training with industry leaders **Toni & Guy** and two sessions at **Bumble and Bumble in NYC**. This extensive education instilled a mastery of precision cutting and an exceptional eye for detail, making her a trusted expert in her field.</p>
-                <p>Brandy's passion lies in enhancing natural beauty. She specializes in creating stunning, natural-looking color, with a particular love for **lived-in blondes and dimensional brunettes**. She also excels at crafting seamless, low-maintenance looks that grow out beautifully. Her expertise extends to all hair types, with a celebrated skill in cutting and styling **curly hair of all lengths**.</p>
-                <p>Beyond her technical prowess, Brandy's philosophy is simple: she believes in making every client feel like the best version of themselves. Her warm and welcoming approach ensures a comfortable, confident experience from start to finish. Her dedication to the art of hairstyling has earned her a loyal clientele and a reputation for consistently delivering impeccable results.</p>
+                <div class="about-content">
+                    <h2>About the Stylist</h2>
+                    <p>With a distinguished career spanning over two decades, Brandy Claussen Holland is a true artisan in the world of hair. Her journey began with an intensive foundation at the prestigious **Vidal Sassoon Academy in London**, followed by advanced training with industry leaders **Toni & Guy** and two sessions at **Bumble and Bumble in NYC**. This extensive education instilled a mastery of precision cutting and an exceptional eye for detail, making her a trusted expert in her field.</p>
+                    <p>Brandy's passion lies in enhancing natural beauty. She specializes in creating stunning, natural-looking color, with a particular love for **lived-in blondes and dimensional brunettes**. She also excels at crafting seamless, low-maintenance looks that grow out beautifully. Her expertise extends to all hair types, with a celebrated skill in cutting and styling **curly hair of all lengths**.</p>
+                    <p>Beyond her technical prowess, Brandy's philosophy is simple: she believes in making every client feel like the best version of themselves. Her warm and welcoming approach ensures a comfortable, confident experience from start to finish. Her dedication to the art of hairstyling has earned her a loyal clientele and a reputation for consistently delivering impeccable results.</p>
+                </div>
+                <div class="photo-container">
+                    <figure>
+                        <img src="https://via.placeholder.com/350x450.png?text=Brandy+Holland+Headshot" alt="Headshot of Brandy Claussen Holland, Master Stylist" loading="lazy">
+                        <figcaption>Brandy Claussen Holland, Master Stylist & Colorist</figcaption>
+                    </figure>
+                </div>
             </div>
         </section>
-
 
         <section id="services" class="services-overview-section">
             <div class="container">
@@ -1379,7 +1359,7 @@
         <div class="footer-content">
             <p>© 2025 Ruby Salon</p>
             <p>
-                <a id="footer-address-link" href="https://www.google.com/maps/place/Ruby+Salon/@33.7716172,-84.2965684,17z/data=!3m1!4b1!4m6!3m5!1s0x88f5bf9d84f22e83:0x1b7029514b8a4f6d!8m2!3d33.7716128!4d-84.2939935!16s%2Fg%2F11b62_0m35?hl=en&entry=ttu" target="_blank" rel="noopener noreferrer" title="Get directions to Ruby Salon">114 W Trinity Pl #10, Decatur, GA 30030</a> |
+                <a id="footer-address-link" href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3316.3263728639237!2d-84.29656842426867!3d33.77161723223055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f5bf9d84f22e83%3A0x1b7029514b8a4f6d!2sRuby%20Salon!5e0!3m2!1sen!2sus!4v1717646543781!5m2!1sen!2sus" target="_blank" rel="noopener noreferrer" title="Get directions to Ruby Salon">114 W Trinity Pl #10, Decatur, GA 30030</a> |
                 Phone: <a href="tel:+14043893114" style="color: rgba(255,255,255,0.7);" title="Call Ruby Salon directly">(404) 389-3114</a> |
                 <a id="footer-hours-link" href="#" style="color: rgba(255,255,255,0.7);" title="View Ruby Salon's operating hours">Our Hours</a>
             </p>
