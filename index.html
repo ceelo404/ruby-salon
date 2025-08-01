@@ -791,52 +791,10 @@
 
 
         /* ============================================== */
-        /* NEW: Styles for service categories within modal*/
-        /* ============================================== */
-        .service-categories-modal {
-            display: flex;
-            flex-direction: column; /* Always stack vertically in modal */
-            gap: 25px;
-            margin-bottom: 40px;
-        }
-
-        .service-category-modal {
-            background-color: var(--light-gray); /* Lighter gray background for each category card */
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: none; /* Removed shadow for simpler modal look */
-            text-align: left;
-        }
-        .service-category-modal h3 {
-            font-size: 1.6em;
-            font-weight: 700;
-            color: var(--purple);
-            margin-top: 0;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        .service-category-modal ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .service-category-modal li {
-            margin-bottom: 15px;
-            border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
-            padding-bottom: 10px;
-        }
-        .service-category-modal li:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
         /* NEW: Styles for the bio modal content */
-        /* This is the fix to make the modal scrollable */
+        /* The modal-content class already has the necessary scrolling properties */
         .about-modal-content {
-            max-height: 80vh; /* Set a specific height for scrolling */
-            overflow-y: auto; /* Enable vertical scrolling */
-            -webkit-overflow-scrolling: touch; /* For smoother scrolling on iOS */
+            padding: 25px; /* Adjust padding for better look inside the modal */
         }
         .about-modal-content .photo-container-modal {
             max-width: 250px; /* Set a max-width for the photo in the modal */
@@ -942,7 +900,7 @@
             .modal-content {
                 padding: 25px;
             }
-
+            
             .hours-section {
                 display: none;
             }
@@ -992,11 +950,11 @@
             }
 
             /* Styles for the bio modal on mobile */
-            #about-modal .photo-container-modal {
+            .about-modal-content .photo-container-modal {
                 max-width: 250px;
                 margin: 0 auto 20px;
             }
-            #about-modal h2, #about-modal p {
+            .about-modal-content h2, .about-modal-content p {
                 text-align: center;
             }
         }
@@ -1217,22 +1175,20 @@
     </main>
 
     <div id="about-modal" class="modal-overlay">
-        <div class="modal-content about-modal-content">
+        <div class="modal-content">
             <button class="modal-close-btn" aria-label="Close about modal">
                 <svg width="24" height="24" viewBox="0 0 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18" stroke="#1b1b1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 6L18 18" stroke="#1b1b1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
-            <div class="about-modal-content-inner">
-                <div class="photo-container-modal">
-                    <figure>
-                        <img src="https://via.placeholder.com/350x450.png?text=Brandy+Holland+Headshot" alt="Headshot of Brandy Claussen Holland, Master Stylist" loading="lazy">
-                        <figcaption>Brandy Claussen Holland, Master Stylist & Colorist</figcaption>
-                    </figure>
-                </div>
-                <h2>About the Stylist</h2>
-                <p>With a distinguished career spanning over two decades, Brandy Claussen Holland is a true artisan in the world of hair. Her journey began with an intensive foundation at the prestigious **Vidal Sassoon Academy in London**, followed by advanced training with industry leaders **Toni & Guy** and two sessions at **Bumble and Bumble in NYC**. This extensive education instilled a mastery of precision cutting and an exceptional eye for detail, making her a trusted expert in her field.</p>
-                <p>Brandy's passion lies in enhancing natural beauty. She specializes in creating stunning, natural-looking color, with a particular love for **lived-in blondes and dimensional brunettes**. She also excels at crafting seamless, low-maintenance looks that grow out beautifully. Her expertise extends to all hair types, with a celebrated skill in cutting and styling **curly hair of all lengths**.</p>
-                <p>Beyond her technical prowess, Brandy's philosophy is simple: she believes in making every client feel like the best version of themselves. Her warm and welcoming approach ensures a comfortable, confident experience from start to finish. Her dedication to the art of hairstyling has earned her a loyal clientele and a reputation for consistently delivering impeccable results.</p>
+            <div class="photo-container-modal">
+                <figure>
+                    <img src="https://via.placeholder.com/350x450.png?text=Brandy+Holland+Headshot" alt="Headshot of Brandy Claussen Holland, Master Stylist" loading="lazy">
+                    <figcaption>Brandy Claussen Holland, Master Stylist & Colorist</figcaption>
+                </figure>
             </div>
+            <h2>About the Stylist</h2>
+            <p>With a distinguished career spanning over two decades, Brandy Claussen Holland is a true artisan in the world of hair. Her journey began with an intensive foundation at the prestigious **Vidal Sassoon Academy in London**, followed by advanced training with industry leaders **Toni & Guy** and two sessions at **Bumble and Bumble in NYC**. This extensive education instilled a mastery of precision cutting and an exceptional eye for detail, making her a trusted expert in her field.</p>
+            <p>Brandy's passion lies in enhancing natural beauty. She specializes in creating stunning, natural-looking color, with a particular love for **lived-in blondes and dimensional brunettes**. She also excels at crafting seamless, low-maintenance looks that grow out beautifully. Her expertise extends to all hair types, with a celebrated skill in cutting and styling **curly hair of all lengths**.</p>
+            <p>Beyond her technical prowess, Brandy's philosophy is simple: she believes in making every client feel like the best version of themselves. Her warm and welcoming approach ensures a comfortable, confident experience from start to finish. Her dedication to the art of hairstyling has earned her a loyal clientele and a reputation for consistently delivering impeccable results.</p>
         </div>
     </div>
     
