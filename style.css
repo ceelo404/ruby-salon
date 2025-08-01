@@ -54,6 +54,9 @@ body {
 .site-header a.button { /* Ensure button styles apply correctly */
     margin: 5px;
 }
+.site-header .logo-small {
+    max-height: 110px;
+}
 
 
 /* ==============================================
@@ -392,7 +395,6 @@ body {
 .stylist-text-content h1 {
     font-size: 2.8em;
     font-weight: 900;
-    margin-top: 0;
     margin-bottom: 20px;
     color: var(--purple-dark);
 }
