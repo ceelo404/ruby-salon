@@ -320,7 +320,6 @@
             margin-top: 0; /* Removed negative margin */
             color: var(--dark-gray);
             text-align: center;
-            /* Removed position: relative; as it's not needed for the new anchor approach */
         }
         
         .more-info h2 {
@@ -881,13 +880,16 @@
                 margin-bottom: 20px; /* Reduce large bottom margin on mobile */
             }
 
+            /* --- CRITICAL CHANGE FOR MOBILE HERO TEXT --- */
             .card-content h1 {
-                font-size: 2.2em;
+                font-size: 2em; /* Smaller H1 for mobile */
             }
-
             .card-content p {
-                font-size: 1em;
+                font-size: 0.9em; /* Smaller paragraph text */
+                line-height: 1.5; /* Slightly tighter line-height for better readability */
+                /* NEW: Truncated text is a great strategy. Here, we'll keep the full text but shrink the font size. You could also use a media query to display a different, shorter paragraph. */
             }
+            /* ------------------------------------------- */
             
             /* NEW/UPDATED: Adjust body padding for fixed footer on mobile */
             body {
@@ -1084,7 +1086,7 @@
                 </div>
                 <div class="photo-container">
                     <figure>
-                        <img src="https://via.placeholder.com/350x450.png?text=Brandy+Holland+Headshot" alt="Headshot of Brandy Claussen Holland, Master Stylist" loading="lazy">
+                        <img src="http://googleusercontent.com/file_content/0" alt="Headshot of Brandy Claussen Holland, Master Stylist" loading="lazy">
                         <figcaption>Brandy Claussen Holland, Master Stylist & Colorist</figcaption>
                     </figure>
                 </div>
