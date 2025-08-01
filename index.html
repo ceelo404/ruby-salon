@@ -20,7 +20,7 @@
     <meta name="twitter:image" content="https://ruby-salon.com/ruby-salon-social-share.jpg">
     <link rel="icon" href="https://ruby-salon.com/favicon.png" type="image/png">
     <link rel="shortcut icon" href="https://ruby-salon.com/favicon.png" type="image/png">
-
+    
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" media="print" onload="this.onload=null;this.media='all'">
     <noscript>
@@ -84,7 +84,7 @@
       ],
       "hasMap": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13265.875770806726!2d-84.29727690740961!3d33.77438646705779!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f507b27fa45657%3A0x1ded6e63a498978a!2sRuby%20Hair%20Salon!5e0!3m2!1sen!2sus!4v1753991876365!5m2!1sen!2sus",
       "sameAs": [
-        "https://www.facebook.com/yourrubysalonpage", "https://twitter.com/yourrubysalontwitter", "https://www.instagram.com/yourrubysaloninstagram" ],
+        "https://www.facebook.com/yourrubysalonpage",  "https://twitter.com/yourrubysalontwitter",  "https://www.instagram.com/yourrubysaloninstagram" ],
       "description": "Ruby Salon offers expert haircuts, bespoke hair coloring, and transformative styling services in Decatur, GA. Experience precision cuts, vibrant balayage, highlights, and smoothing keratin treatments from our experienced hairstylists in the heart of Decatur. We focus on providing impeccable attention to detail for every client.",
       "service": [
         {
@@ -168,37 +168,35 @@
       ]
     }
     </script>
+
     <style>
-        /* ==============================================
-           SITE-WIDE VARIABLES AND BASE STYLES
-           ============================================== */
+        /* Your existing CSS here */
         :root {
             --purple: #7B2CBF;
             --purple-dark: #5A189A;
-            --purple-light: #9D4EDD;
+            --purple-light: #9D4EDD;  
             --light-gray: #f4f5f7;
             --dark-gray: #1b1b1f;
-            --scrolled-header-purple: #9D4EDD;
-            --header-height: 120px;
+            --scrolled-header-purple: #9D4EDD;  
         }
+        
         html {
             scroll-behavior: smooth;
             box-sizing: border-box;
         }
+
         *, *::before, *::after {
             box-sizing: inherit;
         }
+
         body {
             font-family: 'Inter', sans-serif;
             margin: 0;
             background-color: var(--light-gray);
             color: #fff;
-            padding-bottom: 100px;
+            padding-bottom: 100px; /* Base padding for footer */
         }
 
-        /* ==============================================
-           HEADER STYLES
-           ============================================== */
         .site-header {
             position: fixed;
             top: 0;
@@ -208,48 +206,33 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 5%;
-            background: transparent;
+            background: transparent;  
             z-index: 100;
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
-        }
-        .site-header.scrolled {
-            background-color: var(--scrolled-header-purple);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        }
-        .site-header .logo {
-            max-height: 200px;
-        }
-        .site-header .header-buttons {
-            display: flex;
-            gap: 10px;
-        }
-        .site-header a.button {
-            margin: 5px;
-        }
-        .site-header .logo-small {
-            max-height: 110px;
-        }
-        .site-header-static {
-            background-color: var(--scrolled-header-purple);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            position: sticky;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;  
         }
 
-        /* ==============================================
-           HERO SECTION STYLES
-           ============================================== */
+        .site-header .logo {
+            max-height: 200px;  
+        }
+
+        .site-header.scrolled {
+            background-color: var(--scrolled-header-purple);  
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
         .hero-section {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 100vh;
+            min-height: 100vh; /* Keep for desktop */
             box-sizing: border-box;
             position: relative;
             text-align: center;
             padding: 20px;
-            overflow: hidden;
+            overflow: hidden;  
         }
+        
         .hero-video {
             position: absolute;
             top: 50%;
@@ -260,23 +243,27 @@
             transform: translate(-50%, -50%);
             z-index: 1;
         }
+        
         .hero-section::before {
             content: '';
             position: absolute;
             inset: 0;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 2;
+            background-color: rgba(0, 0, 0, 0.5);  
+            z-index: 2;  
         }
+        
         .content-card {
             width: 100%;
             max-width: 800px;
             position: relative;
-            z-index: 3;
-            margin-bottom: 100px;
+            z-index: 3;  
+            margin-bottom: 100px; /* Keep for desktop */
         }
+
         .card-content {
             position: relative;
         }
+
         .card-content h1 {
             font-size: 3em;
             font-weight: 900;
@@ -284,51 +271,18 @@
             margin-bottom: 20px;
             line-height: 1.1;
         }
+        
         .card-content p {
             font-size: 1.1em;
             line-height: 1.6;
             max-width: 600px;
             margin: 0 auto 30px;
         }
-        .card-content p:first-of-type {
+        .card-content p:first-of-type {  
             margin-bottom: 20px;
         }
-        .scroll-indicators-wrapper {
-            position: absolute;
-            bottom: 80px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 0;
-            z-index: 4;
-            opacity: 0;
-            animation: fadeIn 1s ease-out 2s forwards;
-        }
-        .scroll-down-indicator {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            color: #fff;
-            text-decoration: none;
-            cursor: pointer;
-            text-align: center;
-        }
-        .scroll-down-indicator .text {
-            font-weight: 700;
-            font-size: 0.9em;
-            margin-bottom: 5px;
-            text-shadow: 0 0 5px rgba(0,0,0,0.5);
-        }
-        .scroll-down-indicator .icon {
-            font-size: 2em;
-            line-height: 1;
-            animation: bounce 2s infinite;
-            text-shadow: 0 0 5px rgba(0,0,0,0.5);
-        }
 
-        /* ==============================================
-           COMMON COMPONENTS (BUTTONS, MODALS, ETC.)
-           ============================================== */
+
         .button {
             display: inline-block;
             background-color: var(--purple);
@@ -341,77 +295,105 @@
             transition: all 0.2s ease-in-out;
             cursor: pointer;
         }
+
         .button:hover {
             background-color: var(--purple-dark);
             transform: scale(1.05);
         }
+        
         .secondary-button {
             background: rgba(255,255,255,0.15);
         }
         .secondary-button:hover {
             background: rgba(255,255,255,0.25);
         }
-        .modal-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.7);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 200;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-        }
-        .modal-overlay.is-visible {
-            opacity: 1;
-            pointer-events: auto;
-        }
-        .modal-content {
-            background: var(--light-gray);
-            padding: 30px;
-            border-radius: 16px;
-            position: relative;
-            width: 90%;
-            max-width: 600px;
+
+        .more-info {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 120px 20px 40px; 
+            margin-top: 0;
             color: var(--dark-gray);
-            max-height: 90vh;
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
-        }
-        .modal-close-btn {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: none;
-            border: none;
-            cursor: pointer;
-        }
-        .modal-content h2 {
-            font-size: 2em;
             text-align: center;
-            margin-top: 10px;
-            margin-bottom: 25px;
         }
-        .modal-content p {
-            text-align: left;
-            margin-bottom: 1.2em;
-            line-height: 1.6;
-        }
-        .modal-content .button-container {
+        
+        .more-info h2 {
+            font-size: 2.5em;
+            font-weight: 900;
+            margin-top: 0;
             text-align: center;
-            margin-top: 30px;
-        }
-        .modal-content iframe {
-            width: 100%;
-            height: 60vh;
-            border: 0;
-            border-radius: 8px;
         }
 
-        /* ==============================================
-           MOBILE NAV STYLES
-           ============================================== */
+        .map-container iframe {
+            width: 100%;
+            height: 450px;
+            border: 0;
+            border-radius: 16px;
+            margin-top: 20px;
+        }
+        
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--dark-gray);
+            color: rgba(255,255,255,0.7);
+            padding: 20px 5%;
+            z-index: 99;
+            text-align: center;
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        footer p {
+            margin: 0;
+            font-size: 0.9em;
+            flex-grow: 1;
+            text-align: left;
+        }
+        /* Style for the clickable footer address */
+        #footer-address-link {
+            cursor: pointer;
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        #footer-address-link:hover {
+            color: var(--purple-light);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .social-icons svg {
+            width: 20px;
+            height: 20px;
+            fill: #ffffff;
+            transition: fill 0.3s;
+        }
+        
         .mobile-nav-toggle {
             display: none;
             background: none;
@@ -419,6 +401,7 @@
             cursor: pointer;
             z-index: 102;
         }
+        
         .mobile-nav {
             position: fixed;
             top: 0;
@@ -433,9 +416,11 @@
             padding: 20px;
             box-sizing: border-box;
         }
+
         .mobile-nav.is-open {
             transform: translateX(0);
         }
+        
         .nav-close-btn {
             position: absolute;
             top: 20px;
@@ -444,6 +429,7 @@
             border: none;
             cursor: pointer;
         }
+
         .mobile-nav a {
             display: block;
             color: #fff;
@@ -454,38 +440,239 @@
             cursor: pointer;
         }
 
-
-        /* ==============================================
-           MAIN CONTENT SECTIONS STYLES
-           ============================================== */
-        .main-content-wrapper {
-            padding: var(--header-height) 20px 40px;
-            max-width: 1200px;
-            margin: 0 auto;
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 200;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
         }
-        .services-overview-section,
-        .stylist-bio-section {
-            background-color: var(--light-gray);
+
+        .modal-overlay.is-visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* NEW: Styles for the modal content to make it scrollable */
+        .modal-content {
+            background: var(--light-gray);
+            padding: 30px;
+            border-radius: 16px;
+            position: relative;
+            width: 90%;
+            max-width: 600px;
             color: var(--dark-gray);
-            padding: 0;
+            max-height: 90vh; /* Set a maximum height relative to viewport */
+            overflow-y: auto; /* Enable vertical scrolling */
+            -webkit-overflow-scrolling: touch; /* For smoother scrolling on iOS */
+        }
+        
+        .modal-content h2 {
+            font-size: 2em;
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 25px;
+        }
+
+        .modal-content p {
+            text-align: left;
+            margin-bottom: 1.2em;
+            line-height: 1.6;
+        }
+
+        .modal-content .button-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .modal-close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .modal-content iframe {
+            width: 100%;
+            height: 60vh;
+            border: 0;
+            border-radius: 8px;
+        }
+
+        /* NEW: Scroll down indicator */
+        /* Adjusted to be part of a wrapper */
+        .scroll-indicators-wrapper {
+            position: absolute;
+            bottom: 80px; /* Position the entire group */
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex; /* Use flexbox for internal layout */
+            gap: 0; /* No gap needed if only one item */
+            z-index: 4; /* Ensure it's above video overlay */
+            opacity: 0; /* Apply fade-in to the wrapper */
+            animation: fadeIn 1s ease-out 2s forwards;  
+        }
+
+        .scroll-down-indicator {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
             text-align: center;
         }
+
+        .scroll-down-indicator .text {
+            font-weight: 700;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+            text-shadow: 0 0 5px rgba(0,0,0,0.5);  
+        }
+
+        .scroll-down-indicator .icon {
+            font-size: 2em;  
+            line-height: 1;
+            animation: bounce 2s infinite; /* Only bounce animation here */
+            text-shadow: 0 0 5px rgba(0,0,0,0.5);  
+        }
+
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .modal-content .modal-parking-info {
+            text-align: center;
+        }
+
+        /* NEW: Styles for the invisible anchor divs */
+        .scroll-anchor {
+            display: block;
+            height: 0; /* No height for the anchor itself */
+            margin-top: -250px; /* Negative margin to pull the content up */
+            padding-top: 250px; /* Padding to create the visible space */
+            visibility: hidden; /* Hide the anchor visually */
+            pointer-events: none; /* Ensure it doesn't block clicks */
+        }
+
+        /* NEW: Wrapper for map and hours content */
+        .find-us-content-wrapper {
+            background-color: var(--light-gray); /* Match body background for blending */
+            color: var(--dark-gray); /* Dark text */
+            padding: 30px;
+            border-radius: 16px; /* Keep rounded corners if desired, or set to 0 */
+            box-shadow: none; /* Removed box-shadow */
+            border: none; /* Removed border */
+            margin-top: 20px; /* Space below the hidden h2 */
+            text-align: center; /* Center content horizontally */
+        }
+
+        /* NEW: Styles for the map and hours container */
+        .map-and-hours-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align items to the top */
+            gap: 40px; /* Space between map and hours */
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        }
+
+        .map-and-hours-container .map-container {
+            flex: 1; /* Allow map to grow */
+            min-width: 300px; /* Minimum width for map */
+            max-width: 60%; /* Max width for map */
+        }
+
+        .map-and-hours-container .map-container iframe {
+            height: 500px; /* Make map bigger */
+        }
+
+        .hours-display-desktop {
+            flex: 0 0 300px; /* Fixed width for hours, prevent growing */
+            text-align: center;
+            display: flex; /* Flexbox for internal content */
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0; /* Remove internal padding if any */
+            margin: 0; /* Remove internal margin if any */
+        }
+
+        .hours-display-desktop h3 {
+            font-size: 1.8em;
+            font-weight: 900;
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: var(--dark-gray);
+        }
+
+        .hours-display-desktop .hours-content p {
+            display: flex;
+            justify-content: space-between;
+            width: 100%; /* Take full width of its container */
+            margin-bottom: 8px; /* Slightly less margin than main hours section */
+            font-size: 1em; /* Slightly smaller font for compactness */
+        }
+        .hours-display-desktop .hours-content p span {
+            font-weight: bold;
+            text-align: right;
+        }
+
+        .hours-display-desktop .parking-info {
+            font-size: 0.9em;
+            margin-top: 20px;
+            line-height: 1.4;
+            color: var(--dark-gray);
+        }
+
+        /* SERVICES OVERVIEW SECTION STYLES */
+        .services-overview-section {
+            background-color: #fff; /* White background to stand out from hero */
+            color: var(--dark-gray);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
         .services-overview-section .container {
             max-width: 1000px;
             margin: 0 auto;
         }
-        .services-overview-section h1 {
+
+        .services-overview-section h2 {
             font-size: 2.8em;
             font-weight: 900;
             margin-bottom: 20px;
             color: var(--purple-dark);
         }
+
         .services-overview-section .section-description {
             font-size: 1.1em;
             line-height: 1.6;
             max-width: 700px;
             margin: 0 auto 50px auto;
         }
+
         .service-categories {
             display: flex;
             flex-wrap: wrap;
@@ -493,8 +680,9 @@
             gap: 40px;
             margin-bottom: 40px;
         }
+
         .service-category {
-            background-color: #fff;
+            background-color: var(--light-gray);
             padding: 30px;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -505,30 +693,35 @@
             display: flex;
             flex-direction: column;
         }
+
         .service-category h3 {
             font-size: 1.8em;
             font-weight: 700;
-            color: var(--purple);
+            color: var(--purple);  
             margin-top: 0;
             margin-bottom: 25px;
-            text-align: center;
+            text-align: center;  
         }
+
         .service-category ul {
             list-style: none;
             padding: 0;
             margin: 0;
-            flex-grow: 1;
+            flex-grow: 1;  
         }
+
         .service-category li {
             margin-bottom: 20px;
-            border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+            border-bottom: 1px dashed rgba(0, 0, 0, 0.1);  
             padding-bottom: 15px;
         }
+
         .service-category li:last-child {
-            border-bottom: none;
+            border-bottom: none;  
             margin-bottom: 0;
             padding-bottom: 0;
         }
+
         .service-name {
             display: block;
             font-weight: 700;
@@ -536,16 +729,67 @@
             color: var(--dark-gray);
             margin-bottom: 5px;
         }
+
         .service-details {
             display: block;
             font-size: 0.95em;
             color: #666;
             margin-bottom: 10px;
         }
+
         .service-description {
             font-size: 0.9em;
             line-height: 1.5;
             color: #444;
+        }
+
+        /* Styles for service categories within modal */
+        .service-categories-modal {
+            display: flex;
+            flex-direction: column; /* Always stack vertically in modal */
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .service-category-modal {
+            background-color: var(--light-gray);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: none;
+            text-align: left;
+        }
+        .service-category-modal h3 {
+            font-size: 1.6em;
+            font-weight: 700;
+            color: var(--purple);  
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .service-category-modal ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .service-category-modal li {
+            margin-bottom: 15px;
+            border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+            padding-bottom: 10px;
+        }
+        .service-category-modal li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        /* ============================================== */
+        /* STYLIST BIO SECTION STYLES                     */
+        /* ============================================== */
+        .stylist-bio-section {
+            background-color: var(--light-gray);
+            color: var(--dark-gray);
+            padding: 80px 20px;
+            text-align: center;
         }
         .stylist-bio-container {
             max-width: 1000px;
@@ -556,7 +800,7 @@
             text-align: left;
         }
         .stylist-image-container {
-            flex: 0 0 300px;
+            flex: 0 0 300px; /* Fixed width, don't grow/shrink */
         }
         .stylist-image-container img {
             width: 100%;
@@ -565,11 +809,12 @@
             display: block;
         }
         .stylist-text-content {
-            flex: 1;
+            flex: 1; /* Takes up remaining space */
         }
-        .stylist-text-content h1 {
+        .stylist-text-content h2 {
             font-size: 2.8em;
             font-weight: 900;
+            margin-top: 0;
             margin-bottom: 20px;
             color: var(--purple-dark);
         }
@@ -580,6 +825,17 @@
         }
         .stylist-text-content p:last-of-type {
             margin-bottom: 0;
+        }
+        
+        /* NEW: Styles for stylist bio in modal */
+        .stylist-modal-image {
+            display: block;
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            border-radius: 0; /* This removes all rounding from corners */
+            margin: 0 auto 25px auto;  
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
         /* ==============================================
@@ -597,6 +853,7 @@
             text-align: center;
             box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
         }
+        
         .footer-content {
             display: flex;
             justify-content: space-between;
@@ -607,39 +864,46 @@
             flex-wrap: wrap;
             gap: 15px;
         }
+        
         footer p {
             margin: 0;
             font-size: 0.9em;
             flex-grow: 1;
             text-align: left;
         }
+        /* Style for the clickable footer address */
         #footer-address-link {
             cursor: pointer;
             color: rgba(255,255,255,0.7);
             text-decoration: none;
             transition: color 0.3s ease;
         }
+
         #footer-address-link:hover {
             color: var(--purple-light);
         }
+        
         .social-icons {
             display: flex;
             gap: 15px;
         }
+
+        /* UPDATED CSS FOR SOCIAL ICONS (from previous turn, to ensure it's here) */
         .social-icons a {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0;
-            padding: 0;
+            display: flex; /* Make the anchor a flex container */
+            justify-content: center; /* Center the SVG horizontally */
+            align-items: center; /* Center the SVG vertically */
+            margin: 0; /* Remove default margins */
+            padding: 0; /* Remove default padding */
         }
+
         .social-icons svg {
             width: 20px;
             height: 20px;
             fill: #ffffff;
             transition: fill 0.3s;
         }
-
+        
         /* ==============================================
            KEYFRAMES
            ============================================== */
@@ -654,6 +918,7 @@
                 transform: translateY(-5px);
             }
         }
+
         @keyframes fadeIn {
             to {
                 opacity: 1;
@@ -719,8 +984,8 @@
             .footer-content p:nth-of-type(2) {
                 padding: 0 10px;
             }
-            .services-overview-section h1,
-            .stylist-text-content h1 {
+            .services-overview-section h2,
+            .stylist-text-content h2 {
                 font-size: 2.2em;
             }
             .services-overview-section .section-description,
@@ -744,6 +1009,9 @@
             }
             .stylist-text-content {
                 text-align: center;
+            }
+            .hours-display-desktop {
+                display: none;
             }
         }
 
