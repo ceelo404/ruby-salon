@@ -22,8 +22,601 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap">
     </noscript>
     
-    <!-- Link to the external stylesheet -->
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ==============================================
+           SITE-WIDE VARIABLES AND BASE STYLES
+           ============================================== */
+        :root {
+            --purple: #7B2CBF;
+            --purple-dark: #5A189A;
+            --purple-light: #9D4EDD;
+            --light-gray: #f4f5f7;
+            --dark-gray: #1b1b1f;
+            --scrolled-header-purple: #9D4EDD;
+            --header-height: 120px;
+        }
+        html {
+            scroll-behavior: smooth;
+            box-sizing: border-box;
+        }
+        *, *::before, *::after {
+            box-sizing: inherit;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            background-color: var(--light-gray);
+            color: #fff;
+            padding-bottom: 100px;
+        }
+
+        /* ==============================================
+           HEADER STYLES
+           ============================================== */
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background-color: transparent;
+            z-index: 100;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .site-header.scrolled {
+            background-color: var(--scrolled-header-purple);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        .site-header .logo {
+            max-height: 200px;
+        }
+        .site-header .header-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .site-header a.button {
+            margin: 5px;
+        }
+        .site-header .logo-small {
+            max-height: 110px;
+        }
+        /* New style for static pages to ensure header is solid */
+        .site-header-static {
+            background-color: var(--scrolled-header-purple);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            position: sticky;
+        }
+
+        /* ==============================================
+           HERO SECTION STYLES
+           ============================================== */
+        .hero-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+            position: relative;
+            text-align: center;
+            padding: 20px;
+            overflow: hidden;
+        }
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2;
+        }
+        .content-card {
+            width: 100%;
+            max-width: 800px;
+            position: relative;
+            z-index: 3;
+            margin-bottom: 100px;
+        }
+        .card-content {
+            position: relative;
+        }
+        .card-content h1 {
+            font-size: 3em;
+            font-weight: 900;
+            margin-top: 0;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+        .card-content p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        .content-card p:first-of-type {
+            margin-bottom: 20px;
+        }
+        .scroll-indicators-wrapper {
+            position: absolute;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0;
+            z-index: 4;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 2s forwards;
+        }
+        .scroll-down-indicator {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+            text-align: center;
+        }
+        .scroll-down-indicator .text {
+            font-weight: 700;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+            text-shadow: 0 0 5px rgba(0,0,0,0.5);
+        }
+        .scroll-down-indicator .icon {
+            font-size: 2em;
+            line-height: 1;
+            animation: bounce 2s infinite;
+            text-shadow: 0 0 5px rgba(0,0,0,0.5);
+        }
+
+        /* ==============================================
+           COMMON COMPONENTS (BUTTONS, MODALS, ETC.)
+           ============================================== */
+        .button {
+            display: inline-block;
+            background-color: var(--purple);
+            color: #fff;
+            padding: 16px 32px;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 700;
+            margin: 5px;
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: var(--purple-dark);
+            transform: scale(1.05);
+        }
+        .secondary-button {
+            background: rgba(255,255,255,0.15);
+        }
+        .secondary-button:hover {
+            background: rgba(255,255,255,0.25);
+        }
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 200;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        .modal-overlay.is-visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal-content {
+            background: var(--light-gray);
+            padding: 30px;
+            border-radius: 16px;
+            position: relative;
+            width: 90%;
+            max-width: 600px;
+            color: var(--dark-gray);
+            max-height: 90vh;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        .modal-close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        .modal-content h2 {
+            font-size: 2em;
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 25px;
+        }
+        .modal-content p {
+            text-align: left;
+            margin-bottom: 1.2em;
+            line-height: 1.6;
+        }
+        .modal-content .button-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .modal-content iframe {
+            width: 100%;
+            height: 60vh;
+            border: 0;
+            border-radius: 8px;
+        }
+
+        /* ==============================================
+           MOBILE NAV STYLES
+           ============================================== */
+        .mobile-nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 102;
+        }
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            transform: translateX(100%);
+            width: 70%;
+            max-width: 300px;
+            height: 100vh;
+            background: var(--dark-gray);
+            z-index: 101;
+            transition: transform 0.3s ease-in-out;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .mobile-nav.is-open {
+            transform: translateX(0);
+        }
+        .nav-close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        .mobile-nav a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.5em;
+            padding: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            cursor: pointer;
+        }
+
+
+        /* ==============================================
+           MAIN CONTENT SECTIONS STYLES
+           ============================================== */
+        .main-content-wrapper {
+            padding: var(--header-height) 20px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .services-overview-section,
+        .stylist-bio-section {
+            background-color: var(--light-gray);
+            color: var(--dark-gray);
+            padding: 0;
+            text-align: center;
+        }
+        .services-overview-section .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .services-overview-section h1 {
+            font-size: 2.8em;
+            font-weight: 900;
+            margin-bottom: 20px;
+            color: var(--purple-dark);
+        }
+        .services-overview-section .section-description {
+            font-size: 1.1em;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: 0 auto 50px auto;
+        }
+        .service-categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .service-category {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            min-width: 280px;
+            max-width: 32%;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+        }
+        .service-category h3 {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--purple);
+            margin-top: 0;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        .service-category ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex-grow: 1;
+        }
+        .service-category li {
+            margin-bottom: 20px;
+            border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+            padding-bottom: 15px;
+        }
+        .service-category li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .service-name {
+            display: block;
+            font-weight: 700;
+            font-size: 1.15em;
+            color: var(--dark-gray);
+            margin-bottom: 5px;
+        }
+        .service-details {
+            display: block;
+            font-size: 0.95em;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        .service-description {
+            font-size: 0.9em;
+            line-height: 1.5;
+            color: #444;
+        }
+        .stylist-bio-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            text-align: left;
+        }
+        .stylist-image-container {
+            flex: 0 0 300px;
+        }
+        .stylist-image-container img {
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            display: block;
+        }
+        .stylist-text-content h1 {
+            font-size: 2.8em;
+            font-weight: 900;
+            margin-bottom: 20px;
+            color: var(--purple-dark);
+        }
+        .stylist-text-content p {
+            font-size: 1.1em;
+            line-height: 1.7;
+            margin-bottom: 1.5em;
+        }
+        .stylist-text-content p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        /* ==============================================
+           FOOTER STYLES
+           ============================================== */
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--dark-gray);
+            color: rgba(255,255,255,0.7);
+            padding: 20px 5%;
+            z-index: 99;
+            text-align: center;
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        footer p {
+            margin: 0;
+            font-size: 0.9em;
+            flex-grow: 1;
+            text-align: left;
+        }
+        #footer-address-link {
+            cursor: pointer;
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        #footer-address-link:hover {
+            color: var(--purple-light);
+        }
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        .social-icons a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+        .social-icons svg {
+            width: 20px;
+            height: 20px;
+            fill: #ffffff;
+            transition: fill 0.3s;
+        }
+
+        /* ==============================================
+           KEYFRAMES
+           ============================================== */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* ==============================================
+           RESPONSIVE STYLES (MOBILE)
+           ============================================== */
+        @media (max-width: 768px) {
+            body {
+                padding-bottom: 180px;
+            }
+            .site-header {
+                padding: 15px;
+                justify-content: space-between;
+            }
+            .site-header .logo {
+                max-height: 110px;
+            }
+            .site-header .header-buttons {
+                display: none;
+            }
+            .mobile-nav-toggle {
+                display: block;
+            }
+            .hero-section {
+                min-height: auto;
+                justify-content: flex-start;
+                padding-top: 180px;
+                padding-bottom: 40px;
+            }
+            .content-card {
+                margin-bottom: 20px;
+            }
+            .card-content h1 {
+                font-size: 2.2em;
+            }
+            .card-content p {
+                font-size: 1em;
+            }
+            .scroll-indicators-wrapper {
+                display: none;
+            }
+            .footer-content {
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 15px;
+                flex-wrap: wrap;
+            }
+            footer p {
+                margin: 0;
+                font-size: 0.9em;
+                flex-grow: 0;
+                flex-shrink: 1;
+                text-align: center;
+                white-space: normal;
+                max-width: 100%;
+                box-sizing: border-box;
+                line-height: 1.4;
+            }
+            .footer-content p:nth-of-type(2) {
+                padding: 0 10px;
+            }
+            .services-overview-section h2,
+            .stylist-text-content h2 {
+                font-size: 2.2em;
+            }
+            .services-overview-section .section-description,
+            .stylist-text-content p {
+                font-size: 1em;
+            }
+            .service-categories {
+                flex-direction: column;
+                align-items: center;
+            }
+            .service-category {
+                max-width: 100%;
+            }
+            .stylist-bio-container {
+                flex-direction: column;
+                gap: 30px;
+            }
+            .stylist-image-container {
+                flex: none;
+                max-width: 300px;
+            }
+            .stylist-text-content {
+                text-align: center;
+            }
+            .hours-display-desktop {
+                display: none;
+            }
+        }
+
+        /* ==============================================
+           ACCESSIBILITY
+           ============================================== */
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            padding: 0;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+            white-space: nowrap;
+        }
+    </style>
 </head>
 <body>
 
@@ -148,102 +741,6 @@
             </div>
         </section>
     </main>
-
-    <!-- All modals are moved here from the individual pages to be accessible site-wide -->
-    <div id="map-modal" class="modal-overlay">
-        <div class="modal-content">
-            <button class="modal-close-btn" aria-label="Close map modal">
-                <svg width="24" height="24" viewBox="0 0 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18" stroke="#1b1b1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 6L18 18" stroke="#1b1b1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-            <h2>Find Us</h2>
-            <p class="modal-parking-info">Validated 2Hr Parking at the AMLI parking garage 122 W Trinity Pl.</p>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13265.875770806726!2d-84.29727690740961!3d33.77438646705779!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f507b27fa45657%3A0x1ded6e63a498978a!2sRuby%20Hair%20Salon!5e0!3m2!1sen!2sus!4v1753991876365!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Google Map of Ruby Salon location in Decatur, GA"></iframe>
-        </div>
-    </div>
-    <div id="policy-modal" class="modal-overlay">
-        <div class="modal-content">
-            <button class="modal-close-btn" aria-label="Close policy modal">
-                <svg width="24" height="24" viewBox="0 0 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18" stroke="#1b1b1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 6L18 18" stroke="#1b1b1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-            <h2>Cancellation & Adjustments Policy</h2>
-            <p><strong>Cancellation Policy:</strong> Cancellations made less than 24 hours prior to the appointment may result in a cancellation fee of 50% of the service price.</p>
-            <p><strong>Adjustments Policy:</strong> At Ruby Salon, we want you to love your look. If you need an adjustment within 10 days of your service, please reach out to book a complimentary adjustment.</p>
-            <div class="button-container">
-                <a href="https://app.squareup.com/appointments/buyer/widget/uv35is9190nn4a/L0GKZSP0E9SDX" class="button" title="Agree to policy and book appointment">Agree & Book</a>
-            </div>
-        </div>
-    </div>
-    <div id="hours-modal" class="modal-overlay">
-        <div class="modal-content">
-            <button class="modal-close-btn" aria-label="Close hours modal">
-                <svg width="24" height="24" viewBox="0 0 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18" stroke="#1b1b1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 6L18 18" stroke="#1b1b1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-            <h2>Our Hours</h2>
-            <div class="hours-content">
-                <p>Monday: <span>10:15 AM – 5:00 PM</span></p>
-                <p>Tuesday: <span>11:00 AM – 5:00 PM</span></p>
-                <p>Wednesday: <span>11:00 AM – 5:00 PM</span></p>
-                <p>Thursday: <span>12:00 PM – 7:00 PM</span></p>
-                <p>Friday: <span>10:15 AM – 4:00 PM</span></p>
-                <p>Saturday: <span>10:00 AM – 4:00 PM</span></p>
-                <p>Sunday: <span>Closed</span></p>
-            </div>
-        </div>
-    </div>
-    <div id="services-modal" class="modal-overlay">
-        <div class="modal-content">
-            <button class="modal-close-btn" aria-label="Close services modal">
-                <svg width="24" height="24" viewBox="0 0 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18" stroke="#1b1b1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 6L18 18" stroke="#1b1b1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-            <h2>All Our Hair Services</h2>
-            <p class="modal-description">At Ruby Salon, we offer a comprehensive range of hair services designed to bring your vision to life. For detailed pricing, availability, and to book your appointment, please visit our online booking page.</p>
-            <div class="service-categories-modal">
-                <div class="service-category-modal">
-                    <h3>Haircuts</h3>
-                    <ul>
-                        <li><span class="service-name">Women's Hair Cut</span><span class="service-details">45 min</span><p class="service-description">Experience a precision haircut tailored to your unique style. Includes a thorough wash, relaxing scalp massage, and professional blow-dry.</p></li>
-                        <li><span class="service-name">Men's Hair Cut</span><span class="service-details">30 min</span><p class="service-description">Sharp and modern cuts designed for men, including consultation and style finish.</p></li>
-                        <li><span class="service-name">Kids Hair Cut (10yr under)</span><span class="service-details">30 min</span><p class="service-description">Expert cuts for our younger clients, ensuring a comfortable and fun experience.</p></li>
-                        <li><span class="service-name">Bang trim</span><span class="service-details">15 min</span><p class="service-description">A complimentary quick trim to keep your bangs looking fresh between appointments.</p></li>
-                    </ul>
-                </div>
-                <div class="service-category-modal">
-                    <h3>Coloring & Treatments</h3>
-                    <ul>
-                        <li><span class="service-name">One Step Color</span><span class="service-details">1 hr 45 min</span><p class="service-description">Achieve a beautiful, consistent single-process color. Includes toner.</p></li>
-                        <li><span class="service-name">Highlights</span><span class="service-details">2 hr</span><p class="service-description">Transform your look with expertly applied highlights, adding dimension and brightness. Includes toner.</p></li>
-                        <li><span class="service-name">Toner</span><span class="service-details">1 hr</span><p class="service-description">Refresh your existing color or neutralize unwanted tones for a vibrant finish.</p></li>
-                        <li><span class="service-name">Men's Camo</span><span class="service-details">15 min</span><p class="service-description">Subtle gray blending for a natural, refreshed look for men.</p></li>
-                        <li><span class="service-name">Smoothing Keratin treatment</span><span class="service-details">1 hr</span><p class="service-description">Reduce frizz and enhance shine with our deeply conditioning keratin treatment.</p></li>
-                    </ul>
-                </div>
-                <div class="service-category-modal">
-                    <h3>Styling & Other Services</h3>
-                    <ul>
-                        <li><span class="service-name">Blow out</span><span class="service-details">30 min</span><p class="service-description">Includes a thorough wash and a professional blow-dry tailored to your desired style.</p></li>
-                        <li><span class="service-name">Style</span><span class="service-details">45 min</span><p class="service-description">Elevate your look with professional styling, including beautiful curls after a blowout.</p></li>
-                        <li><span class="service-name">Casual Updo</span><span class="service-details">1 hr</span><p class="service-description">Effortless and elegant updos perfect for various occasions.</p></li>
-                        <li><span class="service-name">Brows</span><span class="service-details">15 min</span><p class="service-description">Expert brow shaping to perfectly frame your face.</p></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="button-container">
-                <a href="https://book.squareup.com/appointments/buyer/widget/uv35is9190nn4a/L0GKZSP0E9SDX" class="button js-open-policy-modal" title="View all services and book your appointment online">View All Services & Book Online</a>
-            </div>
-        </div>
-    </div>
-    <div id="stylist-modal" class="modal-overlay">
-        <div class="modal-content">
-            <button class="modal-close-btn" aria-label="Close stylist modal">
-                <svg width="24" height="24" viewBox="0 0 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18" stroke="#1b1b1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 6L18 18" stroke="#1b1b1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-            <h2>Brandy Claussen Holland: Master Stylist & Colorist</h2>
-            <img src="https://i.imgur.com/example.jpg" alt="A photo of Brandy Claussen Holland, master stylist at Ruby Salon" class="stylist-modal-image" loading="lazy">
-            <p>With a distinguished career spanning over two decades, Brandy Claussen Holland is a true artisan in the world of hair. Her journey began with an intensive foundation at the prestigious <strong>Vidal Sassoon Academy</strong> in London, followed by advanced training with industry leaders <strong>Toni & Guy</strong> and two sessions at <strong>Bumble and Bumble</strong> in NYC. This extensive education instilled a mastery of precision cutting and an exceptional eye for detail, making her a trusted expert in her field.</p>
-            <p>Brandy's passion lies in enhancing natural beauty. She specializes in creating stunning, natural-looking color, with a particular love for <strong>lived-in blondes</strong> and <strong>dimensional brunettes</strong>. She also excels at crafting seamless, low-maintenance looks that grow out beautifully. Her expertise extends to all hair types, with a celebrated skill in cutting and styling <strong>curly hair of all lengths</strong>.</p>
-            <p>Beyond her technical prowess, Brandy's philosophy is simple: she believes in making every client feel like the best version of themselves. Her warm and welcoming approach ensures a comfortable, confident experience from start to finish. Her dedication to the art of hairstyling has earned her a loyal clientele and a reputation for consistently delivering impeccable results.</p>
-        </div>
-    </div>
     
     <footer>
         <div class="footer-content">
