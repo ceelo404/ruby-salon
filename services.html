@@ -15,19 +15,20 @@
     <meta property="og:image:alt" content="Ruby Salon storefront with logo">
     <link rel="icon" href="https://ruby-salon.com/favicon.png" type="image/png">
     <link rel="shortcut icon" href="https://ruby-salon.com/favicon.png" type="image/png">
-
+    
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" media="print" onload="this.onload=null;this.media='all'">
     <noscript>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap">
     </noscript>
     
+    <!-- Link to the external stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header class="site-header">
-        <a href="index.html" title="Go to homepage"><img src="https://ruby-salon.com/ruby_mod_vidTransparent%20Logo.png" alt="Ruby Salon official logo - Haircuts, Coloring, and Styling" class="logo"></a>
+    <header class="site-header site-header-static">
+        <a href="index.html" title="Go to homepage"><img src="https://ruby-salon.com/ruby_mod_vidTransparent%20Logo.png" alt="Ruby Salon official logo - Haircuts, Coloring, and Styling" class="logo logo-small"></a>
         <div class="header-buttons">
             <a href="https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services" class="button secondary-button js-open-policy-modal" title="Book your hair appointment online">Book Now</a>
             <a href="https://venmo.com/u/Brandy-Claussen" class="button" title="Tip your stylist online via Venmo">Tip Online</a>
@@ -42,10 +43,10 @@
             <svg width="24" height="24" viewBox="0 0 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 6L18 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <a href="https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services" class="js-open-policy-modal" title="Book your hair appointment online">Book Now</a>
-        <a href="services.html" title="View our hair salon services">Our Services</a> 
+        <a href="services.html" title="View our hair salon services">Our Services</a>
         <a href="stylist-bio.html" title="Meet the stylist">Meet the Stylist</a>
         <a href="https://venmo.com/u/Brandy-Claussen" title="Tip your stylist online">Tip Online</a>
-        <a href="tel:+14043893114" title="Call Ruby Salon">Contact Us</a> 
+        <a href="tel:+14043893114" title="Call Ruby Salon">Contact Us</a>
         <a id="open-map-btn" title="Find Ruby Salon on the map">Find Us</a>
         <a id="open-hours-btn" title="View Ruby Salon's operating hours">Our Hours</a>
     </nav>
@@ -148,6 +149,7 @@
         </section>
     </main>
 
+    <!-- All modals are moved here from the individual pages to be accessible site-wide -->
     <div id="map-modal" class="modal-overlay">
         <div class="modal-content">
             <button class="modal-close-btn" aria-label="Close map modal">
@@ -188,6 +190,48 @@
             </div>
         </div>
     </div>
+    <div id="services-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close-btn" aria-label="Close services modal">
+                <svg width="24" height="24" viewBox="0 0 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18" stroke="#1b1b1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 6L18 18" stroke="#1b1b1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <h2>All Our Hair Services</h2>
+            <p class="modal-description">At Ruby Salon, we offer a comprehensive range of hair services designed to bring your vision to life. For detailed pricing, availability, and to book your appointment, please visit our online booking page.</p>
+            <div class="service-categories-modal">
+                <div class="service-category-modal">
+                    <h3>Haircuts</h3>
+                    <ul>
+                        <li><span class="service-name">Women's Hair Cut</span><span class="service-details">45 min</span><p class="service-description">Experience a precision haircut tailored to your unique style. Includes a thorough wash, relaxing scalp massage, and professional blow-dry.</p></li>
+                        <li><span class="service-name">Men's Hair Cut</span><span class="service-details">30 min</span><p class="service-description">Sharp and modern cuts designed for men, including consultation and style finish.</p></li>
+                        <li><span class="service-name">Kids Hair Cut (10yr under)</span><span class="service-details">30 min</span><p class="service-description">Expert cuts for our younger clients, ensuring a comfortable and fun experience.</p></li>
+                        <li><span class="service-name">Bang trim</span><span class="service-details">15 min</span><p class="service-description">A complimentary quick trim to keep your bangs looking fresh between appointments.</p></li>
+                    </ul>
+                </div>
+                <div class="service-category-modal">
+                    <h3>Coloring & Treatments</h3>
+                    <ul>
+                        <li><span class="service-name">One Step Color</span><span class="service-details">1 hr 45 min</span><p class="service-description">Achieve a beautiful, consistent single-process color. Includes toner.</p></li>
+                        <li><span class="service-name">Highlights</span><span class="service-details">2 hr</span><p class="service-description">Transform your look with expertly applied highlights, adding dimension and brightness. Includes toner.</p></li>
+                        <li><span class="service-name">Toner</span><span class="service-details">1 hr</span><p class="service-description">Refresh your existing color or neutralize unwanted tones for a vibrant finish.</p></li>
+                        <li><span class="service-name">Men's Camo</span><span class="service-details">15 min</span><p class="service-description">Subtle gray blending for a natural, refreshed look for men.</p></li>
+                        <li><span class="service-name">Smoothing Keratin treatment</span><span class="service-details">1 hr</span><p class="service-description">Reduce frizz and enhance shine with our deeply conditioning keratin treatment.</p></li>
+                    </ul>
+                </div>
+                <div class="service-category-modal">
+                    <h3>Styling & Other Services</h3>
+                    <ul>
+                        <li><span class="service-name">Blow out</span><span class="service-details">30 min</span><p class="service-description">Includes a thorough wash and a professional blow-dry tailored to your desired style.</p></li>
+                        <li><span class="service-name">Style</span><span class="service-details">45 min</span><p class="service-description">Elevate your look with professional styling, including beautiful curls after a blowout.</p></li>
+                        <li><span class="service-name">Casual Updo</span><span class="service-details">1 hr</span><p class="service-description">Effortless and elegant updos perfect for various occasions.</p></li>
+                        <li><span class="service-name">Brows</span><span class="service-details">15 min</span><p class="service-description">Expert brow shaping to perfectly frame your face.</p></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="button-container">
+                <a href="https://book.squareup.com/appointments/buyer/widget/uv35is9190nn4a/L0GKZSP0E9SDX" class="button js-open-policy-modal" title="View all services and book your appointment online">View All Services & Book Online</a>
+            </div>
+        </div>
+    </div>
     <div id="stylist-modal" class="modal-overlay">
         <div class="modal-content">
             <button class="modal-close-btn" aria-label="Close stylist modal">
@@ -200,13 +244,13 @@
             <p>Beyond her technical prowess, Brandy's philosophy is simple: she believes in making every client feel like the best version of themselves. Her warm and welcoming approach ensures a comfortable, confident experience from start to finish. Her dedication to the art of hairstyling has earned her a loyal clientele and a reputation for consistently delivering impeccable results.</p>
         </div>
     </div>
-
+    
     <footer>
         <div class="footer-content">
             <p>© 2025 Ruby Salon</p>
             <p>
-                <a id="footer-address-link" href="https://maps.app.goo.gl/YOUR_Maps_LINK_HERE" target="_blank" rel="noopener noreferrer" title="Get directions to Ruby Salon">114 W Trinity Pl #10, Decatur, GA 0030</a> | 
-                Phone: <a href="tel:+14043893114" style="color: rgba(255,255,255,0.7);" title="Call Ruby Salon directly">(404) 389-3114</a> | 
+                <a id="footer-address-link" href="https://maps.app.goo.gl/YOUR_Maps_LINK_HERE" target="_blank" rel="noopener noreferrer" title="Get directions to Ruby Salon">114 W Trinity Pl #10, Decatur, GA 0030</a> |
+                Phone: <a href="tel:+14043893114" style="color: rgba(255,255,255,0.7);" title="Call Ruby Salon directly">(404) 389-3114</a> |
                 <a id="footer-hours-link" href="#" style="color: rgba(255,255,255,0.7);" title="View Ruby Salon's operating hours">Our Hours</a>
             </p>
             <div class="social-icons">
@@ -221,6 +265,7 @@
             const navClose = document.querySelector('.nav-close-btn');
             const mobileNav = document.querySelector('.mobile-nav');
             const navLinks = document.querySelectorAll('.mobile-nav a');
+            const header = document.querySelector('.site-header');
 
             function openNav() { mobileNav.classList.add('is-open'); }
             function closeNav() { mobileNav.classList.remove('is-open'); }
@@ -238,24 +283,62 @@
             const openHoursBtn = document.getElementById('open-hours-btn');
             const hoursModal = document.getElementById('hours-modal');
             const hoursModalCloseBtn = hoursModal.querySelector('.modal-close-btn');
+            const bookingButtons = document.querySelectorAll('.js-open-policy-modal');
+            const policyModal = document.getElementById('policy-modal');
+            const policyModalCloseBtn = policyModal.querySelector('.modal-close-btn');
+            const openServicesBtn = document.getElementById('open-services-btn');
+            const servicesModal = document.getElementById('services-modal');
+            const servicesModalCloseBtn = servicesModal.querySelector('.modal-close-btn');
+            const openStylistBtn = document.getElementById('open-stylist-btn');
+            const stylistModal = document.getElementById('stylist-modal');
+            const stylistModalCloseBtn = stylistModal.querySelector('.modal-close-btn');
 
             function openMapModal() { mapModal.classList.add('is-visible'); document.body.style.overflow = 'hidden'; }
             function closeMapModal() { mapModal.classList.remove('is-visible'); document.body.style.overflow = ''; }
             function openHoursModal() { hoursModal.classList.add('is-visible'); document.body.style.overflow = 'hidden'; }
             function closeHoursModal() { hoursModal.classList.remove('is-visible'); document.body.style.overflow = ''; }
+            function openPolicyModal() { policyModal.classList.add('is-visible'); document.body.style.overflow = 'hidden'; }
+            function closePolicyModal() { policyModal.classList.remove('is-visible'); document.body.style.overflow = ''; }
+            function openServicesModal() { servicesModal.classList.add('is-visible'); document.body.style.overflow = 'hidden'; }
+            function closeServicesModal() { servicesModal.classList.remove('is-visible'); document.body.style.overflow = ''; }
+            function openStylistModal() { stylistModal.classList.add('is-visible'); document.body.style.overflow = 'hidden'; }
+            function closeStylistModal() { stylistModal.classList.remove('is-visible'); document.body.style.overflow = ''; }
 
             if (openMapBtn) { openMapBtn.addEventListener('click', openMapModal); }
             if (mapModalCloseBtn) { mapModalCloseBtn.addEventListener('click', closeMapModal); }
             if (openHoursBtn) { openHoursBtn.addEventListener('click', openHoursModal); }
             if (hoursModalCloseBtn) { hoursModalCloseBtn.addEventListener('click', closeHoursModal); }
+            if (openServicesBtn) { openServicesBtn.addEventListener('click', openServicesModal); }
+            if (servicesModalCloseBtn) { servicesModalCloseBtn.addEventListener('click', closeServicesModal); }
+            if (openStylistBtn) { openStylistBtn.addEventListener('click', openStylistModal); }
+            if (stylistModalCloseBtn) { stylistModalCloseBtn.addEventListener('click', closeStylistModal); }
+
+            bookingButtons.forEach(button => {
+                button.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    if (event.target.closest('#services-modal')) { closeServicesModal(); }
+                    openPolicyModal();
+                });
+            });
+
+            policyModalCloseBtn.addEventListener('click', closePolicyModal);
 
             document.addEventListener('click', (event) => {
-                if (mobileNav.classList.contains('is-open') && !event.target.closest('.mobile-nav') && !event.target.closest('.mobile-nav-toggle')) {
-                    closeNav();
-                }
+                if (mobileNav.classList.contains('is-open') && !event.target.closest('.mobile-nav') && !event.target.closest('.mobile-nav-toggle')) { closeNav(); }
                 if (event.target === mapModal) { closeMapModal(); }
+                if (event.target === policyModal) { closePolicyModal(); }
                 if (event.target === hoursModal) { closeHoursModal(); }
+                if (event.target === servicesModal) { closeServicesModal(); }
+                if (event.target === stylistModal) { closeStylistModal(); }
             });
+            
+            if (window.location.pathname === '/index.html' || window.location.pathname === '/') {
+                window.addEventListener('scroll', () => {
+                    header.classList.toggle('scrolled', window.scrollY > 50);
+                });
+            } else {
+                header.classList.add('scrolled');
+            }
         });
     </script>
 </body>
