@@ -59,7 +59,7 @@ body {
     max-height: 110px;
 }
 
-/* New style for static pages to ensure header is solid */
+/* Corrected style for static pages to ensure header is solid */
 .site-header-static {
     background-color: var(--scrolled-header-purple);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
@@ -288,9 +288,10 @@ body {
 
 /* ==============================================
    MAIN CONTENT SECTIONS STYLES
+   (For services.html and stylist-bio.html)
    ============================================== */
 .main-content-wrapper {
-    padding: var(--header-height) 20px 40px; /* Correct padding to account for fixed header */
+    padding: var(--header-height) 20px 40px;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -547,8 +548,8 @@ footer p {
     .footer-content p:nth-of-type(2) {
         padding: 0 10px;
     }
-    .services-overview-section h1,
-    .stylist-text-content h1 {
+    .services-overview-section h2,
+    .stylist-text-content h2 {
         font-size: 2.2em;
     }
     .services-overview-section .section-description,
@@ -572,6 +573,9 @@ footer p {
     }
     .stylist-text-content {
         text-align: center;
+    }
+    .hours-display-desktop {
+        display: none;
     }
 }
 
