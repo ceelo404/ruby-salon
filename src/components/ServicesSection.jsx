@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 // Define service data as an array of objects
 const serviceCategories = [
@@ -34,6 +34,17 @@ const serviceCategories = [
 
 // 1. Receive the onBookNowClick function as a "prop"
 const ServicesSection = ({ onBookNowClick }) => {
+
+  // New code to handle scrolling to the section
+  useEffect(() => {
+    // Check if the URL hash matches our section's ID
+    if (window.location.hash === '#services') {
+      const section = document.getElementById('services');
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, []); // The empty array ensures this only runs once when the component mounts
 
   // 2. Create a handler function to call the prop and prevent navigation
   const handleBookNow = (e) => {
