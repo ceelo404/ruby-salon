@@ -45,52 +45,51 @@ function App() {
 
   // --- SEO DATA (COMPLETE VERSION) ---
   const schemaData = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Ruby Hair Salon",
-    "image": "https://ruby-salon.com/ruby-salon-social-share.jpg",
-    "url": "https://ruby-salon.com/",
-    "telephone": "+14043893114",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "114 W Trinity Pl #10",
-      "addressLocality": "Decatur",
-      "addressRegion": "GA",
-      "postalCode": "30030",
-      "addressCountry": "US"
-    },
-    "priceRange": "$$",
-    "openingHoursSpecification": [
-      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Monday", "opens": "10:15", "closes": "17:00" },
-      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday", "opens": "11:00", "closes": "17:00" },
-      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "11:00", "closes": "17:00" },
-      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "12:00", "closes": "19:00" },
-      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "10:15", "closes": "16:00" },
-      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "10:00", "closes": "16:00" }
-    ],
-    "hasMap": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53064.10046107613!2d-84.37319755554199!3d33.77342199727208!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f507b27fa45657%3A0x1ded6e63a498978a!2sRuby%20Hair%20Salon!5e0!3m2!1sen!2sus!4v1753883662672!5m2!1sen!2sus",
-    "sameAs": [
-      "https://www.facebook.com/yourrubysalonpage",
-      "https://twitter.com/yourrubysalontwitter",
-      "https://www.instagram.com/yourrubysaloninstagram"
-    ],
-    "description": "Ruby Hair Salon offers expert haircuts, bespoke hair coloring, and transformative styling services in Decatur, GA. Experience precision cuts, vibrant balayage, highlights, and smoothing keratin treatments from our experienced hairstylists in the heart of Decatur. We focus on providing impeccable attention to detail for every client.",
-    "service": [
-      { "@type": "Service", "name": "Women's Hair Cut", "description": "Precision haircuts for women, tailored to individual style, including wash and blow-dry.", "url": "https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services" },
-      { "@type": "Service", "name": "Men's Hair Cut", "description": "Sharp, modern haircuts for men, including consultation and style finish.", "url": "https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services" },
-      { "@type": "Service", "name": "Kids Hair Cut", "description": "Expert haircuts for children (10 years and under) in a comfortable environment.", "url": "https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services" },
-      { "@type": "Service", "name": "One Step Color", "description": "Achieve a beautiful, consistent single-process hair color, includes toner.", "url": "https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services" },
-      { "@type": "Service", "name": "Highlights", "description": "Transformative highlights for dimension and brightness, including toner.", "url": "https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services" },
-      { "@type": "Service", "name": "Blow out", "description": "Professional blow-dry service including thorough wash and styling.", "url": "https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services" },
-      { "@type": "Service", "name": "Style", "description": "Professional hair styling for elegant looks, including curls after a blowout.", "url": "https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services" },
-      { "@type": "Service", "name": "Casual Updo", "description": "Effortless and elegant updo styling for various occasions.", "url": "https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services" },
-      { "@type": "Service", "name": "Toner", "description": "Color refresh or neutralization of unwanted tones for a vibrant hair finish.", "url": "https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services" },
-      { "@type": "Service", "name": "Men's Camo", "description": "Subtle gray blending service for a natural, refreshed look for men.", "url": "https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services" },
-      { "@type": "Service", "name": "Smoothing Keratin treatment", "description": "Hair treatment to reduce frizz and enhance shine for smoother hair.", "url": "https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services" },
-      { "@type": "Service", "name": "Brows", "description": "Expert brow shaping service to perfectly frame your face.", "url": "https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services" },
-      { "@type": "Service", "name": "Bang trim", "description": "Complimentary quick bang trimming service between appointments.", "url": "https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services" }
-    ]
-  };
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Ruby Hair Salon",
+  "image": "https://ruby-salon.com/ruby-salon-social-share.jpg",
+  "url": "https://ruby-salon.com/",
+  "telephone": "+14043893114",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "114 W Trinity Pl #10",
+    "addressLocality": "Decatur",
+    "addressRegion": "GA",
+    "postalCode": "30030",
+    "addressCountry": "US"
+  },
+  "priceRange": "$$",
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Monday", "opens": "10:15", "closes": "17:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday", "opens": "11:00", "closes": "17:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "11:00", "closes": "17:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "12:00", "closes": "19:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "10:15", "closes": "16:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "10:00", "closes": "16:00" }
+  ],
+  "hasMap": "https://maps.google.com/?cid=2156501170822616970&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ",
+  "sameAs": [
+    "https://www.facebook.com/share/15oGa2Qkam/?mibextid=wwXlfr",
+    "https://www.instagram.com/brandyclaussen_?igsh=Y3p5ZGZ0YjcyMDBw"
+  ],
+  "description": "Ruby Hair Salon offers expert haircuts, bespoke hair coloring, and transformative styling services in Downtown Decatur, GA. Experience precision cuts, vibrant balayage, highlights, and smoothing keratin treatments from our experienced hairstylists in the heart of Decatur. We focus on providing impeccable attention to detail for every client.",
+  "service": [
+    { "@type": "Service", "name": "Women's Hair Cut", "description": "Precision haircuts for women, tailored to individual style, including wash and blow-dry.", "url": "https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services" },
+    { "@type": "Service", "name": "Men's Hair Cut", "description": "Sharp, modern haircuts for men, including consultation and style finish.", "url": "https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services" },
+    { "@type": "Service", "name": "Kids Hair Cut", "description": "Expert haircuts for children (10 years and under) in a comfortable environment.", "url": "https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services" },
+    { "@type": "Service", "name": "One Step Color", "description": "Achieve a beautiful, consistent single-process hair color, includes toner.", "url": "https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services" },
+    { "@type": "Service", "name": "Highlights", "description": "Transformative highlights for dimension and brightness, including toner.", "url": "https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services" },
+    { "@type": "Service", "name": "Blow out", "description": "Professional blow-dry service including thorough wash and styling.", "url": "https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services" },
+    { "@type": "Service", "name": "Style", "description": "Professional hair styling for elegant looks, including curls after a blowout.", "url": "https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services" },
+    { "@type": "Service", "name": "Casual Updo", "description": "Effortless and elegant updo styling for various occasions.", "url": "https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services" },
+    { "@type": "Service", "name": "Toner", "description": "Color refresh or neutralization of unwanted tones for a vibrant hair finish.", "url": "https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services" },
+    { "@type": "Service", "name": "Men's Camo", "description": "Subtle gray blending service for a natural, refreshed look for men.", "url": "https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services" },
+    { "@type": "Service", "name": "Smoothing Keratin treatment", "description": "Hair treatment to reduce frizz and enhance shine for smoother hair.", "url": "https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services" },
+    { "@type": "Service", "name": "Brows", "description": "Expert brow shaping service to perfectly frame your face.", "url": "https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services" },
+    { "@type": "Service", "name": "Bang trim", "description": "Complimentary quick bang trimming service between appointments.", "url": "https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services" }
+  ]
+};
 
   // --- HANDLER FUNCTIONS ---
   const handleOpenPolicyFromServices = () => {
@@ -106,22 +105,22 @@ function App() {
 
   // --- RENDER ---
   return (
-    <div className="App">
-      <title>Ruby Hair Salon - Expert Haircuts, Coloring, & Styling in Decatur, GA</title>
-      <meta name="description" content="Book your perfect look at Ruby Hair Salon in Decatur, GA! Experience precision haircuts, bespoke coloring, and transformative styling with decades of expertise. Schedule your appointment today!" />
-      <meta name="keywords" content="Ruby Hair Salon, hair salon Decatur GA, haircuts Decatur, hair coloring Decatur, hair styling Decatur, best hair salon, professional hair services, Decatur hairstylist, hair treatment Decatur, balayage Decatur, highlights Decatur, men's haircuts Decatur, kids haircuts Decatur, keratin treatment Decatur, blowouts Decatur, updo Decatur, brow shaping Decatur" />
-      <link rel="canonical" href="https://ruby-salon.com/" />
-      <meta property="og:title" content="Ruby Hair Salon - Expert Haircuts, Coloring, & Styling in Decatur, GA" />
-      <meta property="og:description" content="Experience precision haircuts, bespoke coloring, and transformative styling at Ruby Hair Salon in Decatur, GA. Decades of experience for your perfect look. Book your appointment today!" />
-      <meta property="og:type" content="website" />
-      <meta property="og:url" content="https://ruby-salon.com/" />
-      <meta property="og:image" content="https://ruby-salon.com/ruby-salon-social-share.jpg" />
-      <meta property="og:image:alt" content="Ruby Hair Salon storefront with logo" />
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Ruby Hair Salon - Expert Haircuts, Coloring, & Styling in Decatur, GA" />
-      <meta name="twitter:description" content="Experience precision haircuts, bespoke coloring, and transformative styling at Ruby Hair Salon in Decatur, GA. Decades of experience for your perfect look. Book your appointment today!" />
-      <meta name="twitter:image" content="https://ruby-salon.com/ruby-salon-social-share.jpg" />
-      <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
+<div className="App">
+  <title>Ruby Hair Salon - Expert Haircuts, Coloring, & Styling in Downtown Decatur, GA</title>
+  <meta name="description" content="Book your perfect look at Ruby Hair Salon in Downtown Decatur, GA! Experience precision haircuts, bespoke coloring, and transformative styling with decades of expertise. Schedule your appointment today!" />
+  <meta name="keywords" content="Ruby Hair Salon, hair salon Decatur GA, hair salon Downtown Decatur GA, haircuts Decatur, hair coloring Decatur, hair styling Decatur, best hair salon, professional hair services, Decatur hairstylist, hair treatment Decatur, balayage Decatur, highlights Decatur, men's haircuts Decatur, kids haircuts Decatur, keratin treatment Decatur, blowouts Decatur, updo Decatur, brow shaping Decatur" />
+  <link rel="canonical" href="https://ruby-salon.com/" />
+  <meta property="og:title" content="Ruby Hair Salon - Expert Haircuts, Coloring, & Styling in Downtown Decatur, GA" />
+  <meta property="og:description" content="Experience precision haircuts, bespoke coloring, and transformative styling at Ruby Hair Salon in Downtown Decatur, GA. Decades of experience for your perfect look. Book your appointment today!" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ruby-salon.com/" />
+  <meta property="og:image" content="https://ruby-salon.com/ruby-salon-social-share.jpg" />
+  <meta property="og:image:alt" content="Ruby Hair Salon storefront with logo" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Ruby Hair Salon - Expert Haircuts, Coloring, & Styling in Downtown Decatur, GA" />
+  <meta name="twitter:description" content="Experience precision haircuts, bespoke coloring, and transformative styling at Ruby Hair Salon in Downtown Decatur, GA. Decades of experience for your perfect look. Book your appointment today!" />
+  <meta name="twitter:image" content="https://ruby-salon.com/ruby-salon-social-share.jpg" />
+  <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
 
       <Header 
         onNavToggle={() => setNavOpen(true)} 
