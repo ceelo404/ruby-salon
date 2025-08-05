@@ -1,8 +1,14 @@
 [build]
-  command = "npm run build"
-  publish = "dist"
+  command = "npm run build"
+  publish = "dist"
 
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+  from = "https://book.ruby-salon.com/*"
+  to = "https://ruby-salon.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
