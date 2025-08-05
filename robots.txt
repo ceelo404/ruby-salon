@@ -1,0 +1,6 @@
+# Allow all web crawlers access to all content
+User-agent: *
+Allow: /
+
+# Provide the location of the sitemap
+Sitemap: https://ruby-salon.com/sitemap.xml
