@@ -1,0 +1,84 @@
+import React from 'react';
+
+// Define service data as an array of objects
+const serviceCategories = [
+  {
+    title: 'Haircuts',
+    services: [
+      { name: "Women's Hair Cut", details: '45 min', description: "Experience a precision haircut tailored to your unique style. Includes a thorough wash, relaxing scalp massage, and professional blow-dry." },
+      { name: "Men's Hair Cut", details: '30 min', description: "Sharp and modern cuts designed for men, including consultation and style finish." },
+      { name: "Kids Hair Cut (10yr under)", details: '30 min', description: "Expert cuts for our younger clients, ensuring a comfortable and fun experience." },
+      { name: "Bang trim", details: '15 min', description: "A complimentary quick trim to keep your bangs looking fresh between appointments." }
+    ]
+  },
+  {
+    title: 'Coloring & Treatments',
+    services: [
+      { name: "One Step Color", details: '1 hr 45 min', description: "Achieve a beautiful, consistent single-process color. Includes toner." },
+      { name: "Highlights", details: '2 hr', description: "Transform your look with expertly applied highlights, adding dimension and brightness. Includes toner." },
+      { name: "Toner", details: '1 hr', description: "Refresh your existing color or neutralize unwanted tones for a vibrant finish." },
+      { name: "Men's Camo", details: '15 min', description: "Subtle gray blending for a natural, refreshed look for men." },
+      { name: "Smoothing Keratin treatment", details: '1 hr', description: "Reduce frizz and enhance shine with our deeply conditioning keratin treatment." }
+    ]
+  },
+  {
+    title: 'Styling & Other Services',
+    services: [
+      { name: "Blow out", details: '30 min', description: "Includes a thorough wash and a professional blow-dry tailored to your desired style." },
+      { name: "Style", details: '45 min', description: "Elevate your look with professional styling, including beautiful curls after a blowout." },
+      { name: "Casual Updo", details: '1 hr', description: "Effortless and elegant updos perfect for various occasions." },
+      { name: "Brows", details: '15 min', description: "Expert brow shaping to perfectly frame your face." }
+    ]
+  }
+];
+
+// 1. Receive the onBookNowClick function as a "prop"
+const ServicesSection = ({ onBookNowClick }) => {
+
+  // 2. Create a handler function to call the prop and prevent navigation
+  const handleBookNow = (e) => {
+    e.preventDefault(); // This stops the link from trying to go anywhere
+    
+    // Check if the function was passed in before calling it
+    if (onBookNowClick) {
+      onBookNowClick();
+    }
+  };
+
+  return (
+    <section id="services" className="services-overview-section">
+      <div className="container">
+        <h2>Our Services</h2>
+        <p className="section-description">
+          At Ruby Hair Salon, we offer a comprehensive range of hair services designed to bring your vision to life. From precision cuts to bespoke coloring and transformative styling, our experienced team is dedicated to providing an exceptional experience. Below is an overview of our most popular services. For detailed pricing, availability, and to book your appointment, please visit our online booking page.
+        </p>
+
+        <div className="service-categories">
+          {serviceCategories.map((category) => (
+            <div key={category.title} className="service-category">
+              <h3>{category.title}</h3>
+              <ul>
+                {category.services.map((service) => (
+                  <li key={service.name}>
+                    <span className="service-name">{service.name}</span>
+                    <span className="service-details">{service.details}</span>
+                    <p className="service-description">{service.description}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <div className="button-container" style={{ marginTop: '40px' }}>
+          {/* 3. Update the button to use the new onClick handler */}
+          <a href="#" onClick={handleBookNow} className="button" title="View all services and book your appointment online">
+            View All Services & Book Online
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default ServicesSection;

@@ -1,0 +1,125 @@
+import React, { useState, useEffect } from 'react';
+
+// Import all your components
+import Header from './components/Header';
+import HeroSection from './components/HeroSection';
+import ServicesSection from './components/ServicesSection';
+import FindUsSection from './components/FindUsSection';
+import Footer from './components/Footer';
+import Modal from './components/Modal';
+import MobileNav from './components/MobileNav'; // <-- Import the new component
+
+// Import your CSS file
+import './index.css';
+
+function App() {
+  // --- STATE MANAGEMENT ---
+  const [isPolicyModalVisible, setPolicyModalVisible] = useState(false);
+  const [isMapModalVisible, setMapModalVisible] = useState(false);
+  const [isHoursModalVisible, setHoursModalVisible] = useState(false);
+  const [isServicesModalVisible, setServicesModalVisible] = useState(false);
+  const [isNavOpen, setNavOpen] = useState(false);
+
+  // --- SIDE EFFECTS ---
+  useEffect(() => {
+    const header = document.querySelector('.site-header');
+    if (!header) return;
+    const handleScroll = () => {
+      header.classList.toggle('scrolled', window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const body = document.body;
+    if (isPolicyModalVisible || isMapModalVisible || isHoursModalVisible || isServicesModalVisible || isNavOpen) {
+      body.style.overflow = 'hidden';
+    } else {
+      body.style.overflow = '';
+    }
+
+// Add this new function inside your App component
+const handleOpenPolicyFromServices = () => {
+    setServicesModalVisible(false); // First, close the services modal
+    setPolicyModalVisible(true);    // Then, open the policy modal
+};
+
+  }, [isPolicyModalVisible, isMapModalVisible, isHoursModalVisible, isServicesModalVisible, isNavOpen]);
+
+  // --- SEO DATA ---
+  const schemaData = { /* ... your schema data ... */ };
+
+  // --- RENDER ---
+  return (
+    <div className="App">
+      <title>Ruby Hair Salon - Expert Haircuts, Coloring, & Styling in Decatur, GA</title>
+      <meta name="description" content="Book your perfect look at Ruby Hair Salon in Decatur, GA! Experience precision haircuts, bespoke coloring, and transformative styling with decades of expertise. Schedule your appointment today!" />
+      <meta name="keywords" content="Ruby Hair Salon, hair salon Decatur GA, haircuts Decatur, hair coloring Decatur, hair styling Decatur, best hair salon, professional hair services, Decatur hairstylist, hair treatment Decatur, balayage Decatur, highlights Decatur, men's haircuts Decatur, kids haircuts Decatur, keratin treatment Decatur, blowouts Decatur, updo Decatur, brow shaping Decatur" />
+      <link rel="canonical" href="https://ruby-salon.com/" />
+      <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
+
+      {/* Your actual page content */}
+      <Header 
+        onNavToggle={() => setNavOpen(!isNavOpen)} 
+        onBookNowClick={() => setPolicyModalVisible(true)}
+      />
+      
+      <MobileNav 
+        isOpen={isNavOpen}
+        onClose={() => setNavOpen(false)}
+        onBookNowClick={() => setPolicyModalVisible(true)}
+        onServicesClick={() => setServicesModalVisible(true)}
+        onFindUsClick={() => setMapModalVisible(true)}
+        onHoursClick={() => setHoursModalVisible(true)}
+      />
+      
+      <main>
+        <HeroSection onBookNowClick={() => setPolicyModalVisible(true)} />
+        <ServicesSection onBookNowClick={() => setPolicyModalVisible(true)} />
+        <FindUsSection />
+      </main>
+      
+      <Footer 
+        onFindUsClick={() => setMapModalVisible(true)}
+        onHoursClick={() => setHoursModalVisible(true)}
+      />
+
+      {/* --- MODALS --- */}
+      <Modal isVisible={isPolicyModalVisible} onClose={() => setPolicyModalVisible(false)}>
+        <h2>Cancellation & Adjustments Policy</h2>
+        <p><strong>Cancellation Policy:</strong> Cancellations made less than 24 hours prior to the appointment may result in a cancellation fee of 50% of the service price.</p>
+        <p><strong>Adjustments Policy:</strong> At Ruby Hair Salon, we want you to love your look. If you need an adjustment within 10 days of your service, please reach out to book a complimentary adjustment.</p>
+        <div className="button-container">
+          <a href="https://app.squareup.com/appointments/buyer/widget/uv35is9190nn4a/L0GKZSP0E9SDX" className="button" title="Agree to policy and book appointment">Agree & Book</a>
+        </div>
+      </Modal>
+
+      <Modal isVisible={isMapModalVisible} onClose={() => setMapModalVisible(false)}>
+        <h2>Find Us</h2>
+        <p className="modal-parking-info">Validated 2Hr Parking at the AMLI parking garage 122 W Trinity Pl.</p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13265.875770806726!2d-84.29727690740961!3d33.77438646705779!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f507b27fa45657%3A0x1ded6e63a498978a!2sRuby%20Hair%20Salon!5e0!3m2!1sen!2sus!4v1753991876365!5m2!1sen!2sus" width="600" height="450" style={{ border: 0 }} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="Google Map of Ruby Hair Salon location in Decatur, GA"></iframe>
+      </Modal>
+
+      <Modal isVisible={isHoursModalVisible} onClose={() => setHoursModalVisible(false)}>
+        <h2>Our Hours</h2>
+        <div className="hours-content" style={{ maxWidth: '300px', margin: '0 auto' }}>
+          <p style={{ display: 'flex', justifyContent: 'space-between' }}>Monday: <span>10:15 AM – 5:00 PM</span></p>
+          <p style={{ display: 'flex', justifyContent: 'space-between' }}>Tuesday: <span>11:00 AM – 5:00 PM</span></p>
+          <p style={{ display: 'flex', justifyContent: 'space-between' }}>Wednesday: <span>11:00 AM – 5:00 PM</span></p>
+          <p style={{ display: 'flex', justifyContent: 'space-between' }}>Thursday: <span>12:00 PM – 7:00 PM</span></p>
+          <p style={{ display: 'flex', justifyContent: 'space-between' }}>Friday: <span>10:15 AM – 4:00 PM</span></p>
+          <p style={{ display: 'flex', justifyContent: 'space-between' }}>Saturday: <span>10:00 AM – 4:00 PM</span></p>
+          <p style={{ display: 'flex', justifyContent: 'space-between' }}>Sunday: <span>Closed</span></p>
+        </div>
+      </Modal>
+      
+      <Modal isVisible={isServicesModalVisible} onClose={() => setServicesModalVisible(false)}>
+         {/* Using the same component as the main page, just inside a modal! */}
+        <ServicesSection onBookNowClick={() => setPolicyModalVisible(true)} />
+      </Modal>
+    </div>
+  );
+}
+
+export default App;

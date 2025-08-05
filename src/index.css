@@ -1,0 +1,866 @@
+/* Your existing CSS here */
+:root {
+    --purple: #7B2CBF;
+    --purple-dark: #5A189A;
+    --purple-light: #9D4EDD; 
+    --light-gray: #f4f5f7;
+    --dark-gray: #1b1b1f;
+    --scrolled-header-purple: #9D4EDD; 
+}
+
+html {
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    background-color: var(--light-gray);
+    color: #fff;
+    padding-bottom: 100px; /* Base padding for footer */
+}
+
+.hero-headline-style {
+    font-size: 3em;
+    font-weight: 900;
+    margin-top: 0;
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+@media (max-width: 768px) {
+    .hero-headline-style {
+        font-size: 2.2em;
+    }
+}
+
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: transparent; 
+    z-index: 100;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.site-header .logo {
+    max-height: 200px; 
+}
+
+.site-header.scrolled {
+    background-color: var(--scrolled-header-purple); 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Keep for desktop */
+    box-sizing: border-box;
+    position: relative;
+    text-align: center;
+    padding: 20px;
+    overflow: hidden; 
+}
+
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 2; 
+}
+
+.content-card {
+    width: 100%;
+    max-width: 800px;
+    position: relative;
+    z-index: 3; 
+    margin-bottom: 100px; /* Keep for desktop */
+}
+
+.card-content {
+    position: relative;
+}
+
+.card-content p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+.card-content p:first-of-type { 
+    margin-bottom: 20px;
+}
+
+
+.button {
+    display: inline-block;
+    background-color: var(--purple);
+    color: #fff;
+    padding: 16px 32px;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 700;
+    margin: 5px;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: var(--purple-dark);
+    transform: scale(1.05);
+}
+
+.secondary-button {
+    background: rgba(255,255,255,0.15);
+}
+.secondary-button:hover {
+     background: rgba(255,255,255,0.25);
+}
+
+.more-info {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 120px 20px 40px; /* Reverted to original padding */
+    margin-top: 0; /* Removed negative margin */
+    color: var(--dark-gray);
+    text-align: center;
+}
+
+.more-info h2 {
+    font-size: 2.5em;
+    font-weight: 900;
+    margin-top: 0;
+    text-align: center; /* Ensure h2 is centered too */
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 450px;
+    border: 0;
+    border-radius: 16px;
+    margin-top: 20px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--dark-gray);
+    color: rgba(255,255,255,0.7);
+    padding: 20px 5%;
+    z-index: 99;
+    text-align: center;
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+    flex-grow: 1;
+    text-align: left;
+}
+/* Style for the clickable footer address */
+#footer-address-link {
+    cursor: pointer;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+#footer-address-link:hover {
+    color: var(--purple-light);
+}
+
+.social-icons {
+    display: flex; /* Make social icons display horizontally */
+    gap: 15px; /* Add some space between icons */
+}
+
+/* UPDATED CSS FOR SOCIAL ICONS (from previous turn, to ensure it's here) */
+.social-icons a {
+    display: flex; /* Make the anchor a flex container */
+    justify-content: center; /* Center the SVG horizontally */
+    align-items: center; /* Center the SVG vertically */
+    margin: 0; /* Remove default margins */
+    padding: 0; /* Remove default padding */
+}
+
+.social-icons svg {
+    width: 20px;
+    height: 20px;
+    fill: #ffffff;
+    transition: fill 0.3s;
+}
+
+.mobile-nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 102;
+}
+
+.mobile-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    transform: translateX(100%);
+    width: 70%;
+    max-width: 300px;
+    height: 100vh;
+    background: var(--dark-gray);
+    z-index: 101;
+    transition: transform 0.3s ease-in-out;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.mobile-nav.is-open {
+    transform: translateX(0);
+}
+
+.nav-close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.mobile-nav a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5em;
+    padding: 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    cursor: pointer;
+}
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* NEW: Styles for the modal content to make it scrollable */
+.modal-content {
+    background: var(--light-gray);
+    padding: 30px;
+    border-radius: 16px;
+    position: relative;
+    width: 90%;
+    max-width: 600px;
+    color: var(--dark-gray);
+    max-height: 90vh; /* Set a maximum height relative to viewport */
+    overflow-y: auto; /* Enable vertical scrolling */
+    -webkit-overflow-scrolling: touch; /* For smoother scrolling on iOS */
+}
+
+.modal-content h2 {
+    font-size: 2em;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+.modal-content p {
+    text-align: left;
+    margin-bottom: 1.2em;
+    line-height: 1.6;
+}
+
+.modal-content .button-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.modal-content iframe {
+    width: 100%;
+    height: 60vh;
+    border: 0;
+    border-radius: 8px;
+}
+
+/* NEW: Scroll down indicator */
+.scroll-indicators-wrapper {
+    position: absolute;
+    bottom: 80px; /* Position the entire group */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex; /* Use flexbox for internal layout */
+    gap: 0; /* No gap needed if only one item */
+    z-index: 4; /* Ensure it's above video overlay */
+    opacity: 0; /* Apply fade-in to the wrapper */
+    animation: fadeIn 1s ease-out 2s forwards; 
+}
+
+.scroll-down-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.scroll-down-indicator .text {
+    font-weight: 700;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+    text-shadow: 0 0 5px rgba(0,0,0,0.5); 
+}
+
+.scroll-down-indicator .icon {
+    font-size: 2em; 
+    line-height: 1;
+    animation: bounce 2s infinite; /* Only bounce animation here */
+    text-shadow: 0 0 5px rgba(0,0,0,0.5); 
+}
+
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.modal-content .modal-parking-info {
+    text-align: center;
+}
+
+.scroll-anchor {
+    display: block;
+    height: 0;
+    margin-top: -250px;
+    padding-top: 250px;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.find-us-content-wrapper {
+    background-color: var(--light-gray);
+    color: var(--dark-gray);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: none;
+    border: none;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.map-and-hours-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.map-and-hours-container .map-container {
+    flex: 1;
+    min-width: 300px;
+    max-width: 60%;
+}
+
+.map-and-hours-container .map-container iframe {
+    height: 500px;
+}
+
+.hours-display-desktop {
+    flex: 0 0 300px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+.hours-display-desktop h3 {
+    font-size: 1.8em;
+    font-weight: 900;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: var(--dark-gray);
+}
+
+.hours-display-desktop .hours-content p {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 8px;
+    font-size: 1em;
+}
+.hours-display-desktop .hours-content p span {
+    font-weight: bold;
+    text-align: right;
+}
+
+.hours-display-desktop .parking-info {
+    font-size: 0.9em;
+    margin-top: 20px;
+    line-height: 1.4;
+    color: var(--dark-gray);
+}
+
+/* ============================================== */
+/* SERVICES OVERVIEW SECTION STYLES               */
+/* ============================================== */
+.services-overview-section {
+    background-color: #fff;
+    color: var(--dark-gray);
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.services-overview-section .container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.services-overview-section h2 {
+    font-size: 2.8em;
+    font-weight: 900;
+    margin-bottom: 20px;
+    color: var(--purple-dark);
+}
+
+.services-overview-section .section-description {
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto 50px auto;
+}
+
+.service-categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.service-category {
+    background-color: var(--light-gray);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    min-width: 280px;
+    max-width: 32%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-category h3 {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--purple); 
+    margin-top: 0;
+    margin-bottom: 25px;
+    text-align: center; 
+}
+
+.service-category ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1; 
+}
+
+.service-category li {
+    margin-bottom: 20px;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.1); 
+    padding-bottom: 15px;
+}
+
+.service-category li:last-child {
+    border-bottom: none; 
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.service-name {
+    display: block;
+    font-weight: 700;
+    font-size: 1.15em;
+    color: var(--dark-gray);
+    margin-bottom: 5px;
+}
+
+.service-details {
+    display: block;
+    font-size: 0.95em;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.service-description {
+    font-size: 0.9em;
+    line-height: 1.5;
+    color: #444;
+}
+
+/* ============================================== */
+/* Styles for service categories within modal     */
+/* ============================================== */
+.service-categories-modal {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.service-category-modal {
+    background-color: var(--light-gray);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: none;
+    text-align: left;
+}
+.service-category-modal h3 {
+    font-size: 1.6em;
+    font-weight: 700;
+    color: var(--purple); 
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.service-category-modal ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.service-category-modal li {
+    margin-bottom: 15px;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+    padding-bottom: 10px;
+}
+.service-category-modal li:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .site-header {
+        padding: 15px;
+        justify-content: space-between;
+    }
+
+    .site-header .logo {
+        max-height: 110px; 
+    }
+
+    .site-header .header-buttons {
+        display: none;
+    }
+    
+    .mobile-nav-toggle {
+        display: block !important;
+    }
+    
+    .hero-section {
+        min-height: auto;
+        justify-content: flex-start;
+        padding-top: 180px;
+        padding-bottom: 40px;
+    }
+
+    .content-card {
+        margin-bottom: 20px;
+    }
+
+    .card-content h1 {
+        font-size: 2.2em; 
+    }
+
+    .card-content p {
+        font-size: 1em; 
+    }
+    
+    body {
+        padding-bottom: 180px;
+    }
+
+    .footer-content {
+        flex-direction: column; 
+        justify-content: center;
+        align-items: center; 
+        gap: 15px;
+        flex-wrap: wrap; 
+    }
+
+    footer p {
+        margin: 0; 
+        font-size: 0.9em; 
+        flex-grow: 0;
+        flex-shrink: 1;
+        text-align: center; 
+        white-space: normal; 
+        max-width: 100%; 
+        box-sizing: border-box; 
+        line-height: 1.4; 
+    }
+
+    .footer-content p:nth-of-type(2) {
+        padding: 0 10px;
+    }
+    
+    #footer-address-link,
+    #footer-hours-link {
+        display: inline;
+        white-space: normal;
+        line-height: inherit;
+    }
+
+    footer p a {
+        color: rgba(255,255,255,0.7);
+        text-decoration: none;
+    }
+
+
+    .modal-content {
+        padding: 25px;
+    }
+
+    .hours-section {
+        display: none; 
+    }
+
+    .scroll-indicators-wrapper,
+    .our-hours-desktop-indicator {
+        display: none; 
+    }
+
+    .scroll-anchor {
+        display: none; 
+    }
+
+    .map-and-hours-container {
+        flex-direction: column;
+        align-items: center; 
+        gap: 20px;
+    }
+
+    .map-and-hours-container .map-container {
+        max-width: 100%;
+        flex: none;
+        margin: 0 auto; 
+    }
+
+    .map-and-hours-container .map-container iframe {
+        height: 300px;
+    }
+
+    .hours-display-desktop {
+        display: none;
+    }
+
+    .more-info {
+        background-color: var(--light-gray);
+        box-shadow: none;
+        border-radius: 0;
+        padding: 20px;
+        border: none;
+    }
+
+    /* Hide the on-page services section on mobile */
+    .services-overview-section { 
+        display: none; 
+    }
+}
+
+/* CSS FOR VISUALLY HIDING H2 */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+    white-space: nowrap;
+    font-size: 1px;
+}
+
+/* Add this to the very end of index.css */
+
+/*
+  This new, more specific rule targets the services section ONLY 
+  when it is inside a modal-content container.
+*/
+.modal-content .services-overview-section {
+    display: block !important; /* Force it to be visible */
+    padding: 0;               /* Remove extra padding */
+    box-shadow: none;           /* Remove the shadow inside the modal */
+    background: transparent;  /* The modal already has a background */
+}
+
+/* ============================================== */
+/* STYLIST BIO SECTION STYLES                     */
+/* ============================================== */
+.stylist-section {
+  padding: 80px 20px;
+  background-color: var(--light-gray);
+  text-align: center;
+  /* This sets the default text color for the section */
+  color: var(--dark-gray); 
+}
+
+.stylist-section h2 {
+  font-size: 2.8em;
+  font-weight: 900;
+  margin-bottom: 50px;
+  color: var(--purple-dark);
+}
+
+.stylist-bio {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  text-align: left;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.stylist-image-container {
+  flex-shrink: 0;
+}
+
+.stylist-bio img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  border: 5px solid #fff;
+}
+
+.stylist-text-container h3 {
+  font-size: 2.2em;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 5px;
+  /* This specifically targets the name */
+  color: var(--purple);
+}
+
+.stylist-text-container h4 {
+  font-size: 1.2em;
+  font-weight: 400;
+  margin-top: 0;
+  margin-bottom: 20px;
+  /* This specifically targets the title */
+  color: #555;
+}
+
+.stylist-text-container p {
+  line-height: 1.7;
+  /* This specifically targets the bio paragraphs */
+  color: var(--dark-gray);
+}
+
+/* --- MOBILE STYLES for the BIO --- */
+@media (max-width: 768px) {
+  /* HIDE the entire on-page section on mobile */
+  .stylist-section {
+    display: none;
+  }
+
+  /* STACK the bio content vertically inside the modal on mobile */
+  .modal-content .stylist-bio {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .modal-content .stylist-text-container {
+    margin-top: 20px;
+  }
+
+  /* Make sure modal text is dark too */
+  .modal-content .stylist-text-container h3,
+  .modal-content .stylist-text-container h4,
+  .modal-content .stylist-text-container p {
+    color: var(--dark-gray);
+  }
+  .modal-content .stylist-text-container h3 {
+    color: var(--purple);
+  }
+}
