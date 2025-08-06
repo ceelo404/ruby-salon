@@ -9,5 +9,20 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    
+    <script>
+      // Find the link tag that was automatically injected by the build tool
+      const cssLink = document.querySelector('link[rel="stylesheet"]');
+      
+      // If a CSS link is found, we modify it to be non-render-blocking
+      if (cssLink) {
+        cssLink.rel = 'preload';
+        cssLink.as = 'style';
+        cssLink.onload = function() {
+          this.onload = null;
+          this.rel = 'stylesheet';
+        };
+      }
+    </script>
   </body>
 </html>
