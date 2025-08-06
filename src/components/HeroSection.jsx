@@ -12,7 +12,7 @@ const HeroSection = ({ onBookNowClick }) => {
   
   return (
     <section className="hero-section">
-      <video className="hero-video" autoPlay loop muted playsInline poster={videoWebp} preload="metadata">
+      <video className="hero-video" autoPlay loop muted playsInline poster={videoWebp} preload="metadata" fetchpriority="high">
         <source src={videoMp4} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
