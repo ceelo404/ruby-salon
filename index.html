@@ -5,24 +5,15 @@
     <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ruby Hair Salon - Expert Haircuts, Coloring, & Styling in Downtown Decatur, GA</title>
+    
+    <link rel="preload" href="/assets/index-JCxtNuL0.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/assets/index-JCxtNuL0.css"></noscript>
+
+    <link rel="preconnect" href="https://ruby-salon.com">
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
     
-    <script>
-      // Find the link tag that was automatically injected by the build tool
-      const cssLink = document.querySelector('link[rel="stylesheet"]');
-      
-      // If a CSS link is found, we modify it to be non-render-blocking
-      if (cssLink) {
-        cssLink.rel = 'preload';
-        cssLink.as = 'style';
-        cssLink.onload = function() {
-          this.onload = null;
-          this.rel = 'stylesheet';
-        };
-      }
-    </script>
+    <script type="module" src="/src/main.jsx" defer></script>
   </body>
 </html>
