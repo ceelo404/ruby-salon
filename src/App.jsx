@@ -23,18 +23,16 @@ function App() {
   const [isNavOpen, setNavOpen] = useState(false);
   const [isBioModalVisible, setBioModalVisible] = useState(false);
 
-  // --- NEW CODE ADDED HERE ---
+  // --- NEW CODE TO ADD FOR GOOGLE MAPS ---
   useEffect(() => {
     // A function to check the URL hash and open the modal
     const handleHashChange = () => {
       if (window.location.hash === '#services') {
-        // Check if the screen is mobile (e.g., less than 768px wide)
         const isMobile = window.innerWidth <= 768;
 
         if (isMobile) {
           setServicesModalVisible(true);
         } else {
-          // On desktop, scroll to the element instead
           const section = document.getElementById('services');
           if (section) {
             section.scrollIntoView({ behavior: 'smooth' });
@@ -43,18 +41,33 @@ function App() {
       }
     };
     
-    // Call the function on initial page load
     handleHashChange();
     
-    // Also, listen for hash changes in case the user navigates within the app
     window.addEventListener('hashchange', handleHashChange);
     
-    // Cleanup function to remove the event listener
     return () => {
       window.removeEventListener('hashchange', handleHashChange);
     };
   }, []);
   // --- END OF NEW CODE ---
+
+  // --- NEW CODE TO ADD FOR GOOGLE MAPS SCRIPT ---
+  useEffect(() => {
+    if (isMapModalVisible) {
+      // Check if the script has already been added to prevent duplicates
+      const scriptId = 'google-maps-script';
+      if (!document.getElementById(scriptId)) {
+        const script = document.createElement('script');
+        script.id = scriptId;
+        script.src = `https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places`; // Replace YOUR_API_KEY
+        script.async = true;
+        document.head.appendChild(script);
+      }
+    }
+  }, [isMapModalVisible]);
+
+  // Make sure to remove the Google Maps script tag from your public/index.html file!
+  // --- END OF NEW CODE FOR GOOGLE MAPS SCRIPT ---
 
   // --- SIDE EFFECTS ---
   useEffect(() => {
