@@ -23,24 +23,38 @@ function App() {
   const [isNavOpen, setNavOpen] = useState(false);
   const [isBioModalVisible, setBioModalVisible] = useState(false);
 
-  // --- START OF EDIT ---
-  // New useEffect hook to handle opening the modal via hash links
+  // --- NEW CODE ADDED HERE ---
   useEffect(() => {
+    // A function to check the URL hash and open the modal
     const handleHashChange = () => {
       if (window.location.hash === '#services') {
-        setServicesModalVisible(true);
+        // Check if the screen is mobile (e.g., less than 768px wide)
+        const isMobile = window.innerWidth <= 768;
+
+        if (isMobile) {
+          setServicesModalVisible(true);
+        } else {
+          // On desktop, scroll to the element instead
+          const section = document.getElementById('services');
+          if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
       }
     };
     
+    // Call the function on initial page load
     handleHashChange();
     
+    // Also, listen for hash changes in case the user navigates within the app
     window.addEventListener('hashchange', handleHashChange);
     
+    // Cleanup function to remove the event listener
     return () => {
       window.removeEventListener('hashchange', handleHashChange);
     };
   }, []);
-  // --- END OF EDIT ---
+  // --- END OF NEW CODE ---
 
   // --- SIDE EFFECTS ---
   useEffect(() => {
