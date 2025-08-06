@@ -23,6 +23,25 @@ function App() {
   const [isNavOpen, setNavOpen] = useState(false);
   const [isBioModalVisible, setBioModalVisible] = useState(false);
 
+  // --- START OF EDIT ---
+  // New useEffect hook to handle opening the modal via hash links
+  useEffect(() => {
+    const handleHashChange = () => {
+      if (window.location.hash === '#services') {
+        setServicesModalVisible(true);
+      }
+    };
+    
+    handleHashChange();
+    
+    window.addEventListener('hashchange', handleHashChange);
+    
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+    };
+  }, []);
+  // --- END OF EDIT ---
+
   // --- SIDE EFFECTS ---
   useEffect(() => {
     const header = document.querySelector('.site-header');
@@ -134,13 +153,13 @@ function App() {
         onServicesClick={() => setServicesModalVisible(true)}
         onFindUsClick={() => setMapModalVisible(true)}
         onHoursClick={() => setHoursModalVisible(true)}
-	onStylistBioClick={() => setBioModalVisible(true)}
+  onStylistBioClick={() => setBioModalVisible(true)}
       />
       
       <main>
         <HeroSection onBookNowClick={() => setPolicyModalVisible(true)} />
         <ServicesSection onBookNowClick={() => setPolicyModalVisible(true)} />
-	<StylistSection />
+  <StylistSection />
         <FindUsSection />
       </main>
       
