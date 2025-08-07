@@ -41,7 +41,7 @@ const Footer = ({ onFindUsClick, onHoursClick }) => {
           <a href="https://www.facebook.com/share/15oGa2Qkam/?mibextid=wwXlfr" aria-label="Follow Ruby Hair Salon on Facebook" target="_blank" rel="noopener noreferrer" title="Connect with Ruby Hair Salon on Facebook">
             <FacebookIcon />
           </a>
-          <a href="https://www.instagram.com/brandyclaussen_?igsh=Y3p5ZGZ0YjcyMDBw" aria-label="Follow Ruby Hair Salon on Instagram" target="_blank" rel="noopener noreferrer" title="See Ruby Hair Salon's latest styles on Instagram">
+          <a href="https://www.instagram.com/rubyhairsalonatl/" aria-label="Follow Ruby Hair Salon on Instagram" target="_blank" rel="noopener noreferrer" title="See Ruby Hair Salon's latest styles on Instagram">
             <InstagramIcon />
           </a>
         </div>
