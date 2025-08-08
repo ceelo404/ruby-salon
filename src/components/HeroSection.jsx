@@ -19,10 +19,9 @@ const HeroSection = ({ onBookNowClick }) => {
 
       <div className="content-card">
         <div className="card-content">
-          <h1 className="visually-hidden">Ruby Hair Salon: Expert Haircuts, Coloring, & Styling in Downtown Decatur, GA</h1>
-          <div className="hero-headline-style">Impeccable attention to detail</div>
-          <p>With decades of experience, Ruby Hair Salon offers a curated range of services, including precision cuts, bespoke coloring, and transformative styling. We blend cutting-edge techniques with a welcoming atmosphere to deliver a personalized experience that elevates your individual beauty.</p>
-          <div>
+          <h1 className="hero-headline-style">Expert Haircuts & Color in Downtown Decatur</h1>
+           <p className="hero-tagline-style">Impeccable attention to detail.</p>
+           <p>With decades of experience, Ruby Hair Salon offers a curated range of services, including precision cuts, bespoke coloring, and transformative styling...</p>          <div>
             <a href="#" onClick={handleBookNow} className="button" title="Schedule your hair appointment at Ruby Hair Salon">Book An Appointment</a>
           </div>
         </div>
