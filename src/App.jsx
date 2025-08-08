@@ -133,7 +133,14 @@ function App() {
     { "@type": "Service", "name": "Men's Camo", "description": "Subtle gray blending service for a natural, refreshed look for men.", "url": "https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services" },
     { "@type": "Service", "name": "Smoothing Keratin treatment", "description": "Hair treatment to reduce frizz and enhance shine for smoother hair.", "url": "https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services" },
     { "@type": "Service", "name": "Brows", "description": "Expert brow shaping service to perfectly frame your face.", "url": "https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services" },
-    { "@type": "Service", "name": "Bang trim", "description": "Complimentary quick bang trimming service between appointments.", "url": "https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services" }
+    { "@type": "Service", "name": "Bang trim", "description": "Complimentary quick bang trimming service between appointments.", "url": "https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services" },  
+    { "@type": "Service", "name": "Balayage", "description": "Achieve a natural, sun-kissed look with seamlessly blended, hand-painted highlights.", "url": "https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services" },
+    { "@type": "Service", "name": "Foiliage", "description": "A modern technique combining balayage and foils for a brighter, more dimensional result.", "url": "https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services" },
+    { "@type": "Service", "name": "Custom Blonding", "description": "A personalized journey to your perfect blonde, from icy platinum to golden hues. Consultation required.", "url": "https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services" },
+    { "@type": "Service", "name": "Brow Tint", "description": "Enhance the color and definition of your eyebrows for a fuller, more polished look.", "url": "https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services" },
+    { "@type": "Service", "name": "Artsy Colors", "description": "Express yourself with bold, vivid, and fashion-forward colors. Requires a prior consultation.", "url": "https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services" },
+    { "@type": "Service", "name": "Deep Conditioning Treatment Olaplex", "description": "Repair broken bonds and rejuvenate your hair from the inside out with this intensive strengthening treatment.", "url": "https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services" }
+
   ]
 };
 
