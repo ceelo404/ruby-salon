@@ -659,18 +659,10 @@ footer p {
     }
 
     .footer-content {
-        flex-direction: column; 
-        justify-content: center;
-        align-items: center; 
-        gap: 15px;
-        flex-wrap: wrap; 
-    }
-
-    .footer-content {
         display: flex;
-        flex-direction: column; /* This stacks the address and the copyright/social line */
+        flex-direction: column; /* Stacks the address line on top of the copyright/social line */
         align-items: center;
-        gap: 8px; /* Reduced the gap for a tighter look */
+        gap: 8px; /* Space between the two lines */
         text-align: center;
     }
 
@@ -680,27 +672,14 @@ footer p {
         line-height: 1.4;
     }
 
-/* This is the new rule for the container we added in the HTML */
+    /* This is the new rule that fixes the layout */
     .copyright-social-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 15px; /* This adds space between the copyright and the icons */
+        display: flex; /* Makes the container a flex row */
+        justify-content: center; /* Horizontally centers the items */
+        align-items: center; /* Vertically aligns the items */
+        gap: 15px; /* Adds space between the copyright text and the icons */
         margin-top: 5px;
     }
-    
-    #footer-address-link,
-    #footer-hours-link {
-        display: inline;
-        white-space: normal;
-        line-height: inherit;
-    }
-
-    footer p a {
-        color: rgba(255,255,255,0.7);
-        text-decoration: none;
-    }
-
 
     .modal-content {
         padding: 25px;

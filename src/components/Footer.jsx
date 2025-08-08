@@ -25,7 +25,7 @@ const Footer = ({ onFindUsClick, onHoursClick }) => {
   return (
     <footer>
       <div className="footer-content">
-        {/* The address/phone paragraph is now the first item */}
+        {/* The address/phone paragraph is the first item */}
         <p>
           <a id="footer-address-link" href="#" onClick={(e) => handleLinkClick(e, onFindUsClick)} title="Get directions to Ruby Hair Salon">
             114 W Trinity Pl #10, Decatur, GA 30030
@@ -38,7 +38,7 @@ const Footer = ({ onFindUsClick, onHoursClick }) => {
           </a>
         </p>
 
-        {/* This new container holds the copyright and social icons */}
+        {/* This new container now holds the copyright and social icons */}
         <div className="copyright-social-container">
           <p>© {currentYear} Ruby Hair Salon</p>
           <div className="social-icons">
