@@ -229,15 +229,17 @@ footer p {
     transition: fill 0.3s;
 }
 
-/* ▼▼▼ START of EDITS ▼▼▼ */
 /* This new rule ensures the container behaves correctly on desktop */
 .copyright-social-container {
     display: flex;
     align-items: center;
     gap: 15px;
 }
-/* ▲▲▲ END of EDITS ▲▲▲ */
 
+.copyright-social-container p {
+    font-size: 0.6em; /* Makes the font 80% of the default size */
+    flex-grow: 0;     /* Prevents it from taking up extra space */
+}
 
 .mobile-nav-toggle {
     display: none;
