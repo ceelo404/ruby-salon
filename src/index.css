@@ -666,22 +666,27 @@ footer p {
         flex-wrap: wrap; 
     }
 
-    footer p {
-        margin: 0; 
-        font-size: 0.9em; 
-        flex-grow: 0;
-        flex-shrink: 1;
-        text-align: center; 
-        white-space: normal; 
-        max-width: 100%; 
-        box-sizing: border-box; 
-        line-height: 1.4; 
-    /* NEW: Set an order to control layout */
-        order: 2;
+    .footer-content {
+        display: flex;
+        flex-direction: column; /* This stacks the address and the copyright/social line */
+        align-items: center;
+        gap: 8px; /* Reduced the gap for a tighter look */
+        text-align: center;
     }
 
-    .footer-content p:nth-of-type(2) {
-        padding: 0 10px;
+    footer p {
+        margin: 0;
+        font-size: 0.9em;
+        line-height: 1.4;
+    }
+
+/* This is the new rule for the container we added in the HTML */
+    .copyright-social-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px; /* This adds space between the copyright and the icons */
+        margin-top: 5px;
     }
     
     #footer-address-link,
@@ -696,19 +701,6 @@ footer p {
         text-decoration: none;
     }
 
-    /* ADD THIS NEW RULE for the copyright text */
-    .footer-content p:first-of-type {
-        order: 3; /* Move copyright to the bottom */
-        margin-top: 5px;
-    }
-
-    /* ADD THIS NEW RULE for the social icons */
-    .social-icons {
-        display: flex;
-        gap: 20px;
-    /* NEW: Set an order to control layout */
-        order: 4; /* Move social icons to the very bottom */
-}
 
     .modal-content {
         padding: 25px;

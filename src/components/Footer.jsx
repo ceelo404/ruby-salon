@@ -25,7 +25,7 @@ const Footer = ({ onFindUsClick, onHoursClick }) => {
   return (
     <footer>
       <div className="footer-content">
-        <p>© {currentYear} Ruby Hair Salon</p>
+        {/* The address/phone paragraph is now the first item */}
         <p>
           <a id="footer-address-link" href="#" onClick={(e) => handleLinkClick(e, onFindUsClick)} title="Get directions to Ruby Hair Salon">
             114 W Trinity Pl #10, Decatur, GA 30030
@@ -37,14 +37,20 @@ const Footer = ({ onFindUsClick, onHoursClick }) => {
             Our Hours
           </a>
         </p>
-        <div className="social-icons">
-          <a href="https://www.facebook.com/share/15oGa2Qkam/?mibextid=wwXlfr" aria-label="Follow Ruby Hair Salon on Facebook" target="_blank" rel="noopener noreferrer" title="Connect with Ruby Hair Salon on Facebook">
-            <FacebookIcon />
-          </a>
-          <a href="https://www.instagram.com/rubyhairsalonatl/" aria-label="Follow Ruby Hair Salon on Instagram" target="_blank" rel="noopener noreferrer" title="See Ruby Hair Salon's latest styles on Instagram">
-            <InstagramIcon />
-          </a>
+
+        {/* This new container holds the copyright and social icons */}
+        <div className="copyright-social-container">
+          <p>© {currentYear} Ruby Hair Salon</p>
+          <div className="social-icons">
+            <a href="https://www.facebook.com/share/15oGa2Qkam/?mibextid=wwXlfr" aria-label="Follow Ruby Hair Salon on Facebook" target="_blank" rel="noopener noreferrer" title="Connect with Ruby Hair Salon on Facebook">
+              <FacebookIcon />
+            </a>
+            <a href="https://www.instagram.com/rubyhairsalonatl/" aria-label="Follow Ruby Hair Salon on Instagram" target="_blank" rel="noopener noreferrer" title="See Ruby Hair Salon's latest styles on Instagram">
+              <InstagramIcon />
+            </a>
+          </div>
         </div>
+
       </div>
     </footer>
   );
