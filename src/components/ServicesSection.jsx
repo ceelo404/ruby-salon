@@ -20,11 +20,11 @@ const serviceCategories = [
       { name: "Men's Camo", details: '15 min', description: "Subtle gray blending for a natural, refreshed look for men." },
       { name: "Smoothing Keratin treatment", details: '1 hr', description: "Reduce frizz and enhance shine with our deeply conditioning keratin treatment." },
       // --- ADDED SERVICES ---
-      { name: "Balayage", details: '2 hr 30 min', description: "Achieve a natural, sun-kissed look with seamlessly blended, hand-painted highlights." },
-      { name: "Foiliage", details: '2 hr 30 min', description: "A modern technique combining balayage and foils for a brighter, more dimensional result." },
-      { name: "Custom Blonding", details: '3 hr+', description: "A personalized journey to your perfect blonde, from icy platinum to golden hues. Consultation required." },
-      { name: "Brow Tint", details: '15 min', description: "Enhance the color and definition of your eyebrows for a fuller, more polished look." },
-      { name: "Artsy Colors", details: '3 hr+', description: "Express yourself with bold, vivid, and fashion-forward colors. Requires a prior consultation." }
+      { name: "Balayage", details: 'TBD', description: "Achieve a natural, sun-kissed look with seamlessly blended, hand-painted highlights." },
+      { name: "Foiliage", details: 'TBD', description: "A modern technique combining balayage and foils for a brighter, more dimensional result." },
+      { name: "Custom Blonding", details: 'TBD', description: "A personalized journey to your perfect blonde, from icy platinum to golden hues. Consultation required." },
+      { name: "Brow Tint", details: '30 min', description: "Enhance the color and definition of your eyebrows for a fuller, more polished look." },
+      { name: "Artsy Colors", details: 'TBD', description: "Express yourself with bold, vivid, and fashion-forward colors. Requires a prior consultation." }
     ]
   },
   {
@@ -33,7 +33,7 @@ const serviceCategories = [
       { name: "Blow out", details: '30 min', description: "Includes a thorough wash and a professional blow-dry tailored to your desired style." },
       { name: "Style", details: '45 min', description: "Elevate your look with professional styling, including beautiful curls after a blowout." },
       { name: "Casual Updo", details: '1 hr', description: "Effortless and elegant updos perfect for various occasions." },
-      { name: "Brows", details: '15 min', description: "Expert brow shaping to perfectly frame your face." },
+      { name: "Brow Tint", details: '30 min', description: "Expert brow shaping to perfectly frame your face." },
       // --- ADDED SERVICE ---
       { name: "Deep Conditioning Treatment Olaplex", details: '30 min', description: "Repair broken bonds and rejuvenate your hair from the inside out with this intensive strengthening treatment." }
     ]
