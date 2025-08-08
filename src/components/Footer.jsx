@@ -41,11 +41,11 @@ const Footer = ({ onFindUsClick, onHoursClick }) => {
         {/* This new container now holds the copyright and social icons */}
         <div className="copyright-social-container">
           <div className="social-icons">
-            <a href="https://www.facebook.com/share/15oGa2Qkam/?mibextid=wwXlfr" aria-label="Follow Ruby Hair Salon on Facebook" target="_blank" rel="noopener noreferrer" title="Connect with Ruby Hair Salon on Facebook">
-              <FacebookIcon />
-            </a>
             <a href="https://www.instagram.com/rubyhairsalonatl/" aria-label="Follow Ruby Hair Salon on Instagram" target="_blank" rel="noopener noreferrer" title="See Ruby Hair Salon's latest styles on Instagram">
               <InstagramIcon />
+            </a>
+            <a href="https://www.facebook.com/share/15oGa2Qkam/?mibextid=wwXlfr" aria-label="Follow Ruby Hair Salon on Facebook" target="_blank" rel="noopener noreferrer" title="Connect with Ruby Hair Salon on Facebook">
+              <FacebookIcon />
             </a>
           </div>
           <p>© {currentYear} Ruby Hair Salon</p>
