@@ -47,15 +47,15 @@ const Footer = ({ onFindUsClick, onHoursClick }) => {
 
         <div className="copyright-social-container">
           <div className="social-icons">
-            {/* All three icons are now present */}
+            {/* Icons are now in the order: Instagram, Facebook, X */}
+            <a href="https://www.instagram.com/rubyhairsalonatl/" aria-label="Follow Ruby Hair Salon on Instagram" target="_blank" rel="noopener noreferrer" title="See Ruby Hair Salon's latest styles on Instagram">
+              <InstagramIcon />
+            </a>
             <a href="https://www.facebook.com/share/15oGa2Qkam/?mibextid=wwXlfr" aria-label="Follow Ruby Hair Salon on Facebook" target="_blank" rel="noopener noreferrer" title="Connect with Ruby Hair Salon on Facebook">
               <FacebookIcon />
             </a>
             <a href="https://x.com/ruby_hairsalon?s=21" aria-label="Follow Ruby Hair Salon on X" target="_blank" rel="noopener noreferrer" title="Connect with Ruby Hair Salon on X">
               <XIcon />
-            </a>
-            <a href="https://www.instagram.com/rubyhairsalonatl/" aria-label="Follow Ruby Hair Salon on Instagram" target="_blank" rel="noopener noreferrer" title="See Ruby Hair Salon's latest styles on Instagram">
-              <InstagramIcon />
             </a>
           </div>
           <p>© {currentYear} Ruby Hair Salon</p>
