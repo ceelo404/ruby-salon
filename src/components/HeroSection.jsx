@@ -20,7 +20,6 @@ const HeroSection = ({ onBookNowClick }) => {
       <div className="content-card">
         <div className="card-content">
           <h1 className="hero-headline-style">Expert Haircuts & Color in Downtown Decatur</h1>
-           <p className="hero-tagline-style">Impeccable attention to detail.</p>
            <p>With decades of experience, Ruby Hair Salon offers a curated range of services, including precision cuts, bespoke coloring, and transformative styling...</p>          <div>
             <a href="#" onClick={handleBookNow} className="button" title="Schedule your hair appointment at Ruby Hair Salon">Book An Appointment</a>
           </div>
