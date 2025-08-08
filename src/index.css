@@ -229,6 +229,14 @@ footer p {
     transition: fill 0.3s;
 }
 
+/* ▼▼▼ START of EDITS ▼▼▼ */
+/* This new rule ensures the container behaves correctly on desktop */
+.copyright-social-container {
+    display: contents; 
+}
+/* ▲▲▲ END of EDITS ▲▲▲ */
+
+
 .mobile-nav-toggle {
     display: none;
     background: none;
@@ -632,7 +640,7 @@ footer p {
     }
     
     .mobile-nav-toggle {
-        display: block !important;
+        display: block;
     }
     
     .hero-section {
@@ -658,28 +666,28 @@ footer p {
         padding-bottom: 180px;
     }
 
+    /* ▼▼▼ START of EDITS ▼▼▼ */
     .footer-content {
-        display: flex;
-        flex-direction: column; /* Stacks the address line on top of the copyright/social line */
+        flex-direction: column;
         align-items: center;
-        gap: 8px; /* Space between the two lines */
+        gap: 8px;
         text-align: center;
     }
 
     footer p {
-        margin: 0;
-        font-size: 0.9em;
+        text-align: center;
+        flex-grow: 0; /* Prevent paragraphs from growing */
         line-height: 1.4;
     }
 
-    /* This is the new rule that fixes the layout */
     .copyright-social-container {
-        display: flex; /* Makes the container a flex row */
-        justify-content: center; /* Horizontally centers the items */
-        align-items: center; /* Vertically aligns the items */
-        gap: 15px; /* Adds space between the copyright text and the icons */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
         margin-top: 5px;
     }
+    /* ▲▲▲ END of EDITS ▲▲▲ */
 
     .modal-content {
         padding: 25px;
