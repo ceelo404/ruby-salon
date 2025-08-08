@@ -232,7 +232,9 @@ footer p {
 /* ▼▼▼ START of EDITS ▼▼▼ */
 /* This new rule ensures the container behaves correctly on desktop */
 .copyright-social-container {
-    display: contents; 
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 /* ▲▲▲ END of EDITS ▲▲▲ */
 
