@@ -49,25 +49,6 @@ function App() {
       window.removeEventListener('hashchange', handleHashChange);
     };
   }, []);
-  // --- END OF NEW CODE ---
-
-  // --- NEW CODE TO ADD FOR GOOGLE MAPS SCRIPT ---
-  useEffect(() => {
-    if (isMapModalVisible) {
-      // Check if the script has already been added to prevent duplicates
-      const scriptId = 'google-maps-script';
-      if (!document.getElementById(scriptId)) {
-        const script = document.createElement('script');
-        script.id = scriptId;
-        script.src = `https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places`; // Replace YOUR_API_KEY
-        script.async = true;
-        document.head.appendChild(script);
-      }
-    }
-  }, [isMapModalVisible]);
-
-  // Make sure to remove the Google Maps script tag from your public/index.html file!
-  // --- END OF NEW CODE FOR GOOGLE MAPS SCRIPT ---
 
   // --- SIDE EFFECTS ---
   useEffect(() => {
