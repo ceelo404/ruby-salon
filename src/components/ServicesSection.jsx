@@ -69,7 +69,7 @@ const ServicesSection = ({ onBookNowClick }) => {
       <div className="container">
         <h2>Our Services</h2>
         <p className="section-description">
-          From precision cuts to bespoke coloring, our experienced team offers a curated range of services to elevate your style. For detailed pricing and to book your appointment, please visit our online booking page.
+          From precision cuts to bespoke coloring, experience a curated range of services designed to elevate your style. For detailed pricing and to book your appointment, please visit our online booking page.
         </p>
 
         <div className="service-categories">
