@@ -1,5 +1,5 @@
 import React from 'react';
-import stylistImageUrl from '../assets/stylist_brandy_holland.png'; 
+import stylistImageUrl from '../assets/stylist_brandy_holland2.png'; 
 
 // 1. Receive the onBookNowClick function as a "prop"
 const StylistBio = ({ onBookNowClick }) => {
