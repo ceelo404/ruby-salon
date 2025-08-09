@@ -69,7 +69,7 @@ const ServicesSection = ({ onBookNowClick }) => {
       <div className="container">
         <h2>Our Services</h2>
         <p className="section-description">
-          At Ruby Hair Salon, we offer a comprehensive range of hair services designed to bring your vision to life. From precision cuts to bespoke coloring and transformative styling, our experienced team is dedicated to providing an exceptional experience. Below is an overview of our most popular services. For detailed pricing, availability, and to book your appointment, please visit our online booking page.
+          From precision cuts to bespoke coloring, our experienced team offers a curated range of services to elevate your style. For detailed pricing and to book your appointment, please visit our online booking page.
         </p>
 
         <div className="service-categories">
