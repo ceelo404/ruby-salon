@@ -539,28 +539,21 @@ footer p {
     text-align: left;
     display: flex;
     flex-direction: column;
-
-    /* ADD THIS LINE for the border on top of the cards */
     border-top: 4px solid var(--purple-light);
-    
-    /* ADD THIS LINE for the hover animation */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* ADD THIS ENTIRE RULE for the hover effect */
 .service-category:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
-/* ADD THIS ENTIRE RULE for the icon container styling */
 .icon-container {
     text-align: center;
     margin-bottom: 15px;
     color: var(--purple);
 }
 
-/* ADD THIS ENTIRE RULE to style the SVG icons themselves */
 .icon-container svg {
     width: 48px;
     height: 48px;
