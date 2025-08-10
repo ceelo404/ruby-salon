@@ -563,7 +563,7 @@ footer p {
     width: 48px;
     height: 48px;
     stroke: var(--purple);
-    stroke-width: 32;
+    stroke-width: 20;
 }
 
 .service-category h3 {
