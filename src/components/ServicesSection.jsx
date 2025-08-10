@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-// Define service data as an array of objects
+// Define service data as an array of objects, now balanced across 4 categories
 const serviceCategories = [
   {
     title: 'Haircuts',
@@ -12,23 +12,26 @@ const serviceCategories = [
     ]
   },
   {
-    title: 'Coloring & Treatments',
+    title: 'Coloring',
     services: [
       { name: "One Step Color", details: '1 hr 45 min', description: "Achieve a beautiful, consistent single-process color. Includes toner. (15min 1st Time consultation required)" },
       { name: "Highlights", details: '2 hr', description: "Transform your look with expertly applied highlights, adding dimension and brightness. Includes toner. (15min 1st Time consultation required)" },
-      { name: "Toner", details: '1 hr', description: "Refresh your existing color or neutralize unwanted tones for a vibrant finish." },
-      { name: "Men's Camo", details: '15 min', description: "Subtle gray blending for a natural, refreshed look for men." },
-      { name: "Smoothing Keratin treatment", details: '1 hr', description: "Reduce frizz and enhance shine with our deeply conditioning keratin treatment." },
-      // --- ADDED SERVICES ---
       { name: "Balayage", details: 'TBD', description: "Achieve a natural, sun-kissed look with seamlessly blended, hand-painted highlights. (15min 1st Time consultation required)" },
       { name: "Foiliage", details: 'TBD', description: "A modern technique combining balayage and foils for a brighter, more dimensional result. (15min 1st Time consultation required)" },
       { name: "Custom Blonding", details: 'TBD', description: "A personalized journey to your perfect blonde, from icy platinum to golden hues. Consultation required." },
-      { name: "Brow Tint", details: '30 min', description: "Enhance the color and definition of your eyebrows for a fuller, more polished look." },
       { name: "Artsy Colors", details: 'TBD', description: "Express yourself with bold, vivid, and fashion-forward colors. Requires a prior consultation. (15min 1st Time consultation required)" },
-      // --- NEW SERVICES from images ---
+      { name: "Ombre hair color", details: 'TBD', description: "Effortless and elegant ombre styling for various occasions." }
+    ]
+  },
+  {
+    title: 'Treatments & Brows',
+    services: [
+      { name: "Toner", details: '1 hr', description: "Refresh your existing color or neutralize unwanted tones for a vibrant finish." },
+      { name: "Smoothing Keratin treatment", details: '1 hr', description: "Reduce frizz and enhance shine with our deeply conditioning keratin treatment." },
+      { name: "Deep Conditioning Treatment Olaplex", details: '30 min', description: "Repair broken bonds and rejuvenate your hair from the inside out with this intensive strengthening treatment." },
       { name: "Hair glossing", details: 'TBD', description: "The perfect way to add brilliant shine and life back to your hair." },
       { name: "Hair hydration treatments", details: 'TBD', description: "Hair treatment to reduce frizz and enhance shine for smoother hair." },
-      { name: "Ombre hair color", details: 'TBD', description: "Effortless and elegant ombre styling for various occasions." }
+      { name: "Brow Tint", details: '30 min', description: "Enhance the color and definition of your eyebrows for a fuller, more polished look." }
     ]
   },
   {
@@ -37,31 +40,25 @@ const serviceCategories = [
       { name: "Blow out", details: '30 min', description: "Includes a thorough wash and a professional blow-dry tailored to your desired style." },
       { name: "Style", details: '45 min', description: "Elevate your look with professional styling, including beautiful curls after a blowout." },
       { name: "Casual Updo", details: '1 hr', description: "Effortless and elegant updos perfect for various occasions." },
-      // --- ADDED SERVICE ---
-      { name: "Deep Conditioning Treatment Olaplex", details: '30 min', description: "Repair broken bonds and rejuvenate your hair from the inside out with this intensive strengthening treatment." }
-      ]
+      { name: "Men's Camo", details: '15 min', description: "Subtle gray blending for a natural, refreshed look for men." }
+    ]
   }
 ];
 
-// 1. Receive the onBookNowClick function as a "prop"
 const ServicesSection = ({ onBookNowClick }) => {
 
-  // New code to handle scrolling to the section
+  // This new code handles scrolling to the section if linked directly
   useEffect(() => {
-    // Check if the URL hash matches our section's ID
     if (window.location.hash === '#services') {
       const section = document.getElementById('services');
       if (section) {
         section.scrollIntoView({ behavior: 'smooth' });
       }
     }
-  }, []); // The empty array ensures this only runs once when the component mounts
+  }, []);
 
-  // 2. Create a handler function to call the prop and prevent navigation
   const handleBookNow = (e) => {
-    e.preventDefault(); // This stops the link from trying to go anywhere
-    
-    // Check if the function was passed in before calling it
+    e.preventDefault();
     if (onBookNowClick) {
       onBookNowClick();
     }
@@ -93,7 +90,6 @@ const ServicesSection = ({ onBookNowClick }) => {
         </div>
 
         <div className="button-container" style={{ marginTop: '40px' }}>
-          {/* 3. Update the button to use the new onClick handler */}
           <a href="#" onClick={handleBookNow} className="button" title="View all services and book your appointment online">
             View All Services & Book Online
           </a>
