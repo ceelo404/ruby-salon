@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import './ServicesSection.css'; // Assuming you save the CSS in this file
+import '../index.css';  // Assuming you save the CSS in this file
 
 // Define service data as an array of objects, now balanced across 4 categories
 const serviceCategories = [
