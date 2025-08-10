@@ -422,6 +422,7 @@ footer p {
     pointer-events: none;
 }
 
+/* Find Us Section - MOBILE FIRST */
 .find-us-content-wrapper {
     background-color: var(--light-gray);
     color: var(--dark-gray);
@@ -435,31 +436,34 @@ footer p {
 
 .map-and-hours-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
-    gap: 40px;
-    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
 }
 
 .map-and-hours-container .map-container {
-    flex: 1;
-    min-width: 300px;
-    max-width: 60%;
+    max-width: 100%;
+    flex: none;
+    margin: 0 auto;
 }
 
 .map-and-hours-container .map-container iframe {
-    height: 500px;
+    width: 100%;
+    height: 300px;
+    border: 0;
+    border-radius: 16px;
 }
 
 .hours-display-desktop {
-    flex: 0 0 300px;
-    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 0;
     margin: 0;
+    text-align: center;
+    flex: none;
 }
 
 .hours-display-desktop h3 {
@@ -476,6 +480,7 @@ footer p {
     width: 100%;
     margin-bottom: 8px;
     font-size: 1em;
+    color: var(--dark-gray);
 }
 .hours-display-desktop .hours-content p span {
     font-weight: bold;
@@ -717,7 +722,7 @@ footer p {
     .modal-content {
         padding: 25px;
     }
-    
+
     .modal-content .service-category {
         max-width: 100%;
     }
@@ -782,8 +787,6 @@ footer p {
     white-space: nowrap;
     font-size: 1px;
 }
-
-/* Add this to the very end of index.css */
 
 /*
   This new, more specific rule targets the services section ONLY
@@ -886,4 +889,69 @@ footer p {
   .modal-content .stylist-text-container h3 {
     color: var(--purple);
   }
+}
+
+/* ============================================== */
+/* DESKTOP STYLES (for screens wider than 768px)  */
+/* ============================================== */
+@media (min-width: 769px) {
+    .find-us-content-wrapper {
+        background: #fff;
+        padding: 80px 20px;
+        margin: 0 auto;
+        max-width: 1000px;
+        border-radius: 0;
+    }
+
+    .map-and-hours-container {
+        flex-direction: row;
+        align-items: stretch;
+        gap: 40px;
+        max-width: none;
+        margin: 0;
+    }
+
+    .map-and-hours-container .map-container {
+        flex-basis: 50%;
+        background-color: var(--light-gray);
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        border-top: 4px solid var(--purple-light);
+        max-width: none;
+        min-width: auto;
+    }
+
+    .map-and-hours-container .map-container iframe {
+        height: 500px;
+        margin-top: 0;
+    }
+
+    .hours-display-desktop {
+        flex-basis: 50%;
+        background-color: var(--light-gray);
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        border-top: 4px solid var(--purple-light);
+        text-align: left;
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hours-display-desktop h3 {
+        color: var(--purple-dark);
+        text-align: center;
+        width: 100%;
+        margin-bottom: 25px;
+    }
+
+    .hours-display-desktop .hours-content p {
+        color: #444;
+    }
+
+    .hours-display-desktop .parking-info {
+        color: #666;
+    }
 }
