@@ -24,7 +24,11 @@ const serviceCategories = [
       { name: "Foiliage", details: 'TBD', description: "A modern technique combining balayage and foils for a brighter, more dimensional result. (15min 1st Time consultation required)" },
       { name: "Custom Blonding", details: 'TBD', description: "A personalized journey to your perfect blonde, from icy platinum to golden hues. Consultation required." },
       { name: "Brow Tint", details: '30 min', description: "Enhance the color and definition of your eyebrows for a fuller, more polished look." },
-      { name: "Artsy Colors", details: 'TBD', description: "Express yourself with bold, vivid, and fashion-forward colors. Requires a prior consultation. (15min 1st Time consultation required)" }
+      { name: "Artsy Colors", details: 'TBD', description: "Express yourself with bold, vivid, and fashion-forward colors. Requires a prior consultation. (15min 1st Time consultation required)" },
+      // --- NEW SERVICES from images ---
+      { name: "Hair glossing", details: 'TBD', description: "The perfect way to add brilliant shine and life back to your hair." },
+      { name: "Hair hydration treatments", details: 'TBD', description: "Hair treatment to reduce frizz and enhance shine for smoother hair." },
+      { name: "Ombre hair color", details: 'TBD', description: "Effortless and elegant ombre styling for various occasions." }
     ]
   },
   {
@@ -33,10 +37,9 @@ const serviceCategories = [
       { name: "Blow out", details: '30 min', description: "Includes a thorough wash and a professional blow-dry tailored to your desired style." },
       { name: "Style", details: '45 min', description: "Elevate your look with professional styling, including beautiful curls after a blowout." },
       { name: "Casual Updo", details: '1 hr', description: "Effortless and elegant updos perfect for various occasions." },
-      { name: "Brow Tint", details: '30 min', description: "Expert brow shaping to perfectly frame your face." },
       // --- ADDED SERVICE ---
       { name: "Deep Conditioning Treatment Olaplex", details: '30 min', description: "Repair broken bonds and rejuvenate your hair from the inside out with this intensive strengthening treatment." }
-    ]
+      ]
   }
 ];
 
