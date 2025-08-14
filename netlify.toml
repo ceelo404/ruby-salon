@@ -12,3 +12,9 @@
   from = "/*"
   to = "/index.html"
   status = 200
+
+# Caching policy for static assets to improve performance for repeat visitors
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    "Cache-Control" = "public, max-age=31536000, immutable"
