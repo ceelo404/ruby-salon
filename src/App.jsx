@@ -120,7 +120,7 @@ function App() {
     { "@type": "Service", "name": "Custom Blonding", "description": "A personalized journey to your perfect blonde, from icy platinum to golden hues. Consultation required.", "url": "https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services" },
     { "@type": "Service", "name": "Brow Tint", "description": "Enhance the color and definition of your eyebrows for a fuller, more polished look.", "url": "https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services" },
     { "@type": "Service", "name": "Artsy Colors", "description": "Express yourself with bold, vivid, and fashion-forward colors. Requires a prior consultation.", "url": "https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services" },
-    { "@type": "Service", "name": "Deep Conditioning Treatment Olaplex", "description": "Repair broken bonds and rejuvenate your hair from the inside out with this intensive strengthening treatment.", "url": "https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services" }
+    { "@type": "Service", "name": "Deep Conditioning Treatment Olaplex", "description": "Repair broken bonds and rejuvenate your hair from the inside out with this intensive strengthening treatment.", "url": "https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services" },
     { "@type": "Service", "name": "Ombre hair color", "description": "Effortless and elegant ombre styling for various occasions.", "url": "https://book.squareup.com/appointments/uv35is9190nn4a/location/L0GKZSP0E9SDX/services" }
 
   ]
