@@ -54,7 +54,7 @@ const Footer = ({ onFindUsClick, onHoursClick }) => {
             <a href="https://www.facebook.com/share/15oGa2Qkam/?mibextid=wwXlfr" aria-label="Follow Ruby Hair Salon on Facebook" target="_blank" rel="noopener noreferrer" title="Connect with Ruby Hair Salon on Facebook">
               <FacebookIcon />
             </a>
-            <a href="https://x.com/ruby_hairsalon?s=21" aria-label="Follow Ruby Hair Salon on X" target="_blank" rel="noopener noreferrer" title="Connect with Ruby Hair Salon on X">
+            <a href="https://x.com/ruby_hairsalon" aria-label="Follow Ruby Hair Salon on X" target="_blank" rel="noopener noreferrer" title="Connect with Ruby Hair Salon on X">
               <XIcon />
             </a>
           </div>
