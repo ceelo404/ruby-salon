@@ -65,7 +65,7 @@ const serviceCategories = [
       { name: "Deep Conditioning Treatment Olaplex", details: '30 min', description: "Repair broken bonds and rejuvenate your hair from the inside out with this intensive strengthening treatment." },
       { name: "Hair glossing", details: 'TBD', description: "The perfect way to add brilliant shine and life back to your hair." },
       { name: "Hair hydration treatments", details: 'TBD', description: "Hair treatment to reduce frizz and enhance shine for smoother hair." },
-      { name: "Brow Tint", details: '30 min', description: "Enhance the color and definition of your eyebrows for a fuller, more polished look." }
+      { name: "Brow Tint", details: '15 min', description: "Enhance the color and definition of your eyebrows for a fuller, more polished look." }
     ]
   },
   {
