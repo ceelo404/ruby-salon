@@ -1,6 +1,11 @@
-# Allow all web crawlers access to all content
+# Allow all crawlers access to the site.
 User-agent: *
-Allow: /
 
-# Provide the location of the sitemap
+# Prevent specific media asset files from appearing in search results.
+Disallow: /assets/*.mp4
+Disallow: /assets/*.webp
+Disallow: /assets/*.jpg
+Disallow: /assets/*.png
+
+# Provide the location of the sitemap.
 Sitemap: https://ruby-salon.com/sitemap.xml
