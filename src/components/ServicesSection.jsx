@@ -42,7 +42,7 @@ const serviceCategories = [
       { name: "One Step Color", details: '1 hr 45 min', description: "Achieve a beautiful, consistent single-process color. Includes toner. (15min 1st Time consultation required)" },
       { name: "Highlights", details: '2 hr', description: "Transform your look with expertly applied highlights, adding dimension and brightness. Includes toner. (15min 1st Time consultation required)" },
       { name: "Balayage", details: 'TBD', description: "Achieve a natural, sun-kissed look with seamlessly blended, hand-painted highlights. (15min 1st Time consultation required)" },
-      { name: "Foiliage", details: 'TBD', description: "A modern technique combining balayage and foils for a brighter, more dimensional result. (15min 1st Time consultation required)" },
+      { name: "Foilyage", details: 'TBD', description: "A modern technique combining balayage and foils for a brighter, more dimensional result. (15min 1st Time consultation required)" },
       { name: "Custom Blonding", details: 'TBD', description: "A personalized journey to your perfect blonde, from icy platinum to golden hues. Consultation required." },
       { name: "Artsy Colors", details: 'TBD', description: "Express yourself with bold, vivid, and fashion-forward colors. Requires a prior consultation. (15min 1st Time consultation required)" },
       { name: "Ombre hair color", details: 'TBD', description: "Effortless and elegant ombre styling for various occasions." }
