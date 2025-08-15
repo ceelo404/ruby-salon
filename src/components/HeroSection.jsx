@@ -1,6 +1,4 @@
 import React from 'react';
-import videoWebp from '../assets/ruby_hair_salon_video_bg.webp';
-import videoMp4 from '../assets/ruby_hair_salon_video_bg.mp4';
 import ScrollDownIndicator from './ScrollDownIndicator';
 
 const HeroSection = ({ onBookNowClick }) => {
@@ -12,8 +10,9 @@ const HeroSection = ({ onBookNowClick }) => {
   
   return (
     <section className="hero-section">
-      <video className="hero-video" autoPlay loop muted playsInline poster={videoWebp} preload="metadata" fetchpriority="high">
-        <source src={videoMp4} type="video/mp4" />
+      {/* Ensure the poster and src are direct paths to the files in your /public folder */}
+      <video className="hero-video" autoPlay loop muted playsInline poster="/ruby_hair_salon_video_bg.webp" preload="metadata">
+        <source src="/ruby_hair_salon_video_bg.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
@@ -37,7 +36,7 @@ const HeroSection = ({ onBookNowClick }) => {
       
       <div className="visually-hidden">
         <h2>Experience Premier Hair Services at Ruby Hair Salon in Decatur, GA</h2>
-        <p>At Ruby Hair Salon, we pride ourselves on <strong>impeccable attention to detail</strong>. Our experienced hairstylists in Decatur, GA, provide precision cuts, vibrant color treatments including balayage and highlights, elegant styling, and smoothing keratin treatments for all hair types. Book your appointment today for the best hair salon experience in Decatur. Find us at 114 W Trinity Pl #10, Decatur, GA 30030. We specialize in women's haircuts, men's haircuts, kids' haircuts, blowouts, updos, and expert brow services.</p>
+        <p>At Ruby Hair Salon, we pride ourselves on <strong>impeccable attention to detail</strong>. Our experienced hairstylists in Decatur, GA, provide precision cuts, vibrant color treatments including balayage and highlights, elegant styling, and smoothing keratin treatments for all hair types. Book your appointment today for the best hair salon experience in Decatur. Find us at 114 W Trinity Pl #10, Decatur, GA 30030. We specialize in women's haircuts, men's haircuts,  kids' haircuts, blowouts, updos, and expert brow services.</p>
         <p>Looking for a professional hairdresser in downtown Decatur? Ruby Hair Salon is your destination for personalized hair services, a relaxing atmosphere, and stunning results. Our salon is conveniently located near the AMLI parking garage, offering validated parking for our clients.</p>
         <p>Located conveniently in the heart of downtown Decatur, our salon is a short walk from the Decatur MARTA station. We are proud to be a fixture in the vibrant Decatur community, serving clients from all over the Atlanta area with the highest level of care. Our salon is easily accessible, with validated parking available in the AMLI parking garage, making your visit seamless.</p>
       </div>
@@ -46,5 +45,4 @@ const HeroSection = ({ onBookNowClick }) => {
   );
 };
 
-// THIS IS THE CORRECTED LINE
 export default HeroSection;
