@@ -142,20 +142,35 @@ body {
      background: rgba(255,255,255,0.25);
 }
 
-.more-info {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 120px 20px 40px; /* Reverted to original padding */
-    margin-top: 0; /* Removed negative margin */
-    color: var(--dark-gray);
-    text-align: center;
+/* PASTE THIS IN ITS PLACE */
+
+/* The main container for the "Find Us" section */
+#find-us {
+  padding: 80px 20px; /* Controls the space above and below the section */
+  background-color: transparent; /* Ensures no extra white box */
 }
 
-.more-info h2 {
-    font-size: 2.5em;
-    font-weight: 900;
-    margin-top: 0;
-    text-align: center; /* Ensure h2 is centered too */
+/* This rule correctly centers the two cards */
+.find-us-content-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap; /* Allows stacking on smaller screens */
+    max-width: 1200px; /* Sets a max width for the whole section */
+    margin: 0 auto;
+}
+
+/* This styles your map and hours sections to look like clean, modern cards */
+.map-container,
+.hours-display-desktop {
+    flex: 1; /* Allows the cards to grow and share space */
+    min-width: 300px; /* Prevents cards from getting too squished */
+    max-width: 550px; /* Prevents cards from getting too wide */
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px H15px rgba(0, 0, 0, 0.08);
+    background-color: white; /* Each card gets its own background */
+    box-sizing: border-box;
 }
 
 .map-container iframe {
@@ -424,7 +439,7 @@ footer p {
 
 /* Find Us Section - MOBILE FIRST */
 .find-us-content-wrapper {
-    background-color: white;
+    background-color: var(--light-gray);
     color: var(--dark-gray);
     padding: 30px;
     border-radius: 16px;
