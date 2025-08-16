@@ -944,7 +944,7 @@ footer p {
     }
 
     .more-info.find-us-section {
-    background-color: #fff;
+    background-color: var(--light-gray);
 }
 
     .map-and-hours-container {
