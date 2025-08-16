@@ -424,7 +424,7 @@ footer p {
 
 /* Find Us Section - MOBILE FIRST */
 .find-us-content-wrapper {
-    background-color: var(--light-gray);
+    background-color: white;
     color: var(--dark-gray);
     padding: 30px;
     border-radius: 16px;
