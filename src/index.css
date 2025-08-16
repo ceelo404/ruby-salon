@@ -936,7 +936,7 @@ footer p {
 /* ============================================== */
 @media (min-width: 769px) {
     .find-us-content-wrapper {
-        background: white;
+        background: #fff;
         padding: 80px 20px;
         margin: 0 auto;
         max-width: 1000px;
@@ -944,6 +944,7 @@ footer p {
     }
 
     .map-and-hours-container {
+        background: #fff;
         flex-direction: row;
         align-items: stretch;
         gap: 40px;
