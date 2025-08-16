@@ -2,7 +2,7 @@ import React from 'react';
 
 const FindUsSection = () => {
   return (
-    <section id="find-us" className="more-info">
+    <section id="find-us" className="more-info find-us-section">
       <div id="find-us-anchor" className="scroll-anchor"></div>
       <h2 className="visually-hidden">Visit Ruby Hair Salon - Your Trusted Hairdresser in Decatur</h2>
       
