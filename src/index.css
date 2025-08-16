@@ -944,7 +944,6 @@ footer p {
     }
 
     .map-and-hours-container {
-        background-color: white;
         flex-direction: row;
         align-items: stretch;
         gap: 40px;
