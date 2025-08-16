@@ -936,7 +936,7 @@ footer p {
 /* ============================================== */
 @media (min-width: 769px) {
     .find-us-content-wrapper {
-        background: #fff;
+        background: var(--light-gray);
         padding: 80px 20px;
         margin: 0 auto;
         max-width: 1000px;
