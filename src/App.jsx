@@ -10,6 +10,7 @@ import Modal from './components/Modal';
 import MobileNav from './components/MobileNav';
 import StylistSection from './components/StylistSection';
 import StylistBio from './components/StylistBio';
+import Gallery from './components/Gallery';
 
 // Import your CSS file
 import './index.css';
