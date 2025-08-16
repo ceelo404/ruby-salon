@@ -943,6 +943,16 @@ footer p {
         border-radius: 0;
     }
 
+    .find-us-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 120px 20px 40px;
+    margin-top: 0;
+    color: var(--dark-gray);
+    text-align: center;
+    background-color: #fff;
+}
+
     .map-and-hours-container {
         flex-direction: row;
         align-items: stretch;
