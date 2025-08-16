@@ -147,8 +147,9 @@ body {
     margin: 0 auto;
     padding: 120px 20px 40px; /* Reverted to original padding */
     margin-top: 0; /* Removed negative margin */
-    color: white;
+    color: var(--dark-gray);
     text-align: center;
+    background-color: #fff;
 }
 
 .more-info h2 {
