@@ -23,7 +23,6 @@ const photos = [
   { src: "/gallery/rubyhairsalon_ - 17.jpg", width: 800, height: 600 },
   { src: "/gallery/rubyhairsalon_ - 18.jpg", width: 800, height: 600 },
   { src: "/gallery/rubyhairsalon_ - 19.jpg", width: 800, height: 600 },
-  { src: "/gallery/rubyhairsalon_ - 20.jpg", width: 800, height: 600 },
   { src: "/gallery/rubyhairsalon_ - 21.jpg", width: 800, height: 600 },
   { src: "/gallery/rubyhairsalon_ - 22.jpg", width: 800, height: 600 },
   { src: "/gallery/rubyhairsalon_ - 23.jpg", width: 800, height: 600 },
