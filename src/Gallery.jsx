@@ -37,7 +37,7 @@ const photos = [
   { src: "/gallery/rubyhairsalon_ - 31.jpg", width: 800, height: 600 },
   { src: "/gallery/rubyhairsalon_ - 32.jpg", width: 800, height: 600 },
   { src: "/gallery/rubyhairsalon_ - 33.jpg", width: 800, height: 600 },
-  // ...add as many photos as you want
+  
 ];
 
 const Gallery = () => {
