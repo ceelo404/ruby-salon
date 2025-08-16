@@ -8,9 +8,17 @@ export default defineConfig({
   plugins: [
     react(),
     ViteImageOptimizer({
-      // Example configuration for PNG files
       png: {
-        quality: 80, // Compresses PNGs to 80% of their original quality
+        // The compression quality for PNG files (0-100)
+        quality: 80,
+      },
+      jpeg: {
+        // The compression quality for JPEG files (0-100)
+        quality: 80,
+      },
+      jpg: {
+        // Also works for .jpg extensions
+        quality: 80,
       },
     }),
   ],
