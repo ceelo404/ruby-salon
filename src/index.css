@@ -149,7 +149,6 @@ body {
     margin-top: 0; /* Removed negative margin */
     color: var(--dark-gray);
     text-align: center;
-    background-color: #fff;
 }
 
 .more-info h2 {
@@ -943,6 +942,10 @@ footer p {
         max-width: 1000px;
         border-radius: 0;
     }
+
+    .more-info.find-us-section {
+    background-color: #fff;
+}
 
     .map-and-hours-container {
         flex-direction: row;
