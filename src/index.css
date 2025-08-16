@@ -805,6 +805,12 @@ footer p {
   text-align: center;
 }
 
+/* This rule controls the overall width of the gallery section */
+.gallery-section .container {
+  max-width: 1100px; /* <-- ADJUST OVERALL WIDTH */
+  margin: 0 auto;
+}
+
 .photo-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
