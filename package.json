@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host",
-    "build": "vite build && npx inline-critical dist/index.html -o dist/index.html",
+    "build": "vite build && npx critical dist/index.html --inline --base dist/ > dist/index.critical.html && mv dist/index.critical.html dist/index.html",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -18,11 +18,11 @@
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "@vitejs/plugin-react": "^4.6.0",
+    "critical": "^7.2.1",
     "eslint": "^9.30.1",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.3.0",
-    "inline-critical": "^12.1.0",
     "vite": "^7.0.4"
   }
 }
