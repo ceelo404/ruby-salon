@@ -147,7 +147,7 @@ body {
     margin: 0 auto;
     padding: 120px 20px 40px; /* Reverted to original padding */
     margin-top: 0; /* Removed negative margin */
-    color: var(--dark-gray);
+    color: white;
     text-align: center;
 }
 
@@ -942,16 +942,6 @@ footer p {
         max-width: 1000px;
         border-radius: 0;
     }
-
-    .find-us-section {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 120px 20px 40px;
-    margin-top: 0;
-    color: var(--dark-gray);
-    text-align: center;
-    background-color: #fff;
-}
 
     .map-and-hours-container {
         flex-direction: row;
