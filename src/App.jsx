@@ -175,7 +175,8 @@ function App() {
       <main>
         <HeroSection onBookNowClick={() => setPolicyModalVisible(true)} />
         <ServicesSection onBookNowClick={() => setPolicyModalVisible(true)} />
-  <StylistSection />
+        <StylistSection />
+        <Gallery /> {/* <-- 2. PLACE THE COMPONENT */}
         <FindUsSection />
       </main>
       
