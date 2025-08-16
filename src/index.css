@@ -806,7 +806,7 @@ footer p {
 }
 
 .gallery-section h2 {
-  color: #333; /* Or whatever your main text color is */
+  color: var(--purple-dark); /* Or whatever your main text color is */
   font-size: 2.5rem; /* Adjust size to match other headings */
   margin-bottom: 1rem;
   font-family: 'YourHeadingFont', sans-serif; /* <-- IMPORTANT: Change to your actual font name */
